@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Gives the page title as {title} (medium dash) Nishnha if title, otherwise as Nishnha -->
+    <title>Why I wrote a programmer's text editor &mdash; Nishnha</title>
+
+    <!-- loads Fontawesome -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Poly:400,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Acme' rel='stylesheet' type='text/css'>
+    
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    
+</head>
+
+  <body>
+      
+    <!-- CSS -->
+    <link href="/css/main.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+      
+      
+    <div class="navbar">
+        <a class="logo" href="/">
+            <img alt="logo" src="/img/logo.png" width="160" height="50">
+        </a>
+
+        <ul class="list-inline">
+            <li>
+                <a href="/archive/index.html"  title="A list of all my posts">Archive</a>
+            </li>
+            <li>
+                <a href="/projects/index.html"  title="Some of my current projects">Projects</a>
+            </li>
+            <li>
+                <a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a>
+            </li>
+            <li>
+                <a href="/about/index.html" title="About me">About Me</a>
+            </li>
+        </ul>
+    </div>
+                
+        <div class="post">
+    <div class="content">
+        <div class="title"><h1>Why I wrote a programmer's text editor</h1></div>
+        <br>
+        <br>
+        <div class="date"><p></p></div>
+        <br>
+        <br>
+        <div class="body"><p>In mid August 2010 I <a href="http://rsms.me/2010/06/11/moving-on.html">left Spotify to eventually work for Facebook</a> in California. However, as the US Visa process is apparently not the simplest of constructions I’ve been having a sort of involuntary (but much appreciated) vacation.</p>
+
+<p>This was the first time in 10 years that I didn’t have an “important thing to do” in a relatively short term perspective, which almost drove me nuts. So, what am <a href="http://hunch.se/">a designer/programmer/philosopher/dude</a> supposed to do? Build something of course. Create. So I started thinking of a few ideas I’ve had for a while and finally decided to explore my urge for a “better” program code editor. I’ve understood that many CS people write their own editor at some point in time, mostly for the same reasons they (sorry, no offense here) compete in writing efficient implementations of mathematical algorithms which no one will ever really use, or even need.</p>
+
+<p>My reasons for learning to program — back in the 1990s when I started with <a href="http://www.modernperlbooks.com/mt/2011/01/why-you-cant-hire-great-perl-programmers.html">Perl (a horrible experience)</a> — was not driven by the lust for understanding or controlling a computer. That was just something that I, admit painfully, had to learn on the way. What drove my urge to learn how to program a computer was the awesome things you could accomplish. This was in the mid 1990s — a time when the Internets was about to grow extremely popular. I remember seeing one website where I could change something, and later at a friend’s place see that same change I did at home. This was kind of magical and I wanted to do that same thing. Interaction, communication — call it whatever you like. That is what was the primary drive behind my passionate interest in programming.</p>
+
+<p>So going back to my idea of creating an editor for writing computer programs, I decided to go ahead with the idea and write a Mac OS X-specific editor which would work and behave like any other standards-compliant OS X application.</p>
+
+<p>It took me about a month of mixed efforts to get my bearings straight. Sure I had a bunch of other projects rolling and (some?) social life mixed in there somewhere, but the first phase was to do some research. I’m a believer in “if someone else can do it better, let them”, thus I wanted to avoid re-inventing any wheels so to speak. Started looking into building a WebKit-based (as in HTML) editor but that quickly <a href="http://hunch.se/webkit-editor/">proven to be a too immature technology</a> (the lack of low-level text manipulation would kill performance and ultimately have me write <em>more</em> code than I eventually would write for my final implementation in C). Finally I decided to go with the usual suspects for building OS X applications: <a href="http://en.wikipedia.org/wiki/Cocoa_(API)">Cocoa</a> and C (well, C, C++, Objective-C, Objective-C++… they are all basically C of some sort).</p>
+
+<p>Since the launch of <a href="http://www.chromium.org/">Chromium</a> (aka Google Chrome) for Mac, I’ve been almost kind of fascinated by the ingenuity of Chromium’s tab user experience. Not only did they (as in the Chromium UX team) put the tabs as an integral part of the documents they where representing (rather than being part of the frame holding the documents), but also giving a lot of love to details. For instance when you have a bunch of tabs open and you quickly want to close these tabs, you can simply put your mouse over the “x” button of the leftmost tab and then <a href="http://www.theinvisibl.com/news/2009/12/08/a-piece-with-a-lot-of-screenshots-about-the-close-tab-behaviour-in-google-chrome/">“click, click, click…”</a> — tabs flowing in from the right hand side after a tab is closed will nicely align their “x”-buttons with the previous locations, ultimately making the action of closing several documents an intuitive and no-frills thing users. With my editor, I wanted to borrow this thought-through and well-proven design.</p>
+
+<p><a href="http://kodapp.com/"><img src="http://kodapp.com/icon-256.png" alt="Kod icon" width="256" height="256" align="right" /></a>After <a href="http://rsms.me/2010/11/24/building-some-software-while-the-snow-is-gently.html">a few months</a> I had <a href="http://rsms.me/2010/12/18/starting-to-take-shape.html">a first version ready of my editor</a> and I dubbed it <a href="http://kodapp.com/">“Kod”</a> from the Swedish word “kod”, meaning “code”.</p>
+
+<p>My idea with the tabs is to provide a good abstraction of things known in the physical world (i.e. a document has a tab), primarily for light-weight users.</p>
+
+<p>Programming of computers is becoming a skill not only used by computer scientists, but also by people in other fields. Just as a computer scientist doesn’t spend many hours per year using graphic manipulation tools like Photoshop, non-CS people spend relatively little time with programming tools. Thus, there’s a growing need for powerful yet standards-compliant programming tools. I believe Kod can become just such a utensil. I mean if you’re a full-time CS, working with code all day, you’re probably better off investing a few years in mastering Emacs or Vi.</p>
+
+<p>Having to learn a completely new set of shortcuts and methods is not worth the effort for most people who don’t spend an awful lot of time in a particular environment. For instance, if you’re an online/screen designer you probably spend about 40% of your time in Photoshop and thus investing 2-3 years of learning the vast amounts of shortcuts and the <em>differences</em> from other standard UIs (like editing text, which work different in Photoshop than in a regular OS X application), you eventually become more productive and feel better when using that program. However, if you’re a web designer you’re most likely spending less than 5% of your time in Photoshop (putting most of your time into HTML, CSS, etc) and suddenly spending years on learning to utilize the full spectrum of “power tools” in Photoshop is probably not worth it. Instead, Photoshop provides you with a simpler interface (e.g. a toolbar with buttons for common utilities like pencils and selection markers, a button for creating new layers, etc).</p>
+
+<p>So with Kod I’m aiming to create a versatile all-around utility for writing computer programs aimed a this group of “non-computer-scientist people who write computer programs”. Like me, for instance. The tabs are an integral part of providing a relatively low entry barrier for unexperienced and/or light-weight programmers and composers of plain text.</p>
+
+<p><img src="http://farm6.static.flickr.com/5244/5373093980_8e17382b2f_o.png" alt="Sketch of a possible UI extension to the location bar" /></p>
+
+<p>The idea is to provide further “power features” which have little or no impact on the graphical user interface as per default configuration. Using the location bar for opening files with fuzzy pattern matching is one of those ideas where unless you press the key combination for that particular feature, it won’t get in your way nor cause confusion.</p>
+
+<p>My view on user preferences (aka settings aka configuration) is somewhat similar. Many user experience studies have proven or indicated that the more options you give a user, the less productive is the result. There’s an unfortunate common pattern when people open up a new application for the first time: They start by going into the “Preferences” UI and dig around like it was a game of Zelda. Instead Kod will have a very limited set of preferences which can be configured through a GUI and simultaneously provide a vast set of preferences <em>available through scripting</em> — the absolutely most common settings will be available for all users, keeping confusion to a minimum, while the full set of options are available to anyone who can spend a few seconds putting in a configuration line in a text file. Sure, this doesn’t really solve the “problem” with configuration settings discovery, but given my choice to go for minimal confusion rather than maximum disclosure at first sight, I believe this is the right way to go.</p>
+
+<p>More info about the Kod editor (which is open source under a permissive license) is available from <a href="http://kodapp.com/">kodapp.com</a>.</p>
+</div>
+    </div>
+</div>
+                
+<div class="footer">
+    <div class="follow-me">
+        <h3>Follow Me</h3>
+    </div>
+    <div class="follow-icons">
+        <a href="http://twitter.com/nishnha" target="_blank">
+            <i class="fa fa-twitter fa-3x fa-inverse"></i>
+        </a>
+        <a href="http://www.twitch.tv/nishnha" target="_blank">
+            <i class="fa fa-twitch fa-3x fa-inverse"></i>
+        </a>
+
+    </div>
+</div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'nishnha'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+
+  </body>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+</html>

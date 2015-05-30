@@ -1,0 +1,18 @@
+---
+layout: default
+---
+
+<div class="post">
+    <div class="content">
+        <div class="title"><h1>{{ page.title }}</h1></div>
+        <br>
+        <br>
+        <div class="date"><p>{{ post.date | date: "%Y-%m" }}</p></div>
+        <br>
+        <br>
+        <div class="body">{{ content }}</div>
+    </div>
+</div>
+                
+{% include footer.html %}
+{% include disqus.html %}
