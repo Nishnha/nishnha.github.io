@@ -37,11 +37,27 @@ p, ul, ol, pre, blockquote, hr, object { margin: 1em 0; }
     padding-right: 15px;
 }
 
+/* Small devices paginate fix */
+@media (max-width: 768px) {
+    .paginate {
+        width: 100%;
+    }
+}
+
+.paginator-left {
+    float: left;
+}
+
+.paginator-right {
+    float: right;
+}
+
 .paginator-left p, .paginator-right p {
     display: inline;
+    word-wrap: break-word;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     font-weight: 300;
-    font:20px 'Helvetica Neue';
+    font:22px 'Helvetica Neue';
 }
 
 .paginate a {
