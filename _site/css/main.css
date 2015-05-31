@@ -1,88 +1,6 @@
 * {margin:0px; padding:0; font-family:inherit;}
 p, ul, ol, pre, blockquote, hr, object { margin: 1em 0; }
 
-
-/** CSS for navbar */
-.navbar {
-    width: 55em;
-    margin: 3% auto;
-    background-color: #ddd;
-    text-align: right;
-}
-
-.navbar li a {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-    font-weight: 300;
-    font:20px 'Helvetica Neue';
-    color: #747474;
-}
-
-.logo {
-    float: left;
-}
-
-.no-gutter > [class*='col-'] {
-    padding-right:0;
-    padding-left:0;
-}
-
-
-/** CSS for main pages */
-.paginate {
-    width: 55em;
-    background: black;
-    margin: 0 auto;
-    margin-bottom: 5%;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-/* Small devices paginate fix */
-@media (max-width: 768px) {
-    .paginate {
-        width: 100%;
-    }
-}
-
-.paginator-left {
-    float: left;
-}
-
-.paginator-right {
-    float: right;
-}
-
-.paginator-left p, .paginator-right p {
-    display: inline;
-    word-wrap: break-word;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-    font-weight: 300;
-    font:22px 'Helvetica Neue';
-}
-
-.paginate a {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-    font-weight: 300;
-    font:24px 'Helvetica Neue';
-    color: black;
-}
-
-.paginator-left, .paginator-right, .latest-post {
-    display: inline-block;
-    color: black;
-    background: white;
-    padding: 70px 60px;
-}
-
-.paginator-left:hover, .paginator-right:hover, .latest-post:hover {
-    background: #3A3A3A;
-    color: white;
-}
-
-.paginator-left:hover a, .paginator-right:hover a, .latest-post:hover a {
-    color: white;
-}
-
 body {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     font-weight: 300;
@@ -98,8 +16,114 @@ body {
     -webkit-font-smoothing: subpixel-antialiased;
 }
 
+/* large devices only */
+@media (min-width: 768px) {
 
-/** CSS for posts */
+
+/* CSS for navbar */
+.navbar {
+    width: 55em;
+    margin: 0 auto;
+    margin-top: 3%;
+    margin-bottom: 1%;
+    background-color: #ddd;
+    text-align: right;
+}
+ 
+.navbar li {
+    display: inline;
+}
+
+.navbar li a {
+    font:20px 'Helvetica Neue';
+    font-weight: 300;
+    color: #747474;
+    text-decoration: none;
+    padding: 0 1%;
+}
+    
+.navbar li a:hover {
+    color: #4b4b4b;
+}
+
+.logo {
+    float: left;
+}
+
+li {
+    list-style: none;
+}
+
+
+/* CSS for main pages */
+    
+.page {
+    width: 55em;
+    background: white;
+    margin: 0 auto;
+    margin-bottom: 5%;
+    padding-bottom: 2em;
+}
+    
+.page a {
+    display: block;
+    word-wrap: break-word;
+    font-family: "acme", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;
+    font-size: 26px;
+    color: black;
+    text-decoration: none;
+}
+    
+.page .more {
+    text-align: center;
+}
+    
+.page p {
+    display: inline;
+    word-wrap: break-word;
+    font-family: "Poly", helvetica, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 200;
+    font-size:22px;
+    color: black;
+}
+    
+.home-paginate {
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    -webkit-column-gap: 0; /* Chrome, Safari, Opera */
+    -moz-column-gap: 0; /* Firefox */
+    column-gap: 0;
+}
+    
+.paginator-post {
+    display: inline-block;
+    color: black;
+    background: white;
+    padding: 70px 60px;
+    width: 27.5em;
+}
+
+.paginator-post .date {
+    color: darkgray;
+}
+
+.paginator-post:hover {
+    background: #3A3A3A;
+    color: white;
+}
+
+.paginator-post:hover a {
+    color: white;
+}
+
+.paginator-post:hover .description {
+    color: white;
+}
+
+
+/* CSS for posts */
 .content {
     background:white;
     padding:150px 90px;
@@ -141,14 +165,26 @@ body {
 }
 
 .post .title {
-    font-family: 'Acme', sans-serif;
+    font-family: 'Helvetica Neue';
     font-weight: 300;
     font:32px 'Acme';
     color: black;
 }
+    
+    
+/* CSS for archive page */
+
+.archive-list {
+    text-align: left;
+    padding: 5em;
+}
+
+.archive-list a {
+    font-size: 20px;
+}
 
 
-/** CSS for footer and disqus */
+/* CSS for footer and disqus */
 .footer {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     font-weight: 300;
@@ -162,4 +198,187 @@ body {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
     -webkit-font-smoothing: subpixel-antialiased;
+}
+    
+}
+
+/* ------------------------------------------------------------------------------------------ */
+
+
+/* small devices only */
+@media (max-width: 768px) {
+    
+/* CSS for navbar */
+.navbar {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 3%;
+    margin-bottom: 1%;
+    background-color: #ddd;
+    text-align: right;
+}
+
+.navbar li {
+    display: inline;
+}
+
+.navbar li a {
+    font:20px 'Helvetica Neue';
+    font-weight: 300;
+    color: #747474;
+    text-decoration: none;
+    padding: 0 1%;
+}
+
+.navbar li a:hover {
+    color: #4b4b4b;
+}
+
+.logo {
+    float: left;
+    margin-left: 2%;
+}
+
+li {
+    list-style: none;
+}
+
+
+/* CSS for main pages */
+    
+.page {
+    width: 100%;
+    background: #ddd;
+    margin: 0 auto;
+    margin-bottom: 5%;
+    padding-bottom: 2em;
+}
+    
+.page a {
+    display: block;
+    word-wrap: break-word;
+    font-family: "acme", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;
+    font-size: 26px;
+    color: black;
+    text-decoration: none;
+}
+    
+.page .more {
+    text-align: center;
+}
+    
+.page p {
+    display: inline;
+    word-wrap: break-word;
+    font-family: "Poly", helvetica, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 200;
+    font-size:22px;
+    color: black;
+}
+    
+.paginator-post {
+    display: inline-block;
+    color: black;
+    background: white;
+    padding: 7% 6%;
+    width: 100%;
+    margin-bottom: 1%;
+}
+
+.paginator-post .date {
+    color: darkgray;
+}
+
+.paginator-post:hover {
+    background: #3A3A3A;
+    color: white;
+}
+
+.paginator-post:hover a {
+    color: white;
+}
+
+.paginator-post:hover .description {
+    color: white;
+}
+
+
+/* CSS for posts */
+.content {
+    background:white;
+    padding:150px 90px;
+    margin-bottom:60px;
+}
+
+.content blockquote {
+    font-family: 'Poly', georgia;
+    font-style:italic;
+    line-height:1.618;
+    background:transparent url(quotation-mark.png) no-repeat scroll 25px 1.4em;
+    padding:0.1em 1em 0.1em 60px;
+    margin:1.618em 0 1.618em -60px;
+    color: #666055;
+    text-rendering: optimizelegibility;
+  }
+
+.content pre {
+    line-height:1.3;
+    background-color:transparent;
+    overflow-x: auto;
+    background-color:#f2f2f2;
+    border-radius: 5px;
+    padding:0.6em 20px 0.6em 10px;
+  }
+
+.content code {
+    background-color: #f6f9fa;
+    color:black;
+    /*border: 1px solid #eaeaea;*/
+    border-radius: 3px;
+    padding:0 0.3em;
+  }
+
+.post {
+    width: 55em;
+    background: white;
+    margin: 0 auto;
+}
+
+.post .title {
+    font-family: 'Helvetica Neue';
+    font-weight: 300;
+    font:32px 'Acme';
+    color: black;
+}
+    
+    
+/* CSS for archive page */
+
+.archive-list {
+    text-align: left;
+    padding: 5em;
+}
+
+.archive-list a {
+    font-size: 20px;
+}
+
+
+/* CSS for footer and disqus */
+.footer {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;
+    background:#ddd;
+    font:14px 'Poly', georgia, serif;
+    line-height:1.5;
+    font-weight: lighter;
+    margin: 30px;
+    width: 100%;
+    zoom:0.8;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+    
 }

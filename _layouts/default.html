@@ -1,7 +1,7 @@
 {% include header.html %}
 
   <body>
-      
+
     <!-- CSS -->
     <link href="/css/main.css" rel="stylesheet">
 
@@ -9,14 +9,13 @@
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-      
-      
+
     <div class="navbar">
         <a class="logo" href="/">
             <img alt="logo" src="/img/logo.png" width="160" height="50">
         </a>
 
-        <ul class="list-inline">
+        <ul class="nav-buttons">
             <li>
                 <a href="/archive/index.html" {% if page.url contains "/archive/" %} class="active" {% endif %} title="A list of all my posts">Archive</a>
             </li>
@@ -31,7 +30,7 @@
             </li>
         </ul>
     </div>
-                
+        
         {{content}}
 
   </body>
@@ -40,5 +39,4 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-
 </html>

@@ -2,44 +2,18 @@
 layout: default
 ---
 
-<div class="paginate">
-
-<!-- must add | offset: 1 to for loop to add latest post
-    <div class="row no-gutter">
-    {% for post in paginator.posts | limit: 1 %}
-    <div class="col-sm-12">
-        <div class="latest-post">
-            <h4><a href="{{ post.url }}"><b>{{ post.title }}</b></a></h4>
-            <p><span class="date">{{ post.date | date: "%Y-%m" }}</span></p>
-            <p><span class="description">{{ post.excerpt }}</span></p>
+<div class="page">
+    
+    <div class="home-paginate">
+        {% for post in paginator.posts %}
+        <div class="paginator-post">
+            <h4><a href="{{ post.url }}">{{ post.title }}</a></h4>
+            <p><span class="date">{{ post.date | date: "%B %Y" }}</span></p>
+            <p><span class="description">{{ post.excerpt | strip_html }}</span></p>
         </div>
-    </div>    
-    {% endfor %}
+        {% endfor %}
     </div>
--->
-
-    <!-- Sets new posts as either paginator-left or paginator-right -->
-    {% for post in paginator.posts %}
-    {% assign loopindex = forloop.index | modulo: 2 %}
-    {% if loopindex == 1 %}
-    <div class="row no-gutter">
-        <div class="col-sm-6">
-            <div class="paginator-left">
-                <h4><a href="{{ post.url }}"><b>{{ post.title }}</b></a></h4>
-                <p><span class="date">{{ post.date | date: "%Y-%m" }}</span></p>
-                <p><span class="description">{{ post.excerpt | strip_html }}</span></p>
-            </div>
-        </div>
-        {% else %}
-        <div class="col-sm-6">
-            <div class="paginator-right">
-                <h4><a href="{{ post.url }}"><b>{{ post.title }}</b></a></h4>
-                <p><span class="date">{{ post.date | date: "%Y-%m" }}</span></p>
-                <p><span class="description">{{ post.excerpt | strip_html }}</span></p>
-            </div>
-        </div>
-    </div>
-    {% endif %}
-    {% endfor %}
-
+    
+    <h4><a class="more" href="archive/index.html">More Posts</a></h4>
+    
 </div>

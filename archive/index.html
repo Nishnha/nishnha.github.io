@@ -3,11 +3,17 @@ layout: default
 title: Archive
 ---
 
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-      {{ post.excerpt }}
-    </li>
-  {% endfor %}
-</ul>
+<div class="page">
+    <div class="archive-list">
+        <ul>
+        {% for post in site.posts %}
+            <li>
+                <a href="{{ post.url }}">{{ post.title }}</a>
+                {{ post.date | date: "%B-%m, %Y" }} &mdash;
+                {{ post.excerpt | strip_html | truncatewords: 15 }}
+            </li>
+            <br>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
