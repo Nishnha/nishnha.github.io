@@ -21,10 +21,6 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     
-</head>
-
-  <body>
-
     <!-- CSS -->
     <link href="/css/main.css" rel="stylesheet">
 
@@ -32,37 +28,32 @@
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    
+</head>
 
-    <div class="navbar">
-        <a class="logo" href="/">
-            <img alt="logo" src="/img/logo.png" width="160" height="50">
+  <body>
+
+    <nav role="navigation">
+        <a href="/" class="logo">
+            <img src="/img/logo.png" width="200" height="62.5">
         </a>
-
-        <ul class="nav-buttons">
-            <li>
-                <a href="/archive/index.html"  title="A list of all my posts">Archive</a>
-            </li>
-            <li>
-                <a href="/projects/index.html"  title="Some of my current projects">Projects</a>
-            </li>
-            <li>
-                <a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a>
-            </li>
-            <li>
-                <a href="/about/index.html" title="About me">About Me</a>
-            </li>
-        </ul>
-    </div>
+        <div class="nav-buttons">
+            <li><a href="/archive"  title="A list of all my posts">Archive</a>
+                
+            <li><a href="/projects"  title="Some of my current projects">Projects</a>
+                
+            <li><a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a>
+                
+            <li><a href="/about" title="About me">About Me</a>
+        </div>
+    </nav>
         
-        <div class="post">
+        <div class="page">
     <div class="content">
         <div class="title"><h1>Spotify box by Jordi Parra</h1></div>
+        <div class="date"><p>March 24, 2011</p></div>
         <br>
-        <br>
-        <div class="date"><p></p></div>
-        <br>
-        <br>
-        <div class="body"><p>Fellow designer <a href="http://zenona.com/">Jordi Parra</a> recently finished his masters degree project <a href="http://blog.zenona.com/">“Spotify box”</a> — a beautiful little radio-like device which plays music through the <a href="http://spotify.com/">Spotify</a> platform. What’s really neat about Jordi’s Spotify box—except from its gorgeous design—is that it brings back the physical interaction with music as an object, but adjusted to the 21st century. A playable item is represented by a small token, conveying a link by wireless RFID technology.</p>
+        <div class="article"><p>Fellow designer <a href="http://zenona.com/">Jordi Parra</a> recently finished his masters degree project <a href="http://blog.zenona.com/">“Spotify box”</a> — a beautiful little radio-like device which plays music through the <a href="http://spotify.com/">Spotify</a> platform. What’s really neat about Jordi’s Spotify box—except from its gorgeous design—is that it brings back the physical interaction with music as an object, but adjusted to the 21st century. A playable item is represented by a small token, conveying a link by wireless RFID technology.</p>
 
 <p>See for yourselves:</p>
 
@@ -76,23 +67,7 @@
 
 </div>
     </div>
-</div>
-                
-<div class="footer">
-    <div class="follow-me">
-        <h3>Follow Me</h3>
-    </div>
-    <div class="follow-icons">
-        <a href="http://twitter.com/nishnha" target="_blank">
-            <i class="fa fa-twitter fa-3x fa-inverse"></i>
-        </a>
-        <a href="http://www.twitch.tv/nishnha" target="_blank">
-            <i class="fa fa-twitch fa-3x fa-inverse"></i>
-        </a>
-
-    </div>
-</div>
-<div id="disqus_thread"></div>
+    <div id="disqus_thread"></div>
 <script type="text/javascript">
 /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 var disqus_shortname = 'nishnha'; // required: replace example with your forum shortname
@@ -104,6 +79,13 @@ dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 })();
 </script>
+</div>
+
+    <div class="footer">
+    <a href="http://twitter.com/nishnha" target="_blank" title="Follow me on Twitter">
+        <i class="fa fa-twitter fa-2x"></i>
+    </a>
+</div>
 
   </body>
 

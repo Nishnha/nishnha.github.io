@@ -21,10 +21,6 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     
-</head>
-
-  <body>
-
     <!-- CSS -->
     <link href="/css/main.css" rel="stylesheet">
 
@@ -32,67 +28,71 @@
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    
+</head>
 
-    <div class="navbar">
-        <a class="logo" href="/">
-            <img alt="logo" src="/img/logo.png" width="160" height="50">
+  <body>
+
+    <nav role="navigation">
+        <a href="/" class="logo">
+            <img src="/img/logo.png" width="200" height="62.5">
         </a>
-
-        <ul class="nav-buttons">
-            <li>
-                <a href="/archive/index.html"  class="active"  title="A list of all my posts">Archive</a>
-            </li>
-            <li>
-                <a href="/projects/index.html"  title="Some of my current projects">Projects</a>
-            </li>
-            <li>
-                <a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a>
-            </li>
-            <li>
-                <a href="/about/index.html" title="About me">About Me</a>
-            </li>
-        </ul>
-    </div>
+        <div class="nav-buttons">
+            <li><a href="/archive"  class="active"  title="A list of all my posts">Archive</a>
+                
+            <li><a href="/projects"  title="Some of my current projects">Projects</a>
+                
+            <li><a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a>
+                
+            <li><a href="/about" title="About me">About Me</a>
+        </div>
+    </nav>
         
         <div class="page">
     <div class="archive-list">
         <ul>
         
+        <div class="archive-post">
             <li>
                 <a href="/what-if-I-have-an-even-number">What If I Have an Even Number?</a>
                 May-05, 2015 &mdash;
-                So what if I have an even number of articles? Does float actually work? I...
+                So what if I have an even number of articles? Does float actually work? I need to figure out what...
             </li>
-            <br>
+        </div>
         
+        <div class="archive-post">
             <li>
                 <a href="/I-need-more-posts">I Need More Posts!</a>
                 May-05, 2015 &mdash;
-                So Jekyll might actually be the thing for me! Who knew? Now I need to...
+                So Jekyll might actually be the thing for me! Who knew? Now I need to steal some random junk from...
             </li>
-            <br>
+        </div>
         
+        <div class="archive-post">
             <li>
                 <a href="/using-jekyll-with-bootstrap">Using Jekyll With Bootstrap</a>
                 May-05, 2015 &mdash;
-                I wanted to make a blog. Simple enough - use google to find how to...
+                I wanted to make a blog. Simple enough - use google to find how to make one, right? I came...
             </li>
-            <br>
+        </div>
         
+        <div class="archive-post">
             <li>
                 <a href="/students-waste-their-summers">Students Waste Their Summers</a>
                 May-05, 2015 &mdash;
-                Lets say you’re the typical honors student (I suppose that’s safe to assume since you’re...
+                Lets say you’re the typical honors student (I suppose that’s safe to assume since you’re reading this blog), you work...
             </li>
-            <br>
+        </div>
         
+        <div class="archive-post">
             <li>
                 <a href="/gotalk">Gotalk</a>
                 January-01, 2015 &mdash;
-                Gotalk exists to make it easy for programs to talk with one another over the...
+                Gotalk exists to make it easy for programs to talk with one another over the internet, like a web app...
             </li>
-            <br>
+        </div>
         
+        <div class="archive-post">
             <li>
                 <a href="/1950s-called-wanted-toolbox-back">The 1950s called and wanted their toolbox back</a>
                 January-01, 2013 &mdash;
@@ -100,43 +100,51 @@
 
 
             </li>
-            <br>
+        </div>
         
+        <div class="archive-post">
             <li>
                 <a href="/sol-a-sunny-little-virtual-machine">Sol — a sunny little virtual machine</a>
                 October-10, 2012 &mdash;
-                During this weekend, together with a few evenings earlier this week, I created a rather...
+                During this weekend, together with a few evenings earlier this week, I created a rather simple virtual machine dubbed “Sol”,...
             </li>
-            <br>
+        </div>
         
+        <div class="archive-post">
             <li>
                 <a href="/mylang-tutorial1">Our own little computer language</a>
                 October-10, 2012 &mdash;
-                Let’s write our own programming language. It’ll be fun and we will learn some key...
+                Let’s write our own programming language. It’ll be fun and we will learn some key tools for processing structured data,...
             </li>
-            <br>
+        </div>
         
+        <div class="archive-post">
             <li>
                 <a href="/hue-factorial-fib">Factorial and Fib in Hue</a>
                 May-05, 2012 &mdash;
-                As I slowly make progress on my little functional programming language Hue, I’d just wanted...
+                As I slowly make progress on my little functional programming language Hue, I’d just wanted to share the “Hello World”...
             </li>
-            <br>
+        </div>
         
+        <div class="archive-post">
             <li>
                 <a href="/hue">Hue — a functional programming language for fun & play</a>
                 May-05, 2012 &mdash;
-                Hue is one of my latest hobby projects that didn’t die after a week. It’s...
+                Hue is one of my latest hobby projects that didn’t die after a week. It’s a functional programming language, in...
             </li>
-            <br>
+        </div>
         
+        <div class="archive-post">
             <li>
                 <a href="/peertalk">PeerTalk — hug it out over USB</a>
                 March-03, 2012 &mdash;
-                PeerTalk is a small iOS and OS X Cocoa library for communicating over USB and...
+                PeerTalk is a small iOS and OS X Cocoa library for communicating over USB and TCP.
+
+
             </li>
-            <br>
+        </div>
         
+        <div class="archive-post">
             <li>
                 <a href="/uilayer">Working with WebKit as a UI compositing engine</a>
                 October-10, 2011 &mdash;
@@ -144,8 +152,9 @@
 
 
             </li>
-            <br>
+        </div>
         
+        <div class="archive-post">
             <li>
                 <a href="/steve-jobs">February 24, 1955 – October 5, 2011</a>
                 October-10, 2011 &mdash;
@@ -153,22 +162,25 @@
 
 
             </li>
-            <br>
+        </div>
         
+        <div class="archive-post">
             <li>
                 <a href="/dropular-net-tech">Designing a modern web-based application — Dropular.net</a>
                 September-09, 2011 &mdash;
-                One and a half years ago me and Andreas released a new version of dropular.net...
+                One and a half years ago me and Andreas released a new version of dropular.net — a new kind of...
             </li>
-            <br>
+        </div>
         
+        <div class="archive-post">
             <li>
                 <a href="/an-update-on-move">An update on the programming language Move</a>
                 July-07, 2011 &mdash;
-                A few months back I wrote a programming language called Move. Before the advent of...
+                A few months back I wrote a programming language called Move. Before the advent of Move, JavaScript (on Node.js) was...
             </li>
-            <br>
+        </div>
         
+        <div class="archive-post">
             <li>
                 <a href="/air-shaffer">Air Shaffer</a>
                 June-06, 2011 &mdash;
@@ -176,80 +188,98 @@
 
 
             </li>
-            <br>
+        </div>
         
+        <div class="archive-post">
             <li>
                 <a href="/three-months-at-facebook">3 months at Facebook</a>
                 June-06, 2011 &mdash;
-                I’ve now been at Facebook in Palo Alto, California for almost three months. And I...
+                I’ve now been at Facebook in Palo Alto, California for almost three months. And I love it.
+
+
             </li>
-            <br>
+        </div>
         
+        <div class="archive-post">
             <li>
                 <a href="/jordi-parras-spotify-box">Spotify box by Jordi Parra</a>
                 March-03, 2011 &mdash;
-                Fellow designer Jordi Parra recently finished his masters degree project “Spotify box” — a beautiful...
+                Fellow designer Jordi Parra recently finished his masters degree project “Spotify box” — a beautiful little radio-like device which plays...
             </li>
-            <br>
+        </div>
         
+        <div class="archive-post">
             <li>
                 <a href="/firefox-4">My take on Firefox 4</a>
                 March-03, 2011 &mdash;
-                In the fast-paced world of web browsers Mozilla Firefox owns the second largest market share....
+                In the fast-paced world of web browsers Mozilla Firefox owns the second largest market share. Yesterday the much anticipated version...
             </li>
-            <br>
+        </div>
         
+        <div class="archive-post">
             <li>
                 <a href="/ec2-wep-app-template">A template for setting up Node.js-backed web apps on EC2</a>
                 March-03, 2011 &mdash;
-                Quick web hacks are great fun — getting an idea, realizing it and publishing it...
+                Quick web hacks are great fun — getting an idea, realizing it and publishing it during a day or three....
             </li>
-            <br>
+        </div>
         
+        <div class="archive-post">
             <li>
                 <a href="/fnews-ipad-facebook-home-display">An expensive photo frame</a>
                 March-03, 2011 &mdash;
-                This weekend’s hack is an iPad app which displays your Facebook news feed in a...
+                This weekend’s hack is an iPad app which displays your Facebook news feed in a “photo frame” fashion — large...
             </li>
-            <br>
+        </div>
         
+        <div class="archive-post">
             <li>
                 <a href="/traffic-lights-are-dancing">Traffic lights are dancing</a>
                 March-03, 2011 &mdash;
-                Recently Apple released the App Store for Macs (that is, a way to distribute and...
+                Recently Apple released the App Store for Macs (that is, a way to distribute and purchase applications in OS X)....
             </li>
-            <br>
+        </div>
         
+        <div class="archive-post">
             <li>
                 <a href="/move-programming-language">Move — a programming language</a>
                 March-03, 2011 &mdash;
-                As I’m very interested in human-computer interaction, programming languages and the act of looking at...
+                As I’m very interested in human-computer interaction, programming languages and the act of looking at things from a wider perspective,...
             </li>
-            <br>
+        </div>
         
+        <div class="archive-post">
             <li>
                 <a href="/osx-menubar-should-be-dark">Why the OS X Menubar should be dark and not bright</a>
                 February-02, 2011 &mdash;
-                The OS X Menubar is that light-grey thing stuck to the upper edge of the...
+                The OS X Menubar is that light-grey thing stuck to the upper edge of the screen. It’s stationary (with the...
             </li>
-            <br>
+        </div>
         
+        <div class="archive-post">
             <li>
                 <a href="/moved-from-tumblr">Moved from Tumblr to Jekyll+GitHub</a>
                 January-01, 2011 &mdash;
-                As many other people running their blogs on Tumblr I’ve become painfully aware of their...
+                As many other people running their blogs on Tumblr I’ve become painfully aware of their failures to provide an acceptable...
             </li>
-            <br>
+        </div>
         
+        <div class="archive-post">
             <li>
                 <a href="/why-i-wrote-a-programmers-text-editor">Why I wrote a programmer's text editor</a>
                 January-01, 2011 &mdash;
-                In mid August 2010 I left Spotify to eventually work for Facebook in California. However,...
+                In mid August 2010 I left Spotify to eventually work for Facebook in California. However, as the US Visa process...
             </li>
-            <br>
+        </div>
         
         </ul>
     </div>
+</div>
+
+    <div class="footer">
+    <a href="http://twitter.com/nishnha" target="_blank" title="Follow me on Twitter">
+        <i class="fa fa-twitter fa-2x"></i>
+    </a>
 </div>
 
   </body>
