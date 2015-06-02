@@ -22,7 +22,13 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     
     <!-- CSS -->
-    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet" media="(min-width: 769px)">
+    
+    <!-- small devices -->
+    <link href="/css/phone.css" rel="stylesheet" media="(max-width: 768px)">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -37,20 +43,19 @@
         <a href="/" class="logo">
             <img src="/img/logo.png" width="200" height="62.5">
         </a>
-        <div class="nav-buttons">
-            <li><a href="/archive"  title="A list of all my posts">Archive</a>
+        <li><a href="/archive"  title="A list of all my posts">Archive</a>
                 
-            <li><a href="/projects"  title="Some of my current projects">Projects</a>
+        <li><a href="/projects"  title="Some of my current projects">Projects</a>
                 
-            <li><a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a>
+        <li><a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a>
                 
-            <li><a href="/about" title="About me">About Me</a>
-        </div>
+        <li><a href="/about" title="About me">About Me</a>
     </nav>
         
         <div class="page">
     <div class="content">
         <div class="title"><h1>Sol — a sunny little virtual machine</h1></div>
+        <br>
         <div class="date"><p>October 14, 2012</p></div>
         <br>
         <div class="article"><p>During this weekend, together with a few evenings earlier this week, I created a rather simple <a href="http://en.wikipedia.org/wiki/Virtual_machine">virtual machine</a> dubbed <a href="https://github.com/rsms/sol">“Sol”</a>, after the Swedish word for “sun”. I’ve read a lot about VM design and I’m into stuff like OS design, programming languages and other seeminlgy obscure and nerdy stuff surrounding the concept of a computer as a generic tool.</p>

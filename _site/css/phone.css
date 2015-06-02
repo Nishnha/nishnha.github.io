@@ -12,9 +12,10 @@ body {
     -webkit-font-smoothing: subpixel-antialiased;
 }
 
+
 /* CSS for navbar */
 nav {
-    width: 55em;
+    width: 95%;
     margin: 2% auto;
     padding-top: 40px;
     text-align: right;
@@ -23,10 +24,10 @@ nav {
 nav li {
     display: inline;
     list-style: none;
-    margin-left: 1%;
 }
 
 nav a {
+    margin-left: 1%;
     font:20px 'Helvetica Neue Light';
     font-weight: 300;
     color: #747474;
@@ -46,7 +47,7 @@ nav a:hover {
 
 /* CSS for all pages DO NOT TOUCH */ 
 .page {
-    width: 55em;
+    width: 98%;
     background: white;
     margin: 0 auto;
     margin-top: 50px;
@@ -56,8 +57,8 @@ nav a:hover {
 /* CSS for homepage */
 .page h4, .page .more {
     display: block;
-    font-family: "Poly", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-    font-weight: bold;
+    font-family: "acme", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;
     font-size: 26px;
     color: black;
     text-decoration: none;
@@ -72,16 +73,8 @@ nav a:hover {
 }
 
 .page .more {
+    padding-top: 1em;
     text-align: center;
-}
-
-.home-paginate {
-    -webkit-column-count: 2; /* Chrome, Safari, Opera */
-    -moz-column-count: 2; /* Firefox */
-    column-count: 2;
-    -webkit-column-gap: 0; /* Chrome, Safari, Opera */
-    -moz-column-gap: 0; /* Firefox */
-    column-gap: 0;
 }
     
 .paginator-post {
@@ -89,10 +82,10 @@ nav a:hover {
     color: black;
     background: white;
     padding: 70px 60px;
-    width: 27.5em;
+    width: 100%;
 }
 
-.home-paginate .date {
+.date {
     color: darkgray;
 }
 
@@ -102,10 +95,6 @@ nav a:hover {
 
 .paginator-post:hover p, .paginator-post:hover h4 {
     color: white;
-}
-
-.home-paginate a {
-    text-decoration: none;
 }
 
 
@@ -141,26 +130,11 @@ nav a:hover {
     border-radius: 3px;
     padding:0 0.3em;
   }
-
-.content .title {
-    font-family: "Poly";
-    font-size: 32px;
-    font-weight: lighter;
-}
-
-.content .date {
-    display: inline-block;
-    margin-left: -90px;
-    padding-left: 90px;
-    color: #d3d3d3;
-    border-top: 1px solid #e0e0e0;
-    border-bottom: 1px solid #e0e0e0;
-}
     
     
 /* CSS for archive page */
 .archive-list {
-    width: 55em;
+    width: 100%;
     display: inline-block;
     padding-top: 1em;
 }

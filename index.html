@@ -5,11 +5,11 @@ layout: default
 <div class="page">
     <div class="home-paginate">
         {% for post in paginator.posts %}
-        <div class="paginator-post">
-            <h4><a href="{{ post.url }}">{{ post.title }}</a></h4>
+        <a href="{{ post.url }}" class="paginator-post">
+            <h4>{{ post.title }}</h4>
             <p><span class="date">{{ post.date | date: "%B %Y" }}</span></p>
             <p><span class="description">{{ post.excerpt | strip_html }}</span></p>
-        </div>
+        </a>
         {% endfor %}
     </div>
     <h4><a class="more" href="archive/index.html">More Posts</a></h4>

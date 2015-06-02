@@ -22,7 +22,13 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     
     <!-- CSS -->
-    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet" media="(min-width: 769px)">
+    
+    <!-- small devices -->
+    <link href="/css/phone.css" rel="stylesheet" media="(max-width: 768px)">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -37,20 +43,19 @@
         <a href="/" class="logo">
             <img src="/img/logo.png" width="200" height="62.5">
         </a>
-        <div class="nav-buttons">
-            <li><a href="/archive"  title="A list of all my posts">Archive</a>
+        <li><a href="/archive"  title="A list of all my posts">Archive</a>
                 
-            <li><a href="/projects"  title="Some of my current projects">Projects</a>
+        <li><a href="/projects"  title="Some of my current projects">Projects</a>
                 
-            <li><a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a>
+        <li><a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a>
                 
-            <li><a href="/about" title="About me">About Me</a>
-        </div>
+        <li><a href="/about" title="About me">About Me</a>
     </nav>
         
         <div class="page">
     <div class="content">
         <div class="title"><h1>Designing a modern web-based application — Dropular.net</h1></div>
+        <br>
         <div class="date"><p>September 10, 2011</p></div>
         <br>
         <div class="article"><p><img src="http://farm7.static.flickr.com/6191/6134324977_eca6c1f6e0_o.png" width="32" height="32" align="right" /><a href="http://rsms.me/2010/04/21/dropular-released.html">One and a half years ago</a> me and <a href="http://suprb.com/">Andreas</a> released a new version of <a href="http://dropular.net/">dropular.net</a> — a new kind of web app that runs completely in the browser. Today, this approach to designing web-based applications running client-side has become popular, so I thought I’d share some of the issues, approaches and design choices made during the development of Dropular.</p>
