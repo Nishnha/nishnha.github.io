@@ -18,10 +18,10 @@
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Acme' rel='stylesheet' type='text/css'>
     
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- loads mrmrs colors -->
+    <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
     
-    <!-- CSS -->
+    <!-- computer screens -->
     <link href="/css/main.css" rel="stylesheet" media="(min-width: 769px)">
     
     <!-- small devices -->
@@ -37,27 +37,19 @@
     
 </head>
 
-  <body>
-
-    <nav role="navigation">
-        <a href="/" class="logo">
-            <img src="/img/logo.png" width="200" height="62.5">
-        </a>
-        <li><a href="/archive"  title="A list of all my posts">Archive</a>
-                
-        <li><a href="/projects"  title="Some of my current projects">Projects</a>
-                
-        <li><a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a>
-                
-        <li><a href="/about" title="About me">About Me</a>
+<body id="top">
+    <nav id="navbar">
+        <a class="logo" href="/">nishnha.me</a>
+        <li><a href="/archive"  title="A list of all my posts">Archive</a></li>
+        <li><a href="/projects"  title="Some of my current projects">Projects</a></li>
+        <li><a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a></li>  
+        <li><a href="/about"  title="About me">About Me</a></li>
     </nav>
         
-        <div class="page">
+    <div class="page">
     <div class="content">
         <div class="title"><h1>Why I wrote a programmer's text editor</h1></div>
-        <br>
         <div class="date"><p>January 20, 2011</p></div>
-        <br>
         <div class="article"><p>In mid August 2010 I <a href="http://rsms.me/2010/06/11/moving-on.html">left Spotify to eventually work for Facebook</a> in California. However, as the US Visa process is apparently not the simplest of constructions I’ve been having a sort of involuntary (but much appreciated) vacation.</p>
 
 <p>This was the first time in 10 years that I didn’t have an “important thing to do” in a relatively short term perspective, which almost drove me nuts. So, what am <a href="http://hunch.se/">a designer/programmer/philosopher/dude</a> supposed to do? Build something of course. Create. So I started thinking of a few ideas I’ve had for a while and finally decided to explore my urge for a “better” program code editor. I’ve understood that many CS people write their own editor at some point in time, mostly for the same reasons they (sorry, no offense here) compete in writing efficient implementations of mathematical algorithms which no one will ever really use, or even need.</p>
@@ -88,6 +80,7 @@
 
 <p>More info about the Kod editor (which is open source under a permissive license) is available from <a href="http://kodapp.com/">kodapp.com</a>.</p>
 </div>
+        <p><a href="#top" class="top">Back to Top</a></p>
     </div>
     <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -103,13 +96,10 @@ dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
 </script>
 </div>
 
-    <div class="footer">
-    <a href="http://twitter.com/nishnha" target="_blank" title="Follow me on Twitter">
-        <i class="fa fa-twitter fa-2x"></i>
-    </a>
-</div>
-
-  </body>
+    <div id="footer">
+        <a href="http://twitter.com/nishnha" target="_blank" title="Follow me on Twitter"><i class="fa fa-twitter fa-2x"></i></a>
+    </div>
+</body>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

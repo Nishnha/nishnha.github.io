@@ -7,10 +7,10 @@ layout: default
         {% for post in paginator.posts %}
         <a href="{{ post.url }}" class="paginator-post">
             <h4>{{ post.title }}</h4>
-            <p><span class="date">{{ post.date | date: "%B %Y" }}</span></p>
+            <p><span class="date">{{ post.date | date: "%B %Y" }} &minus; </span></p>
             <p><span class="description">{{ post.excerpt | strip_html }}</span></p>
         </a>
         {% endfor %}
     </div>
-    <h4><a class="more" href="archive/index.html">More Posts</a></h4>
+    <a class="more" href="archive/index.html">More Posts</a>
 </div>

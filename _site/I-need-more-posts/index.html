@@ -18,10 +18,10 @@
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Acme' rel='stylesheet' type='text/css'>
     
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- loads mrmrs colors -->
+    <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
     
-    <!-- CSS -->
+    <!-- computer screens -->
     <link href="/css/main.css" rel="stylesheet" media="(min-width: 769px)">
     
     <!-- small devices -->
@@ -37,33 +37,26 @@
     
 </head>
 
-  <body>
-
-    <nav role="navigation">
-        <a href="/" class="logo">
-            <img src="/img/logo.png" width="200" height="62.5">
-        </a>
-        <li><a href="/archive"  title="A list of all my posts">Archive</a>
-                
-        <li><a href="/projects"  title="Some of my current projects">Projects</a>
-                
-        <li><a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a>
-                
-        <li><a href="/about" title="About me">About Me</a>
+<body id="top">
+    <nav id="navbar">
+        <a class="logo" href="/">nishnha.me</a>
+        <li><a href="/archive"  title="A list of all my posts">Archive</a></li>
+        <li><a href="/projects"  title="Some of my current projects">Projects</a></li>
+        <li><a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a></li>  
+        <li><a href="/about"  title="About me">About Me</a></li>
     </nav>
         
-        <div class="page">
+    <div class="page">
     <div class="content">
         <div class="title"><h1>I Need More Posts!</h1></div>
-        <br>
         <div class="date"><p>May 28, 2015</p></div>
-        <br>
         <div class="article"><p>So Jekyll might actually be the thing for me! Who knew? Now I need to steal some random junk from another blog so I can have some test sentences. I guess I’ll use something from the boston globe since their navbar is what got me into web design! If I make this any longer will the website be fixed? I need to figure out how to get around this too because I can’t keep making super long excerpts!</p>
 
 <p>I have implement this example-site, it’s not a real site, just an example, I did categories list in the right side of the site, they’re actually pages, every one as one category (there was no used plugins for this).</p>
 
 <p>I don’t want use plugin for this, because all things like “related posts via tags”, “every post categories linked to its categories page”, and the other things I did without plugins, and so can write posts directly from github.</p>
 </div>
+        <p><a href="#top" class="top">Back to Top</a></p>
     </div>
     <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -79,13 +72,10 @@ dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
 </script>
 </div>
 
-    <div class="footer">
-    <a href="http://twitter.com/nishnha" target="_blank" title="Follow me on Twitter">
-        <i class="fa fa-twitter fa-2x"></i>
-    </a>
-</div>
-
-  </body>
+    <div id="footer">
+        <a href="http://twitter.com/nishnha" target="_blank" title="Follow me on Twitter"><i class="fa fa-twitter fa-2x"></i></a>
+    </div>
+</body>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

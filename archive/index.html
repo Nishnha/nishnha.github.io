@@ -4,14 +4,11 @@ title: Archive
 ---
 
 <div class="page">
-    <div class="archive-list">
-        <ul class="archive-post">
+    <div class="archive">
         {% for post in site.posts %}
             <li>
-                {{ post.date | date: "%B %-m, %Y" }} &mdash;
-                <a href="{{ post.url }}">{{ post.title }}</a>
+                {{ post.date | date: "%B %-m, %Y" }} &mdash; <a href="{{ post.url }}">{{ post.title }}</a>
             </li>
         {% endfor %}
-        </ul>
     </div>
 </div>

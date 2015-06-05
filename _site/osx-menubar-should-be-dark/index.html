@@ -18,10 +18,10 @@
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Acme' rel='stylesheet' type='text/css'>
     
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- loads mrmrs colors -->
+    <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
     
-    <!-- CSS -->
+    <!-- computer screens -->
     <link href="/css/main.css" rel="stylesheet" media="(min-width: 769px)">
     
     <!-- small devices -->
@@ -37,27 +37,19 @@
     
 </head>
 
-  <body>
-
-    <nav role="navigation">
-        <a href="/" class="logo">
-            <img src="/img/logo.png" width="200" height="62.5">
-        </a>
-        <li><a href="/archive"  title="A list of all my posts">Archive</a>
-                
-        <li><a href="/projects"  title="Some of my current projects">Projects</a>
-                
-        <li><a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a>
-                
-        <li><a href="/about" title="About me">About Me</a>
+<body id="top">
+    <nav id="navbar">
+        <a class="logo" href="/">nishnha.me</a>
+        <li><a href="/archive"  title="A list of all my posts">Archive</a></li>
+        <li><a href="/projects"  title="Some of my current projects">Projects</a></li>
+        <li><a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a></li>  
+        <li><a href="/about"  title="About me">About Me</a></li>
     </nav>
         
-        <div class="page">
+    <div class="page">
     <div class="content">
         <div class="title"><h1>Why the OS X Menubar should be dark and not bright</h1></div>
-        <br>
         <div class="date"><p>February 6, 2011</p></div>
-        <br>
         <div class="article"><p>The OS X Menubar is that light-grey thing stuck to the upper edge of the screen. It’s stationary (with the exception for “fullscreen” modes) and thus is always visible. The Menubar is one of the core concepts of OS X’s UX which I really appreciate and which makes it hard to use OS’es which have one menu bar for each window.</p>
 
 <p><a href="http://farm6.static.flickr.com/5056/5421155787_c33e171976_o.png"><img src="http://farm6.static.flickr.com/5056/5421155787_6c1c146c08_z.jpg" alt="The OS X Menubar, with translucency disabled" /></a></p>
@@ -117,6 +109,7 @@
   </li>
 </ul>
 </div>
+        <p><a href="#top" class="top">Back to Top</a></p>
     </div>
     <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -132,13 +125,10 @@ dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
 </script>
 </div>
 
-    <div class="footer">
-    <a href="http://twitter.com/nishnha" target="_blank" title="Follow me on Twitter">
-        <i class="fa fa-twitter fa-2x"></i>
-    </a>
-</div>
-
-  </body>
+    <div id="footer">
+        <a href="http://twitter.com/nishnha" target="_blank" title="Follow me on Twitter"><i class="fa fa-twitter fa-2x"></i></a>
+    </div>
+</body>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

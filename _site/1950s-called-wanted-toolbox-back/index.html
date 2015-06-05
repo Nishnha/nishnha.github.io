@@ -18,10 +18,10 @@
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Acme' rel='stylesheet' type='text/css'>
     
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- loads mrmrs colors -->
+    <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
     
-    <!-- CSS -->
+    <!-- computer screens -->
     <link href="/css/main.css" rel="stylesheet" media="(min-width: 769px)">
     
     <!-- small devices -->
@@ -37,27 +37,19 @@
     
 </head>
 
-  <body>
-
-    <nav role="navigation">
-        <a href="/" class="logo">
-            <img src="/img/logo.png" width="200" height="62.5">
-        </a>
-        <li><a href="/archive"  title="A list of all my posts">Archive</a>
-                
-        <li><a href="/projects"  title="Some of my current projects">Projects</a>
-                
-        <li><a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a>
-                
-        <li><a href="/about" title="About me">About Me</a>
+<body id="top">
+    <nav id="navbar">
+        <a class="logo" href="/">nishnha.me</a>
+        <li><a href="/archive"  title="A list of all my posts">Archive</a></li>
+        <li><a href="/projects"  title="Some of my current projects">Projects</a></li>
+        <li><a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a></li>  
+        <li><a href="/about"  title="About me">About Me</a></li>
     </nav>
         
-        <div class="page">
+    <div class="page">
     <div class="content">
         <div class="title"><h1>The 1950s called and wanted their toolbox back</h1></div>
-        <br>
         <div class="date"><p>January 1, 2013</p></div>
-        <br>
         <div class="article"><p><img src="http://farm9.staticflickr.com/8358/8336375923_9f0dca4da9_o.png" width="50%" align="right" />Your favourite fancy-pants modern programming language is from the 1950s.</p>
 
 <p>Pretty much any programming language used today is <a href="http://www.levenez.com/lang/">a derivative</a> of <a href="http://en.wikipedia.org/wiki/Fortran">Fortran</a> or <a href="http://en.wikipedia.org/wiki/Lisp_%28programming_language%29">Lisp</a>, both born in the 1950s. Okay, reality check: It’s 2013—yes, 60 years later—and we have cars that drive themselves on the street, robots roaming the surface of alien planets and tiny networked devices with interactive surfaces that we keep in our pockets, which are orders of magnitude more powerful than the computers of the 1950s.</p>
@@ -132,6 +124,7 @@
 
 <p>Now, remember the 1950s called and still haven’t got their programming toolbox back.</p>
 </div>
+        <p><a href="#top" class="top">Back to Top</a></p>
     </div>
     <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -147,13 +140,10 @@ dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
 </script>
 </div>
 
-    <div class="footer">
-    <a href="http://twitter.com/nishnha" target="_blank" title="Follow me on Twitter">
-        <i class="fa fa-twitter fa-2x"></i>
-    </a>
-</div>
-
-  </body>
+    <div id="footer">
+        <a href="http://twitter.com/nishnha" target="_blank" title="Follow me on Twitter"><i class="fa fa-twitter fa-2x"></i></a>
+    </div>
+</body>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

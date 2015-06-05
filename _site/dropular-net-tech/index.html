@@ -18,10 +18,10 @@
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Acme' rel='stylesheet' type='text/css'>
     
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- loads mrmrs colors -->
+    <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
     
-    <!-- CSS -->
+    <!-- computer screens -->
     <link href="/css/main.css" rel="stylesheet" media="(min-width: 769px)">
     
     <!-- small devices -->
@@ -37,27 +37,19 @@
     
 </head>
 
-  <body>
-
-    <nav role="navigation">
-        <a href="/" class="logo">
-            <img src="/img/logo.png" width="200" height="62.5">
-        </a>
-        <li><a href="/archive"  title="A list of all my posts">Archive</a>
-                
-        <li><a href="/projects"  title="Some of my current projects">Projects</a>
-                
-        <li><a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a>
-                
-        <li><a href="/about" title="About me">About Me</a>
+<body id="top">
+    <nav id="navbar">
+        <a class="logo" href="/">nishnha.me</a>
+        <li><a href="/archive"  title="A list of all my posts">Archive</a></li>
+        <li><a href="/projects"  title="Some of my current projects">Projects</a></li>
+        <li><a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a></li>  
+        <li><a href="/about"  title="About me">About Me</a></li>
     </nav>
         
-        <div class="page">
+    <div class="page">
     <div class="content">
         <div class="title"><h1>Designing a modern web-based application — Dropular.net</h1></div>
-        <br>
         <div class="date"><p>September 10, 2011</p></div>
-        <br>
         <div class="article"><p><img src="http://farm7.static.flickr.com/6191/6134324977_eca6c1f6e0_o.png" width="32" height="32" align="right" /><a href="http://rsms.me/2010/04/21/dropular-released.html">One and a half years ago</a> me and <a href="http://suprb.com/">Andreas</a> released a new version of <a href="http://dropular.net/">dropular.net</a> — a new kind of web app that runs completely in the browser. Today, this approach to designing web-based applications running client-side has become popular, so I thought I’d share some of the issues, approaches and design choices made during the development of Dropular.</p>
 
 <p>I designed Dropular just as I would design a desktop application — the UI and related logic runs on the host computer (client). The host knows how to present a GUI and the host knows about user input, end-user’s environment state and so on, making UI code running on the client-side the natural choice. Then again, there’s always data. Dropular.net communicates with one or more backend <em>access points</em> to read and write data, verify authentication and so on.</p>
@@ -262,6 +254,7 @@ oui.anchor.on(/^drops\/(&lt;id&gt;[a-zA-Z0-9]{25,30})/, function(params, path, p
 <p>I’m really curious to see what’s next — the web is rapidly transforming from a “hacky” document presentation technology to a rich application development and distribution platform with standards that make sense. No more live hacking on FTP servers or behemoth HTML-generating Java servers.</p>
 
 </div>
+        <p><a href="#top" class="top">Back to Top</a></p>
     </div>
     <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -277,13 +270,10 @@ dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
 </script>
 </div>
 
-    <div class="footer">
-    <a href="http://twitter.com/nishnha" target="_blank" title="Follow me on Twitter">
-        <i class="fa fa-twitter fa-2x"></i>
-    </a>
-</div>
-
-  </body>
+    <div id="footer">
+        <a href="http://twitter.com/nishnha" target="_blank" title="Follow me on Twitter"><i class="fa fa-twitter fa-2x"></i></a>
+    </div>
+</body>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

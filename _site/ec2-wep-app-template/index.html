@@ -18,10 +18,10 @@
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Acme' rel='stylesheet' type='text/css'>
     
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- loads mrmrs colors -->
+    <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
     
-    <!-- CSS -->
+    <!-- computer screens -->
     <link href="/css/main.css" rel="stylesheet" media="(min-width: 769px)">
     
     <!-- small devices -->
@@ -37,27 +37,19 @@
     
 </head>
 
-  <body>
-
-    <nav role="navigation">
-        <a href="/" class="logo">
-            <img src="/img/logo.png" width="200" height="62.5">
-        </a>
-        <li><a href="/archive"  title="A list of all my posts">Archive</a>
-                
-        <li><a href="/projects"  title="Some of my current projects">Projects</a>
-                
-        <li><a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a>
-                
-        <li><a href="/about" title="About me">About Me</a>
+<body id="top">
+    <nav id="navbar">
+        <a class="logo" href="/">nishnha.me</a>
+        <li><a href="/archive"  title="A list of all my posts">Archive</a></li>
+        <li><a href="/projects"  title="Some of my current projects">Projects</a></li>
+        <li><a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a></li>  
+        <li><a href="/about"  title="About me">About Me</a></li>
     </nav>
         
-        <div class="page">
+    <div class="page">
     <div class="content">
         <div class="title"><h1>A template for setting up Node.js-backed web apps on EC2</h1></div>
-        <br>
         <div class="date"><p>March 23, 2011</p></div>
-        <br>
         <div class="article"><p>Quick web hacks are great fun — getting an idea, realizing it and publishing it during a day or three. What usually sucks the fun out of these things—when building websites—is the whole “server setup” dance. You need to fix access to a server, install an operating system, registering a domain name, configure software, etc.</p>
 
 <p><img src="http://farm6.static.flickr.com/5057/5552354201_b2479af203_o.png" align="right" width="273" height="222" />I’ve become quite fond of the <a href="http://aws.amazon.com/ec2/">Amazon Elastic Compute Cloud (EC2)</a> — a widely popular service for creating virtual servers. So I’ve found myself repeating practically the same steps for every site launched on EC2 (<a href="http://dropular.net/">dropular.net</a> and <a href="http://spotni.cc/">spotni.cc</a>, for instance). This is something I think many people could benefit from, so I’ve put together a sort of template for quickly setting up a web site on EC2:</p>
@@ -165,6 +157,7 @@ myapp-update restart
 <p><strong>It’s time to get busy</strong> — Head over to <a href="https://github.com/rsms/ec2-webapp/blob/master/INSTALL.md#readme">INSTALL.md “Install software” →</a></p>
 
 </div>
+        <p><a href="#top" class="top">Back to Top</a></p>
     </div>
     <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -180,13 +173,10 @@ dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
 </script>
 </div>
 
-    <div class="footer">
-    <a href="http://twitter.com/nishnha" target="_blank" title="Follow me on Twitter">
-        <i class="fa fa-twitter fa-2x"></i>
-    </a>
-</div>
-
-  </body>
+    <div id="footer">
+        <a href="http://twitter.com/nishnha" target="_blank" title="Follow me on Twitter"><i class="fa fa-twitter fa-2x"></i></a>
+    </div>
+</body>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
