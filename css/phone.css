@@ -26,7 +26,7 @@ nav li {
 }
 
 nav a {
-    font:15px 'Helvetica Neue Light';
+    font:13px 'Helvetica Neue Light';
     font-weight: 300;
     color: #747474;
     display: inline;
@@ -39,17 +39,17 @@ nav li a:hover {
 
 nav .active {
     color: #4b4b4b;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .logo {
     padding: 0;
-    font-size: 24px;
+    font-size: 18px;
     float: left;
 }
 
 
-/* CSS for all pages DO NOT TOUCH */ 
+/* CSS for all pages */ 
 .page {
     width: 98%;
     background: #ddd;
@@ -57,6 +57,10 @@ nav .active {
 }
 
 /* CSS for homepage */
+.home-paginate a {
+    text-decoration: none;
+}
+
 .paginator-post {
     display: inline-block;
     color: black;
@@ -66,19 +70,19 @@ nav .active {
     margin-bottom: 1%;
 }
 
-.paginator-post h4 {
+.paginator-post .title {
     display: block;
     font: bold 18px "Poly";
     text-decoration: none;
 }
+
+.paginator-post .date {
+    color: #8b8b8b;
+}
     
-.paginator-post p {
+.paginator-post .description {
     display: inline;
     font: 200 17px "Poly"
-}
-
-.home-paginate .date {
-    color: #8b8b8b;
 }
 
 .paginator-post:hover {
@@ -86,8 +90,29 @@ nav .active {
     color: white;
 }
 
-.home-paginate a {
-    text-decoration: none;
+.paginator-image {
+    position: relative;
+    display: block;
+    color: white;
+    background: #3A3A3A;
+    margin-bottom: 1%;
+}
+
+.paginator-image .image {
+    vertical-align: top;
+}
+
+.paginator-image .title {
+    margin: 0;
+    display: inline;
+    position: absolute;
+    top: 85%;
+    left: 15%;
+    font: bold 32px "Poly";
+}
+
+.paginator-image:hover .image {
+    opacity: .7;
 }
 
 .page .more {
@@ -105,7 +130,7 @@ nav .active {
 /* CSS for posts */
 .content {
     background:white;
-    padding: 0 9%;
+    padding: 0 5%;
     padding-bottom: 10%;
     padding-top: 5%;
 }
@@ -142,29 +167,23 @@ nav .active {
     color: #4e4e4e;
 }
 
-/* The following .content-prefixed code is property to the author of rsms.me */
+img {
+    max-width: 100%;
+}
+
 .content blockquote {
     padding-left: 2.5em;
     margin-left: -1em;
 }
 
-.content .quotation blockquote {
-    margin-left: 0px;
-}
-
-.content:not(.sub) h1:first-child {
-    font-size:210%;
-}
-
 .content pre {
+    margin: 0 -1em;
     padding: 1em;
     background-color: #eee;
-    border: 1px solid #ddd;
-    white-space: pre-wrap;       /* CSS 3 */
-    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-    white-space: -pre-wrap;      /* Opera 4-6 */
-    white-space: -o-pre-wrap;    /* Opera 7 */
-    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    border-left: none;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
 }
 
 

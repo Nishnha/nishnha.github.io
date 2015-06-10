@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Gives the page title as {title} (medium dash) Nishnha if title, otherwise as Nishnha -->
+    <title>Factorial and Fib in Hue &mdash; Nishnha</title>
+
+    <!-- loads Fontawesome -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Poly:400,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Acme' rel='stylesheet' type='text/css'>
+    
+    <!-- loads mrmrs colors -->
+    <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
+    
+    <!-- computer screens -->
+    <link href="/css/main.css" rel="stylesheet" media="(min-width: 769px)">
+    
+    <!-- small devices -->
+    <link href="/css/phone.css" rel="stylesheet" media="(max-width: 768px)">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+    
+    <!-- 301 for /posts/xyz/index.html -->
+    <link rel="canonical" href="/posts/hue-factorial-fib" />
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+</head>
+
+<body id="top">
+    <nav id="navbar">
+        <a class="logo" href="/">nishnha.me</a>
+        <li><a href="/archive"  title="A list of all my posts">Archive</a></li>
+        <li><a href="/projects"  title="Some of my current projects">Projects</a></li>
+        <li><a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a></li>  
+        <li><a href="/about"  title="About me">About Me</a></li>
+    </nav>
+        
+    <div class="page">
+    <div class="content">
+        <div class="title"><h1>Factorial and Fib in Hue</h1></div>
+        <div class="date"><p>May 29, 2012</p></div>
+        <div class="article"><p>As I slowly make progress on my little functional programming language <a href="https://github.com/rsms/hue">Hue</a>, I’d just wanted to share the “Hello World” of functional programming — <code>factorial</code> and <code>fib</code>.</p>
+
+<p>The <a href="http://en.wikipedia.org/wiki/Recursion_%28computer_science%29#Factorial">factorial function</a> calculates the factorial of a natural number:</p>
+
+<pre><code>factorial = func (n Int) if n == 0 1 else n * factorial n - 1
+factorial 10  # -&gt; 3628800
+</code></pre>
+
+<p>The <a href="http://en.wikipedia.org/wiki/Recursion_%28computer_science%29#Fibonacci">fib function</a> computes Fibonacci numbers:</p>
+
+<pre><code>fib = func (n Int)
+  if n &lt; 2
+    n
+  else
+    (fib n-1) + fib n-2
+
+fib 32  # -&gt; 2178309
+</code></pre>
+
+<p>Hue compiles the above functions into very efficient <a href="http://en.wikipedia.org/wiki/Tail_call">tail calls</a>. The <code>factorial</code> function is even unrolled, eliminating all but one call.</p>
+
+<h2 id="function-result-type-inference-and-multiple-implementations">Function result type inference and multiple implementations</h2>
+
+<p>Since Hue <a href="https://github.com/rsms/hue/tree/94441d9b31157d712c078faa63c741d78ca3fba2/">94441d9</a> functions have their result types inferred, as well as the ability to define multiple implementations.</p>
+
+<p>To understand why the ability to provide multiple function implementations is interesting, let’s define a slightly more versatile <code>factorial</code> function:</p>
+
+<pre><code>factorial = func (n Int) if n == 0 1 else n * factorial n - 1
+factorial = func (n Float) if n == 0.0 1.0 else n * factorial n - 1.0
+</code></pre>
+
+<p>Here, we provide implementations for factorial to operate on both integers and floating point numbers. We can now invoke <code>factorial</code> with both Ints and Floats:</p>
+
+<pre><code>factorial 10    # -&gt; 3628800
+factorial 10.0  # -&gt; 3628800.0
+</code></pre>
+
+<p>Since Hue is strongly typed, simply providing a single implementation would only allow <code>factorial</code> to be available for either integers or floating point numbers (unless we gave the function different names, but that becomes awkward.)</p>
+
+<p>Result type inference is another important hygiene factor.</p>
+
+<p>This basically means that the parser will parse a function’s body before it finalizes the function’s result type. Since all functions in Hue return something, we know that whatever is returned is the result value of the function. If there’s any ambiguity the compiler will complain with an error, avoiding unexpected behavior at runtime.</p>
+
+<p>Consider the following trivial functions:</p>
+
+<pre><code>foo = func (a, b Int) Int a * b * b
+bar = func (a, b Float) Float a * a * b
+</code></pre>
+
+<p>Defining the result type of these functions is <em>redundant</em> and <em>unnecessary</em>, since we can without a doubt say that “the result type of function F is the type of the value returned”. As Hue infers the type not only for functions, but for any other non-primary expression (like conditionals), when we after a decent-first reach the surface of an expression (i.e. the last expression of a function body), we will know the type of that expression, thus we can bubble the type upwards.</p>
+
+<pre><code>foo = func (a, b Int) a * b * b
+bar = func (a, b Float) a * a * b
+</code></pre>
+
+<p>As seen here above, we were able to write the same two functions in a more efficient manner.</p>
+
+<p>If a function references itself (i.e. is recursive), Hue will assume the type of the function based on other known types and later update those functions calls when the function’s result type has been finalized.</p>
+
+<p>Deferring the resolution of a recursive function type is possible since the only case where we are unable to do so, is the case where a recursive function is an infinite loop (which is currently not applicable to anything in Hue.) For instance:</p>
+
+<pre><code>foo = func (n Int) foo n
+</code></pre>
+
+<p>…would yield an error when compiled since it defines a function that is guaranteed to crash/block in all eternity. Any recursive function needs some kind of conditional, thus making our stupid <code>foo</code> function a little more useful:</p>
+
+<pre><code>foo = func (n Int) if n &gt; 5 (foo n * n) else n
+</code></pre>
+
+<p>This will compile, although the program will still crash when <code>foo</code> is given a value higher than 5. That’s the balance between being helpful and telling you what to do. In this example, the result type of the conditional (the “if..else”) is inferred from the one concrete branch (“n”), which in turn completes the <code>foo</code> function’s result type.</p>
+
+<h2 id="tail-recursive-calls-ftw">Tail recursive calls FTW</h2>
+
+<p>Let’s get all nerdy and look at the IR produced by Hue for the <code>factorial</code> function example from the beginning of this article:</p>
+
+<pre><code>define i64 @main() nounwind readnone {
+  br label %tailrecurse.i
+
+tailrecurse.i:                                    ; preds = %else.i, %0
+  %accumulator.tr.i = phi i64 [ 1, %0 ], [ %multmp.i, %else.i ]
+  %n.tr.i = phi i64 [ 10, %0 ], [ %subtmp.i, %else.i ]
+  %eqtmp.i = icmp eq i64 %n.tr.i, 0
+  br i1 %eqtmp.i, label %"hello:factorial$x$x.exit", label %else.i
+
+else.i:                                           ; preds = %tailrecurse.i
+  %subtmp.i = add i64 %n.tr.i, -1
+  %multmp.i = mul i64 %accumulator.tr.i, %n.tr.i
+  br label %tailrecurse.i
+
+"hello:factorial$x$x.exit":                       ; preds = %tailrecurse.i
+  ret i64 0
+}
+</code></pre>
+
+<p>Note how there’s actually <em>no function calls</em> involved here. The compiler (mostly thanks to LLVM) were able to optimize the recursive call by unrolling the calls. The above code is very efficient.</p>
+
+<p>Let’s have look at what Hue does with the <code>fib</code> example function (from earlier in this article):</p>
+
+<pre><code>define i64 @main() nounwind readnone {
+  %fib_res = tail call i64 @"hello:fib$x$x"(i64 32)
+  ret i64 0
+}
+
+define private i64 @"hello:fib$x$x"(i64 %n) nounwind readnone {
+  %lttmp = icmp slt i64 %n, 2
+  br i1 %lttmp, label %endif, label %else
+
+else:                                             ; preds = %0
+  %subtmp = add i64 %n, -1
+  %fib_res = tail call i64 @"hello:fib$x$x"(i64 %subtmp)
+  %subtmp1 = add i64 %n, -2
+  %fib_res2 = tail call i64 @"hello:fib$x$x"(i64 %subtmp1)
+  %addtmp = add i64 %fib_res2, %fib_res
+  ret i64 %addtmp
+
+endif:                                            ; preds = %0
+  ret i64 %n
+}
+</code></pre>
+
+<p>We didn’t get the royal unroll treatment, but the calls became tail recursive and the true-branch of the conditional expression was short-circuited into the end of the conditional (“endif”), saving us a “PHI” virtual instruction. This code is also very efficient and has linear time complexity.</p>
+
+<p><a href="https://github.com/rsms/hue">Hue</a> continues to be my computer programming muse (and TV substitute) as a low intensity hobby project. The intention is to experiment with performant functional programming and to learn stuff, of course. Hue’s source code is free and open at <a href="https://github.com/rsms/hue">https://github.com/rsms/hue</a>.</p>
+
+<p>See previous introduction to Hue: <a href="http://rsms.me/2012/05/14/hue.html">“Hue — a functional programming language for fun &amp; play”</a>.</p>
+</div>
+        <p><a href="#top" class="top">Back to Top</a></p>
+    </div>
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'nishnha'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+</div>
+
+    <div id="footer">
+        <a href="http://twitter.com/nishnha" target="_blank" title="Follow me on Twitter"><i class="fa fa-twitter fa-2x"></i></a>
+    </div>
+</body>
+
+</html>
