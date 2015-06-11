@@ -1,5 +1,14 @@
 body {
-    background: #ddd;
+    background:
+        linear-gradient(
+            to bottom right,
+            rgba(0, 47, 75, 0.5),
+            rgba(220, 66, 37, 0.5)
+        ),  url('/img/skylanterns.png') no-repeat center fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     font: normal, 20px, 'Poly', georgia, serif;
     line-height:1.5;
     margin: 0 auto;
@@ -15,7 +24,6 @@ nav {
     width: 96%;
     margin: 0 auto;
     margin-bottom: 2%;
-    background-color: #ddd;
     text-align: right;
 }
 
@@ -28,17 +36,17 @@ nav li {
 nav a {
     font:13px 'Helvetica Neue Light';
     font-weight: 300;
-    color: #747474;
+    color: white;
     display: inline;
     text-decoration: none;
 }
 
 nav li a:hover {
-    color: #4b4b4b;
+    color: #d3d3d3;
 }
 
 nav .active {
-    color: #4b4b4b;
+    color: #d3d3d3;
     font-size: 15px;
 }
 

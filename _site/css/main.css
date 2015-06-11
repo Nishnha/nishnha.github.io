@@ -1,7 +1,14 @@
 body {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-    font-weight: 300;
-    background: #ddd;
+    background:
+        linear-gradient(
+            to bottom right,
+            rgba(0, 47, 75, 0.5),
+            rgba(220, 66, 37, 0.5)
+        ),  url('/img/skylanterns.png') no-repeat center fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     font: normal 16px "Poly", georgia, serif;
     line-height:1.6;
     margin: 0 auto;
@@ -12,12 +19,12 @@ body {
     -webkit-font-smoothing: subpixel-antialiased;
 }
 
+
 /* CSS for navbar */
 nav {
     width: 55em;
-    margin: 0 auto;
+    margin: 0% auto;
     margin-bottom: 2%;
-    background-color: #ddd;
     text-align: right;
 }
 
@@ -30,17 +37,17 @@ nav li {
 nav a {
     font:15px 'Helvetica Neue Light';
     font-weight: 300;
-    color: #747474;
+    color: white;
     display: inline;
     text-decoration: none;
 }
 
 nav li a:hover {
-    color: #4b4b4b;
+    color: #d3d3d3;
 }
 
 nav .active {
-    color: #4b4b4b;
+    color: #d3d3d3;
     font-size: 16px;
 }
 
