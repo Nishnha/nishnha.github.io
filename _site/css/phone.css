@@ -1,9 +1,9 @@
 body {
     background:
         linear-gradient(
-            to bottom right,
-            rgba(0, 47, 75, 0.5),
-            rgba(220, 66, 37, 0.5)
+            to right,
+            rgba(0, 47, 75, 0.35),
+            rgba(220, 66, 37, 0.28)
         ),  url('/img/skylanterns.png') no-repeat center fixed;
     background-size: cover;
     -webkit-background-size: cover;
@@ -19,6 +19,11 @@ body {
     -webkit-font-smoothing: subpixel-antialiased;
 }
 
+ul {
+    margin: 0;
+    padding: 0;
+    padding-left: 2%;
+}
 
 /* CSS for navbar */
 nav {
@@ -28,17 +33,37 @@ nav {
     text-align: right;
 }
 
-nav li {
+.fa-bars {
+    display: inline-block;
+    text-align: right;
+    color: white;
+}
+
+#toggle {
+    display: none;
+}
+
+.fa-bars:hover {
+    cursor: pointer;
+}
+
+nav ul {
+    display: none;
+}
+
+#toggle:checked ~ .nav-links {
     display: inline;
+}
+
+nav li {
     list-style: none;
     margin-left: 1%;
+    display: inline-block;
 }
 
 nav a {
-    font:13px 'Helvetica Neue Light';
-    font-weight: 300;
+    font: 300 13px 'Helvetica Neue Light';
     color: white;
-    display: inline;
     text-decoration: none;
 }
 
@@ -55,6 +80,7 @@ nav .active {
     padding: 0;
     font-size: 18px;
     float: left;
+    display: inline-block;
 }
 
 
@@ -226,6 +252,6 @@ img {
     margin: 2% auto;
 }
 
-.fa {
+.fa-twitter {
     color: grey;
 }
