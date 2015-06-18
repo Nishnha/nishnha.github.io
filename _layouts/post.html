@@ -9,6 +9,6 @@ permalink: /posts/:title
         <div class="date"><p>{{ page.date | date: "%B %-d, %Y" }}</p></div>
         <div class="article">{{ content }}</div>
         <p><a href="#top" class="top">Back to Top</a></p>
+        {% include disqus.html %}
     </div>
-    {% include disqus.html %}
 </div>

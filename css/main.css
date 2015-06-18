@@ -69,7 +69,7 @@ nav .active {
 /* CSS for all pages */ 
 .page {
     width: 55em;
-    background: white;
+    background-color: white;
     margin: 0 auto;
 }
 
