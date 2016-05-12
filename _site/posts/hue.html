@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Gives the page title as {title} (medium dash) Nishnha if title, otherwise as Nishnha -->
+    <title>Hue — a functional programming language for fun & play &mdash; Nishnha</title>
+
+    <!-- loads Fontawesome -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Poly:400,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Acme' rel='stylesheet' type='text/css'>
+    
+    <!-- loads mrmrs colors -->
+    <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
+    
+    <!-- computer screens -->
+    <link href="/css/main.css" rel="stylesheet" media="(min-width: 769px)">
+    
+    <!-- small devices -->
+    <link href="/css/phone.css" rel="stylesheet" media="(max-width: 768px)">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+    
+    <!-- 301 for /posts/xyz/index.html -->
+    <link rel="canonical" href="/posts/hue" />
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+</head>
+
+<body id="top">
+    <nav id="navbar">
+        <input type="checkbox" name="navbar" value="toggle" id="toggle">
+        <label class="toggle" for="toggle"><i class="fa fa-lg fa-bars"></i></label>
+        
+        <a class="logo" href="/">nishnha.me</a>
+        <ul class="nav-links">
+            <li><a href="/archive"  title="A list of all my posts">Archive</a></li>
+            <li><a href="/projects"  title="Some of my current projects">Projects</a></li>
+            <li><a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a></li>  
+            <li><a href="/about"  title="About me">About Me</a></li>
+        </ul>
+    </nav>
+        
+    <div class="page">
+    <div class="content">
+        <div class="title"><h1>Hue — a functional programming language for fun & play</h1></div>
+        <div class="date"><p>May 14, 2012</p></div>
+        <div class="article"><p><a href="https://github.com/rsms/hue">Hue</a> is one of my latest hobby projects that didn’t die after a week. It’s a functional programming language, in a sense. There are no statements in this language, but everything is an expression. An expression does something funky and returns something—hopefully—even funkier. That includes <code class="highlighter-rouge">if..then..else</code> as well as logical tests and functions.</p>
+
+<p>Anyhow, this hobby language of mine is still very much in flux and I’ll probably change its syntax and behavior a few times before I’m really happy with it. Haskell, Erlang and Clojure all have some pretty cool features but I’ve never been friends with their syntaxes. Me wants something closer to Python. Me write language.</p>
+
+<p>A programming language is in its essence a Human-Computer Interface. I’ve done these things in the past, for example the <a href="https://github.com/rsms/move">Move programming language</a>. This time I wanted to write everything myself, starting at the instructions that the computer executes and all the way up to the runtime library, idioms, design opinions and concepts.</p>
+
+<p>So far I’ve spent evenings and weekends during the last five weeks hacking on this, bust more so I’ve been reading conceptual stuff, like Joe Armstrong’s thesis paper “<a href="http://www.sics.se/~joe/thesis/armstrong_thesis_2003.pdf">Making reliable distributed systems in the presence of software errors</a>” (chapters 1 and 2), where Joe dissects the inherent problems with trying to model the real world using a non-1:1 mapping (e.g. imperative programming that fakes concurrency) and so forth.</p>
+
+<h2 id="from-hue-to-target-assembly">From Hue to target assembly</h2>
+
+<p>A simple and completely useless program that contains a function which multiplies two integers with 9 and each other, then divides that with 4 and returns the result:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>foo = ^(x, y Int) Int: z = x * y * 9
+                       z / 4
+a = 19
+b = foo 4 (5*10*a)  # =&gt; 8550
+</code></pre>
+</div>
+
+<p>Note a few things:</p>
+
+<ul>
+  <li>
+    <p>Whitespace is significant. Like in the Python programming language, a colon “:” character denotes that a block of expressions follow. When the line indentation level drops from whatever level the expression that owns the “:” character is at, the block is terminated. The <code class="highlighter-rouge">foo</code> function’s block contains two expressions.</p>
+  </li>
+  <li>
+    <p>Types are inferred. The language is strongly typed and in case the compiler is unable to infer the type, it will yield a compilation error. No types are inferred at runtime, which means that very few—or even no—errors related to types and value passing can happen when the program is run.</p>
+  </li>
+  <li>
+    <p>Functions are expressions and not a “special” thing. Functions can be passed around just like any other value.</p>
+  </li>
+  <li>
+    <p>Variables are actually just aliases and usually “folded” (removed and their values is just put in place) by the compiler.</p>
+  </li>
+</ul>
+
+<p>Let’s compile this program:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>hue hello.hue hello.ll
+</code></pre>
+</div>
+
+<p>And look at the <a href="http://llvm.org/">LLVM</a> IR code that the Hue compiler generates:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>define i64 @main() nounwind {                               # 1
+  %foo_res = call i64 @"hello$foo"(i64 4, i64 950)          # 2
+  ret i64 0                                                 # 3
+}
+
+define private i64 @"hello$foo"(i64 %x, i64 %y) nounwind {  # 4
+  %multmp = mul i64 %x, %y                                  # 5
+  %multmp1 = mul i64 %multmp, 9                             # 6
+  %divtmp = sdiv i64 %multmp1, 4                            # 7
+  ret i64 %divtmp                                           # 8
+}
+</code></pre>
+</div>
+
+<p>The Hue compiler generates LLVM <a href="http://llvm.org/docs/LangRef.html">intermediate representation code</a>. Similar to what is output by e.g. Java and .NET compilers when an object file/program is built. LLVM is an amazing piece of compiler infrastructure software that enables a whole slew of features like native machine code generation, code optimization, etc. Going back to the above IR code, we see what actually happened to our program. I’ve given the lines above numbers, which we are referring to here:</p>
+
+<ol>
+  <li>
+    <p>@main() is the entry point of our module. Or program in this case.</p>
+  </li>
+  <li>
+    <p>We call the function <code class="highlighter-rouge">hello$foo</code> with two 64-bit integer values <code class="highlighter-rouge">4</code> and <code class="highlighter-rouge">5</code>. We expect a return value that is a single 64-bit integer value, which we give the alias “%foo_res”. Notice how the <code class="highlighter-rouge">a = 19</code> and <code class="highlighter-rouge">(5*10*a)</code> expressions where <em>folded</em> into 950 (“i64 950” in the IR above). Because values are constant, the compiler can “execute” obvious isolated parts of the program.</p>
+  </li>
+  <li>
+    <p>Our module returns control, with the 64-bit integer value <code class="highlighter-rouge">0</code>, to whatever called it (in this case, our program exists with status <code class="highlighter-rouge">0</code>).</p>
+  </li>
+  <li>
+    <p>This is where our function lives. “private” means that the function is only used inside this module, and “i64” means it returns a 64-bit integer value (Hue’s “Int” type is a 64-bit integer). The function takes two parameterized arguments which both are 64-bit integers and gives those parameters the aliases “%x” and “%y”.</p>
+  </li>
+  <li>
+    <p>We ask the computer to multiply the two values behind the aliases “%x” and “%y” and give the resulting value an alias of “%multmp”.</p>
+  </li>
+  <li>
+    <p>Again, we instruct the computer (these are so called “instructions”) to multiply two values: The result of multiplying “%x” and “%y”, which we did at line 5, with the number <code class="highlighter-rouge">9</code> and alias the result as “%multmp1”.</p>
+  </li>
+  <li>
+    <p>We divide the “%multmp1” value with the number <code class="highlighter-rouge">4</code> and alias the result as “%divtmp”.</p>
+  </li>
+  <li>
+    <p>We return the value behind “%divtmp” to the caller.</p>
+  </li>
+</ol>
+
+<p>If we generate assembly for x86_64 (basically machine instructions), we get roughly the following:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  .section __TEXT,__text,regular,pure_instructions
+  .globl  _main
+  .align  4, 0x90
+_main:                          ## 1
+  pushq   %rax
+  movl    $4, %edi              ## 2 (1/4) 
+  movl    $950, %esi            ## 2 (1/4)
+  callq   L_hello$foo           ## 2 (1/4)
+  xorl    %eax, %eax            ## 3 (2/3)
+  popq    %rdx                  ## 3 (3/3)
+  ret                           ## 3 (4/3) ...
+  .align  4, 0x90
+L_hello$foo:
+  imulq   %rsi, %rdi            
+  leaq    (%rdi,%rdi,8), %rcx
+  movq    %rcx, %rax
+  sarq    $63, %rax
+  shrq    $62, %rax
+  addq    %rcx, %rax
+  sarq    $2, %rax
+  ret
+</code></pre>
+</div>
+
+<p>Yeah, I know. This code gets scarier and scarier, but we can see how closely LLVM IR maps to target assembly, but we also understand the complexity of modeling something simple as the initial Hue program on x86_64 assembler.</p>
+
+<p>We can run our program, which by the way doesn’t really do anything, either straight through LLVM as JIT-ed code using <code class="highlighter-rouge">lli hello.ll</code> or generate an object file and link it as a program:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>llvm-as -o=- hello.ll | llvm-ld -native -o=hello -
+./hello
+</code></pre>
+</div>
+
+<p>Functional programming has for a long time been the toolbox of mathematicians and CS ninjas with beards (Johan and Erik — I’m lookin’ at you). My guess is that math people—clever fellas—invented these things and created syntaxes that fell natural to them. I never really payed attention to math in school and have no math education beyond the very basics, like multiplication, yet I have come to realize the awesomeness of math and its concepts. So how about we take the awesomeness of functional programming—high modularity and code re-use, testability, stability, etc—to us programming peasants of Python, JavaScript, BASIC and Java? Perhaps this project will be an attempt on that, or perhaps not.</p>
+
+<h2 id="a-performant-immutable--persistent-vector-implementation">A performant immutable &amp; persistent vector implementation</h2>
+
+<p>Besides rambling about some yet-another-hobby-language, I wanted to talk about this one awesome, concrete thing that has come out of this project: An immutable persistent vector inspired by and partly ported from <a href="http://clojure.org/">Clojure</a>’s PersistentVector. With this approach, you can freely manipulate a vector data structure concurrently without locking and more importantly without causing imperative situations where expected state is different depending on outside, out-of-our-control circumstances.</p>
+
+<p>Impressive numbers: Starting with the empty vector and appending one single item at a time until we reach one million takes roughly 200ms on a single 3.4 GHz i7 core. That is an average of 200 nanoseconds per append operation. Keep in mind that an append operation effectively creates a new vector — this data structure is in fact immutable, so we have to create a new, derived structure every time we “modify” it. With a traditional array-style structure, where we have N items in a uniform sequence, is cheap to copy when N is reasonably small (like 100 or so), but becomes a real bottleneck (and a problem for concurrent operations) when N grows.</p>
+
+<p>Now, writing to and updating vectors are usually less common that accessing items in them. Pretty convenient then that this implementation offers almost-constant time random access. Technically is a little less than constant, but it’s negligible in my opinion (see comments in <a href="https://github.com/rsms/hue/blob/master/src/runtime/Vector.h">Vector.h</a> for more info).</p>
+
+<p>The source for this implementation is available from the <a href="https://github.com/rsms/hue">Hue GitHub repository</a> together with some unit tests (look in the “test” directory or run the “test” make target).</p>
+
+<p>Numbers from running <code class="highlighter-rouge">make clean test_vector_perf</code>:</p>
+
+<ul>
+  <li>N = 100 (this run takes the unfortunate initial impact of lazy-loaded symbols)
+    <ul>
+      <li>Inserting 100 values: 0.028 ms (avg 280 ns/insert)</li>
+      <li>Accessing all 100 values: 0.002 ms (avg 20 ns/access)</li>
+    </ul>
+  </li>
+  <li>N = 100 000
+    <ul>
+      <li>Inserting 100000 values: 20.722 ms (avg 207.22 ns/insert)</li>
+      <li>Accessing all 100000 values: 0.531 ms (avg 5.31 ns/access)</li>
+    </ul>
+  </li>
+  <li>N = 1 000 000
+    <ul>
+      <li>Inserting 1000000 values: 204.391 ms (avg 204.391 ns/insert)</li>
+      <li>Accessing all 1000000 values: 5.171 ms (avg 5.171 ns/access)</li>
+    </ul>
+  </li>
+  <li>N = 10 000 000
+    <ul>
+      <li>Inserting 10000000 values: 2002.78 ms (avg 200.278 ns/insert)</li>
+      <li>Accessing all 10000000 values: 59.592 ms (avg 5.9592 ns/access)</li>
+    </ul>
+  </li>
+  <li>N = 100 000 000
+    <ul>
+      <li>Inserting 100000000 values: 19741.9 ms (avg 197.419 ns/insert)</li>
+      <li>Accessing all 100000000 values: 674.349 ms (avg 6.74349 ns/access)</li>
+    </ul>
+  </li>
+</ul>
+
+<p>We can reason that for N up to at least 100 million, both insertion and random access is close to constant time complexity. It’s not nearly as fast as a traditional mutable vector which grows uniform regions of memory (e.g. std::vector or a plain C array), but given it’s immutable property, this is very good.</p>
+
+<p>Source code and other goodies are available at <a href="https://github.com/rsms/hue">github.com/rsms/hue</a>.</p>
+</div>
+        <p><a href="#top" class="top">Back to Top</a></p>
+        <div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'nishnha'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+    </div>
+</div>
+
+    <div id="footer">
+        <a href="http://twitter.com/nishnha" target="_blank" title="Follow me on Twitter"><i class="fa fa-twitter fa-2x"></i></a>
+    </div>
+</body>
+
+</html>

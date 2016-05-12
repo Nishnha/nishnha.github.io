@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Gives the page title as {title} (medium dash) Nishnha if title, otherwise as Nishnha -->
+    <title>Traffic lights are dancing &mdash; Nishnha</title>
+
+    <!-- loads Fontawesome -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Poly:400,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Acme' rel='stylesheet' type='text/css'>
+
+
+    <!-- loads mrmrs colors -->
+    <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
+
+    <!-- computer screens -->
+    <link href="/css/main.css" rel="stylesheet" media="(min-width: 769px)">
+
+    <!-- small devices -->
+    <link href="/css/phone.css" rel="stylesheet" media="(max-width: 768px)">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- 301 for /posts/xyz/index.html -->
+    <link rel="canonical" href="/2011/03/08/traffic-lights-are-dancing.html" />
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="top">
+
+    <nav id="navbar">
+    <input type="checkbox" name="navbar" value="toggle" id="toggle">
+    <label class="toggle" for="toggle"><i class="fa fa-lg fa-bars"></i></label>
+
+	<a class="logo" href="/">nishnha.me</a>
+    <ul class="nav-links">
+        <li><a href="/archive"  title="A list of all my posts">Archive</a></li>
+        <li><a href="/projects"  title="Some of my current projects">Projects</a></li>
+        <li><a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a></li>
+        <li><a href="/about"  title="About me">About Me</a></li>
+    </ul>
+</nav>
+
+    <div class="page">
+    <div class="content">
+        <div class="title"><h1>Traffic lights are dancing</h1></div>
+        <div class="date"><p>March 8, 2011</p></div>
+        <div class="article"><p>Recently Apple released the App Store for Macs (that is, a way to distribute and purchase applications in OS X). The App Store application has received a lot of criticism — both for it’s initially buggy technical implementation but foremost for the non-standard and “off-Apple” style user interface.</p>
+
+<p>The probably most discussed topic surrounding its UI is the rather radical moving of the window control buttons aka “traffic lights”:</p>
+
+<p><img src="http://farm6.static.flickr.com/5255/5509185504_7edc4531c8_o.png" alt="Comparison of OS X window controls" /></p>
+
+<p>Now, from a purely aesthetic perspective this was a fairly good move as the “traffic lights” align nicely with other parts of the window header to create visual balance. But interaction design is not art, it’s rather closer to “architecture”.</p>
+
+<p>A well-designed human-computer interface is a winner if it ultimately <strong><em>helps the user to achieve what she is trying to accomplish with minimal effort</em></strong> (from her part). This statement does not discard aesthetics as an important factor nor does it imply aesthetic as having anything to do with the success of interaction design. Aesthetic help in most cases but does not alone accomplish the above statement, or “goal” if you will.</p>
+
+<p>Let’s get a little more concrete in our explanation of the problem with moving these “traffic lights”. In the following illustration we compare the “hit area” (the active area in which you can click) for the window close button, based on the OS X standard position.</p>
+
+<p><img src="http://farm6.static.flickr.com/5099/5509224988_2313b8e601_o.png" alt="Hit area comparison" /></p>
+
+<p>Now, you might think “Hey, I have eyes! I can see where I click.” which isn’t a false assertion, however—and in fact—most things you do are executed through <a href="http://en.wikipedia.org/wiki/Spatial_memory">spatial memory</a> rather than by purely visual aid. That is, you learn where to click and you stop looking.</p>
+
+<p>This is a key concept in interaction design: <strong><em>Minimize <a href="http://en.wikipedia.org/wiki/Cognitive_load">cognitive load</a></em></strong>.</p>
+
+<p>In a system where e.g. a window close button has a fixed position in a window (area) your brain is very good at translating your <a href="http://en.wikipedia.org/wiki/Spatial_memory">spatial memory</a> of where that close button is from a sort of <em>“relative”</em> memory into <em>absolute</em> coordinates on the screen. Our brains are very good at these kinds of things, so they are a versatile tool in the field of interaction design. So by moving around the “traffic lights” you force the user to employ <a href="http://en.wikipedia.org/wiki/Sense#Sight">visual aid</a> when about to use the “traffic lights”, which in turn drastically <em>increases cognitive load</em>.</p>
+
+<p>In my opinion, the “traffic lights” are a set of highly standardized and widely used UI controls in the Mac OS environment and should also have strict standard screen locations and behavior.</p>
+
+<p>Is this really so ugly (it’s <em>a bit</em> ugly I must admit) that making it (aesthetically) prettier is worth the price of lowering the user’s performance?</p>
+
+<p><img src="http://farm6.static.flickr.com/5220/5509315984_cefb27c6dd_o.png" alt="Corrected window controls" /></p>
+
+<p>Respected Mac-sphere writer <a href="http://daringfireball.net/2011/01/uniformity_vs_individuality_in_mac_ui_design">John Gruber states</a>:</p>
+
+<blockquote>
+  <p>In Mac OS X, Apple began experimenting — especially in their flagship apps. Whether this change has been for better or for worse is certainly debatable, but there can be no debate that the mores of Mac UI designers have changed. Apple sets the tone, for better or for worse. Always has, always will.</p>
+</blockquote>
+
+<p>I guess he’s right. Historically Apple has set the direction for the Mac OS user interface, but ultimately the community (e.g. we) decide what flies and what doesn’t. For starters, the <a href="http://chromium.org/">Chromium</a> team responsible for <a href="http://www.chromium.org/user-experience">user experience</a> should follow and help maintain the OS X standards and revert into standard “traffic lights”.</p>
+
+<p>And then there’re the fugly App Store and iTunes icons, but let’s save some anger &amp; frustration for another day ;)</p>
+
+        	<p class="backToTop"><a href="#top" class="top">Back to Top</a></p>
+		</div>
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'nishnha'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+    </div>
+</div>
+
+	<div id="footer">
+    <a href="http://twitter.com/nishnha" target="_blank" title="Follow me on Twitter"><i class="fa fa-twitter fa-2x"></i></a>
+</div>
+
+
+</body>
+
+</html>

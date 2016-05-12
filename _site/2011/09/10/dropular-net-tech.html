@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Gives the page title as {title} (medium dash) Nishnha if title, otherwise as Nishnha -->
+    <title>Designing a modern web-based application — Dropular.net &mdash; Nishnha</title>
+
+    <!-- loads Fontawesome -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Poly:400,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Acme' rel='stylesheet' type='text/css'>
+
+
+    <!-- loads mrmrs colors -->
+    <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
+
+    <!-- computer screens -->
+    <link href="/css/main.css" rel="stylesheet" media="(min-width: 769px)">
+
+    <!-- small devices -->
+    <link href="/css/phone.css" rel="stylesheet" media="(max-width: 768px)">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- 301 for /posts/xyz/index.html -->
+    <link rel="canonical" href="/2011/09/10/dropular-net-tech.html" />
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="top">
+
+    <nav id="navbar">
+    <input type="checkbox" name="navbar" value="toggle" id="toggle">
+    <label class="toggle" for="toggle"><i class="fa fa-lg fa-bars"></i></label>
+
+	<a class="logo" href="/">nishnha.me</a>
+    <ul class="nav-links">
+        <li><a href="/archive"  title="A list of all my posts">Archive</a></li>
+        <li><a href="/projects"  title="Some of my current projects">Projects</a></li>
+        <li><a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a></li>
+        <li><a href="/about"  title="About me">About Me</a></li>
+    </ul>
+</nav>
+
+    <div class="page">
+    <div class="content">
+        <div class="title"><h1>Designing a modern web-based application — Dropular.net</h1></div>
+        <div class="date"><p>September 10, 2011</p></div>
+        <div class="article"><p><img src="http://farm7.static.flickr.com/6191/6134324977_eca6c1f6e0_o.png" width="32" height="32" align="right" /><a href="http://rsms.me/2010/04/21/dropular-released.html">One and a half years ago</a> me and <a href="http://suprb.com/">Andreas</a> released a new version of <a href="http://dropular.net/">dropular.net</a> — a new kind of web app that runs completely in the browser. Today, this approach to designing web-based applications running client-side has become popular, so I thought I’d share some of the issues, approaches and design choices made during the development of Dropular.</p>
+
+<p>I designed Dropular just as I would design a desktop application — the UI and related logic runs on the host computer (client). The host knows how to present a GUI and the host knows about user input, end-user’s environment state and so on, making UI code running on the client-side the natural choice. Then again, there’s always data. Dropular.net communicates with one or more backend <em>access points</em> to read and write data, verify authentication and so on.</p>
+
+<p>Basically, we serve only data from the access point and run almost all code in the client web browser:</p>
+
+<p><a href="http://hunch.se/stuff/dropular-tech-1.pdf"><img src="http://farm7.static.flickr.com/6206/6134826422_2a85b04fe3_o.png" alt="Figure 1" /></a></p>
+
+<p>When a client visits dropular.net, three files are sent as the response: <em>index.html</em>, <em>index.css</em> and <em>index.js</em> — view, layout and logic, respectively.</p>
+
+<p><a href="http://farm7.static.flickr.com/6171/6134847226_a0cf033b1e_o.png"><img src="http://farm7.static.flickr.com/6171/6134847226_c3ae438acc_t.jpg" align="right" /></a> If you view the source of any of these files you might notice that the code looks suspiciously computer generated. That’s because it <em>is</em> computer generated. As part of Dropular, I wrote a web-app client-server kit dubbed <em><a href="https://github.com/rsms/oui">oui</a></em> which given a source tree compiles and produces a runnable index.html file (together with an index.js and index.css file).</p>
+
+<p>Oui provides a CommonJS module interface and <a href="http://farm5.static.flickr.com/4082/4864279573_305cc9499d_o.png">groups together LESS/CSS, JS and HTML into logical modules</a> which are name-spaced.</p>
+
+<h2 id="demo-and-source-code">Demo and source code</h2>
+
+<p>First, let’s have a look at the actual product and experience (since it’s invite-only). This is a screen cast of me using the current, live website:</p>
+
+<iframe width="640" height="390" src="https://www.youtube.com/embed/N7l1OF0Pjn0?rel=0&amp;hd=1" frameborder="0" allowfullscreen=""></iframe>
+
+<p>Now, here’s a redacted snapshot of the Dropular source code: <a href="https://github.com/rsms/dropular-2010">https://github.com/rsms/dropular-2010</a>. Note that this code depends on <a href="https://github.com/rsms/oui">oui</a> and a few other open source projects.</p>
+
+<h2 id="authentication">Authentication</h2>
+
+<p><img src="http://farm7.static.flickr.com/6208/6138547704_ef376ccd13_o.png" width="32" height="32" alt="auth" align="left" />In a model where the logic lives in the client, security is a different nut to crack. You need to deal with automatic re-authentication, network reconnection, server fade-over, etc.</p>
+
+<p>Authentication is performed in a two-step process, allowing an intermediate representation to be cached in the client, enabling automatic fail-over to other access points and automatic login when later visiting the site.</p>
+
+<p><a href="http://hunch.se/stuff/dropular-tech-2.pdf"><img src="http://farm7.static.flickr.com/6067/6137952991_dc8f75da5d_o.png" alt="Figure 2" /></a></p>
+
+<p><em>It goes a little something like this:</em></p>
+
+<p>[Step 1] Client sends a request for challenge:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>← GET /session/sign-in?username=John
+</code></pre>
+</div>
+
+<p>[Step 2] The server:</p>
+
+<ol>
+  <li>Verifies and fetches information about the user related to <code class="highlighter-rouge">username</code></li>
+  <li>Generates a UUID that is uses as a session ID</li>
+  <li>Creates a temporary session object in memory, associated with that session ID</li>
+  <li>Generates a <code class="highlighter-rouge">nonce</code> using: <code class="highlighter-rouge">BASE16( SHA1_HMAC( server_secret, timestamp ":" random_data ) )</code></li>
+  <li>Puts the <code class="highlighter-rouge">nonce</code> in the user’s session and registers a hook to clear the NONCE upon next request containing the associated session ID.</li>
+  <li>Responds to the client with the nonce and the user’s canonical username:</li>
+</ol>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>→ 200 OK {"nonce":&lt;nonce&gt;, "sid":&lt;session_id&gt;, "username":"john"}
+</code></pre>
+</div>
+
+<p>[Step 3] The client:</p>
+
+<ol>
+  <li>Stores the <code class="highlighter-rouge">session_id</code> locally, to be used for future requests</li>
+  <li>Displays a user interface where the user inputs her username and password</li>
+  <li>Calculates the <code class="highlighter-rouge">passhash</code>: <code class="highlighter-rouge">BASE16( SHA1( username ":" password ) )</code></li>
+  <li>Calculates the <code class="highlighter-rouge">auth_response</code>: <code class="highlighter-rouge">BASE16( SHA1_HMAC( auth_nonce, passhash ) )</code></li>
+  <li>Sends another request, this time with a payload, to the server:</li>
+</ol>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>← POST /session/sign-in {"sid":&lt;session_id&gt;, "username":"john", "auth_response":&lt;auth_response&gt;}
+</code></pre>
+</div>
+
+<p>[Step 4] The server:</p>
+
+<ol>
+  <li>Calculates an <code class="highlighter-rouge">auth_token</code>: <code class="highlighter-rouge">timestamp ":" BASE62( SHA1_HMAC( passhash, server_secret ":" timestamp ) )</code></li>
+  <li>Saves the <code class="highlighter-rouge">auth_token</code> in the user’s session object</li>
+  <li>Verifies the <code class="highlighter-rouge">auth_response</code> sent by the client: <code class="highlighter-rouge">BASE16( SHA1_HMAC( nonce, passhash ) ) == auth_response</code></li>
+  <li>Deletes the <code class="highlighter-rouge">nonce</code> from the user’s session</li>
+  <li>Responds with the <code class="highlighter-rouge">auth_token</code> and a complete description of the user (name, email… things like that):</li>
+</ol>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>→ 200 OK {"auth_token":"xyz", "sid":"xyz", "user":{&lt;user details&gt;}}
+</code></pre>
+</div>
+
+<p>The client stores the <code class="highlighter-rouge">auth_token</code> locally, to be used for future automatic re-authentication.</p>
+
+<p>Later in time, when the client sends whatever request to the server and includes its <code class="highlighter-rouge">session_id</code>, the server will evaluate the following logic:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>if session = Session.get(session_id):
+  if session.auth_token:
+    allow_request()
+  else:
+    perform [Step 4]
+else:
+  session = Session.new()
+  → 401 {"sid":session.id}
+  perform [Step 3], starting at point 4, and finally re-send original request (client)
+</code></pre>
+</div>
+
+<p>Since [Step 3], point 4 and forward does not require user input, re-authentication—and thus backend fade-over—can be done completely in the background. The user experience will the that the original request (e.g. a click on a button to show some content) takes a little longer time than it usually would.</p>
+
+<h2 id="user-interface">User interface</h2>
+
+<p><img src="http://farm7.static.flickr.com/6159/6138217565_6a450bb8d8_o.png" width="128" height="128" alt="Layout" align="right" />Since the user interface is created, rendered and maintained solely by the client (i.e. web browser), there needs to be some structure. The HTML DOM is actually a great view representation and in combination with CSS gives you control of each pixel on the screen, and at the same provides a nice separation between view structure and layout. However, these kinds of websites tend to have many different “screens”, or view states if you will, quickly making your regular HTML and CSS code a freaking mess.</p>
+
+<p>What we did was to have a mind set as if we where writing a desktop application — we define logical components in folders and files that reflect the structure of these components. We then <em>process</em>, or <em>compile</em>, these sources into machine-and-network optimized code (HTML, CSS &amp; JavaScript), just like you do with “regular” software development.</p>
+
+<p>A nice side-effect of having an intermediate “compile” step is that you can write your source code in whatever language suits you and your project — your no longer limited to the languages and coding styles dictated by web browsers. For instance, you can define your layout code in <a href="http://lesscss.org/">LESS</a> instead of CSS and write your logic in <a href="https://github.com/rsms/move">Move</a> instead of JavaScript.</p>
+
+<h3 id="downsides-to-a-compiling-approach">Downsides to a “compiling” approach</h3>
+
+<p>This approach obviously has some downsides, one of them relatively painful: debugging. Since the code you’re running does not directly reflect the source files you have in your structure of logical modules, finding and fixing a problem becomes harder as you need to back-track and search your source for certain things. In the end, we took a pragmatic approach to this and simply generated human-readable code that’s annotated with the path names of the source.</p>
+
+<h3 id="templates-in-the-dom">Templates in the DOM</h3>
+
+<p>For views that aren’t permanent (most views aren’t) we are using HTML templates, kept inside the DOM as data-only node trees:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;module id="drops-drop"&gt;
+  &lt;drop&gt;
+    &lt;h1&gt;&lt;/h1&gt;
+    &lt;img&gt;
+      ...
+  &lt;/drop&gt;
+&lt;/module&gt;
+</code></pre>
+</div>
+
+<p>With CSS making any <code class="highlighter-rouge">module</code> node tree a data node tree, exempt from layout and display:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>module { display:none; }
+</code></pre>
+</div>
+
+<p>Some module logic (e.g. JavaScript code) then clone appropriate parts of its template, which is made available to a module using the <code class="highlighter-rouge">__html</code> convenience variable:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>// Register a hook for a certain URL
+oui.anchor.on(/^drops\/(&lt;id&gt;[a-zA-Z0-9]{25,30})/, function(params, path, prevPath) {
+  // Load data for drop with &lt;id&gt;
+  oui.app.session.get('drops/drop/'+params.id, params, function(err, drop) {
+    // Make a new instance of the &lt;drop&gt; child node tree of our HTML template:
+    var view = __html('drop');
+    // Configure the view
+    view.find('h1').text(drop.title || drop.origin);
+    ...
+    // Finally add the view to an active part of the DOM
+    mainView.setView(view);
+  });
+});
+</code></pre>
+</div>
+
+<h2 id="data-storage-and-the-problem-of-many-to-many">Data storage and the problem of many-to-many</h2>
+
+<p><img src="http://farm7.static.flickr.com/6065/6139582408_447a0c7b53_o.png" width="128" height="128" alt="data" align="right" />Since we have a very clean separation of data and presentation, <a href="http://couchdb.apache.org/">CouchDB</a> made a lot of sense to us. In <a href="http://couchdb.apache.org/">CouchDB</a>, data is represented by logical structured blobs called “documents” — basically it’s a key-to-JSON store.</p>
+
+<p>Dropular.net has a feature where you can follow any number of other users and look at a feed of images created by all those users. In data terms, this is a many-to-many relationship which when using a RDBMS like MySQL is expensive (computational wise). With <a href="http://couchdb.apache.org/">CouchDB</a> on the other hand, many-to-many relationships are very easy to define and they are cheap to maintain!</p>
+
+<p>Basically, we lazily define a <a href="http://couchdb.apache.org/">CouchDB</a> view per user <code class="highlighter-rouge">_design/user-drops-USERNAME/_view/from-following</code> with the following <em>map</em> function:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>function (doc) {
+  var following = %FOLLOWING;
+  var user, createdBy, created; // find lowest timestamp
+  for (user in doc.users) {
+    var t = doc.users[user][0];
+    if (!created || t &lt; created) {
+       created = t;
+       createdBy = user;
+    }
+  }
+  for (user in doc.users) {
+    for (i=following.length; --i &gt; -1;) {
+      if (following[i] === user)
+        emit([created, user], doc._id);
+    }
+  }
+}
+</code></pre>
+</div>
+
+<p>Example: <code class="highlighter-rouge">GET http://dropular.net/api/users/rsms/following/drops</code> →</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w"> </span><span class="nt">"drops"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9uQyA5tTraIkiVHG5l1XdPRHwfg"</span><span class="p">,</span><span class="w"> </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1274772176060</span><span class="p">,</span><span class="s2">"suprb"</span><span class="p">]</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cytCrjVJPQOCXiSqF1MV6GqPEt1"</span><span class="p">,</span><span class="w"> </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1273706969465</span><span class="p">,</span><span class="s2">"suprb"</span><span class="p">]</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">2701</span><span class="p">,</span><span class="w">  </span><span class="nt">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Now, <a href="http://couchdb.apache.org/">CouchDB</a> will make sure to run this function every time any related document is modified, added or removed, effectively keeping all relevant “from-following” indexes up-to-date. <a href="http://couchdb.apache.org/">CouchDB</a> is very good at these incremental updates, so even though this looks complex and slow, this function is compiled to an internal representation and <em>only run on the modified values</em>, not the complete data set, making an update both atomic and complete within a few milliseconds.</p>
+
+<p>As part of Dropular, I wrote a <a href="http://nodejs.org/">Node.js</a> module for dealing with CouchDB that has a very low level of abstraction: <a href="https://github.com/rsms/node-couchdb-min">https://github.com/rsms/node-couchdb-min</a>.</p>
+
+<h2 id="access-points-aka-the-server">Access points aka The Server</h2>
+
+<p>As any app that centralizes data, authentication, etc, you need something to serve as the hub. We call these access points, as they are the contact surface between the client application and whatever lives in the central backend (CouchDB, AWS services, etc). Since I’ve been involved in <a href="http://nodejs.org/">Node.js</a> for a long time, <a href="http://nodejs.org/">Node.js</a> was a given choice. Actually, this was such a successful solution that we sustained over 1000 API requests/second on <em>one single small AWS EC2 instance</em> with less than 1.0 in load (during our initial release which caused a thundering heard-like wave of visitors). Even for a commercial website, that number is considered good.</p>
+
+<h3 id="scalability-as-an-effect">Scalability as an effect</h3>
+
+<p>The Oui app kit supports virtually an infinite number of access points to be used, making this approach of running all the logic in the client an extremely scalable solution.</p>
+
+<p><a href="http://hunch.se/stuff/dropular-tech-3.pdf"><img src="http://farm7.static.flickr.com/6158/6139077631_9a7445b055_o.png" alt="Figure 3" /></a></p>
+
+<p>— Just add as many access points as you need, effectively scaling close-to linearly (at least as close to linear as your backend dependencies allow).</p>
+
+<p>A model which relies on persistent sessions or rendering of the user interface in a central location (i.e. on the server) can never reach this level of scalability-to-price/complexity ratio.</p>
+
+<h2 id="today--tomorrow">Today &amp; tomorrow</h2>
+
+<p>Today, 21 months later, the current browser technology allows for even more sophisticated client-and-access-point solutions, where everything from complex image processing (canvas 2D and 3D) to data processing (WebWorkers) can be done client-side. DOM manipulation is much cheaper, JavaScript runs much faster and OAuth 2.0 is an easy-to-use (in contrary to 1.0), suitable authentication schema for these kinds of approaches. 3D-transforms for hardware accelerated, high-performance 2D and 3D user interface effects as well as host-native, fluent animations defined in simple CSS.</p>
+
+<p>I’m really curious to see what’s next — the web is rapidly transforming from a “hacky” document presentation technology to a rich application development and distribution platform with standards that make sense. No more live hacking on FTP servers or behemoth HTML-generating Java servers.</p>
+
+
+        	<p class="backToTop"><a href="#top" class="top">Back to Top</a></p>
+		</div>
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'nishnha'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+    </div>
+</div>
+
+	<div id="footer">
+    <a href="http://twitter.com/nishnha" target="_blank" title="Follow me on Twitter"><i class="fa fa-twitter fa-2x"></i></a>
+</div>
+
+
+</body>
+
+</html>

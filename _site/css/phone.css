@@ -1,15 +1,6 @@
 body {
     color: #444;
-    background:
-        linear-gradient(
-            to right,
-            rgba(0, 47, 75, 0.7),
-            rgba(220, 66, 37, 0.7)
-        );
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+    background-color: white;
     font: normal 20px 'Poly' georgia serif;
     line-height:1.6;
     margin: 0 auto;
@@ -64,7 +55,7 @@ nav li {
 
 nav a {
     font: 300 13px 'Helvetica Neue Light';
-    color: white;
+    color: grey;
     text-decoration: none;
 }
 
@@ -85,10 +76,10 @@ nav .active {
 }
 
 
-/* CSS for all pages */ 
+/* CSS for all pages */
 .page {
     width: 98%;
-    background-color: transparent;
+    background-color: white;
     margin: 0 auto;
 }
 
@@ -116,7 +107,7 @@ nav .active {
     color: #8b8b8b;
     display: inline;
 }
-    
+
 .paginator-post .description {
     display: inline;
     font: 200 17px "Poly"
@@ -166,7 +157,7 @@ nav .active {
 
 /* CSS for posts */
 .content {
-    background: #EEEEEE;
+    background-color: white;
     padding: 5% 5%;
     padding-bottom: 10%;
 }
@@ -249,5 +240,5 @@ img {
 }
 
 .fa-twitter {
-    color: white;
+    color: grey;
 }

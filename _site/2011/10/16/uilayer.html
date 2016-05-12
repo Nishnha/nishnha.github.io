@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Gives the page title as {title} (medium dash) Nishnha if title, otherwise as Nishnha -->
+    <title>Working with WebKit as a UI compositing engine &mdash; Nishnha</title>
+
+    <!-- loads Fontawesome -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Poly:400,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Acme' rel='stylesheet' type='text/css'>
+
+
+    <!-- loads mrmrs colors -->
+    <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
+
+    <!-- computer screens -->
+    <link href="/css/main.css" rel="stylesheet" media="(min-width: 769px)">
+
+    <!-- small devices -->
+    <link href="/css/phone.css" rel="stylesheet" media="(max-width: 768px)">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- 301 for /posts/xyz/index.html -->
+    <link rel="canonical" href="/2011/10/16/uilayer.html" />
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="top">
+
+    <nav id="navbar">
+    <input type="checkbox" name="navbar" value="toggle" id="toggle">
+    <label class="toggle" for="toggle"><i class="fa fa-lg fa-bars"></i></label>
+
+	<a class="logo" href="/">nishnha.me</a>
+    <ul class="nav-links">
+        <li><a href="/archive"  title="A list of all my posts">Archive</a></li>
+        <li><a href="/projects"  title="Some of my current projects">Projects</a></li>
+        <li><a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a></li>
+        <li><a href="/about"  title="About me">About Me</a></li>
+    </ul>
+</nav>
+
+    <div class="page">
+    <div class="content">
+        <div class="title"><h1>Working with WebKit as a UI compositing engine</h1></div>
+        <div class="date"><p>October 16, 2011</p></div>
+        <div class="article"><p><a href="http://rsms.me/uilayer/"><img src="http://farm7.static.flickr.com/6051/6251703327_21546f1449_o.png" alt="UILayer" /></a></p>
+
+<p><a href="http://rsms.me/uilayer/">UILayer</a> provides a JavaScript API on top of WebKit for working with the concept of layers. Instead of manipulating DOM elements using a myriad of mixed concepts, you go though a single, <a href="http://rsms.me/uilayer/#api">well defined API</a>.</p>
+
+<p>If you’re running a WebKit browser (Chrome, Safari, iPhone, iPad, etc), have a go with one of these:</p>
+
+<ul>
+  <li><a href="http://rsms.me/uilayer/examples/flip-book.html">Flip some pages in a flip book</a></li>
+  <li><a href="http://rsms.me/uilayer/examples/perspective.html">Interactive 3D perspective</a></li>
+  <li><a href="http://rsms.me/uilayer/examples/">More examples…</a></li>
+</ul>
+
+<p>Read more at <a href="http://rsms.me/uilayer/">rsms.me/uilayer →</a></p>
+
+        	<p class="backToTop"><a href="#top" class="top">Back to Top</a></p>
+		</div>
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'nishnha'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+    </div>
+</div>
+
+	<div id="footer">
+    <a href="http://twitter.com/nishnha" target="_blank" title="Follow me on Twitter"><i class="fa fa-twitter fa-2x"></i></a>
+</div>
+
+
+</body>
+
+</html>

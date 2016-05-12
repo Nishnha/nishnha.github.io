@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Gives the page title as {title} (medium dash) Nishnha if title, otherwise as Nishnha -->
+    <title>Move — a programming language &mdash; Nishnha</title>
+
+    <!-- loads Fontawesome -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Poly:400,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Acme' rel='stylesheet' type='text/css'>
+
+
+    <!-- loads mrmrs colors -->
+    <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
+
+    <!-- computer screens -->
+    <link href="/css/main.css" rel="stylesheet" media="(min-width: 769px)">
+
+    <!-- small devices -->
+    <link href="/css/phone.css" rel="stylesheet" media="(max-width: 768px)">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- 301 for /posts/xyz/index.html -->
+    <link rel="canonical" href="/2011/03/02/move-programming-language.html" />
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="top">
+
+    <nav id="navbar">
+    <input type="checkbox" name="navbar" value="toggle" id="toggle">
+    <label class="toggle" for="toggle"><i class="fa fa-lg fa-bars"></i></label>
+
+	<a class="logo" href="/">nishnha.me</a>
+    <ul class="nav-links">
+        <li><a href="/archive"  title="A list of all my posts">Archive</a></li>
+        <li><a href="/projects"  title="Some of my current projects">Projects</a></li>
+        <li><a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a></li>
+        <li><a href="/about"  title="About me">About Me</a></li>
+    </ul>
+</nav>
+
+    <div class="page">
+    <div class="content">
+        <div class="title"><h1>Move — a programming language</h1></div>
+        <div class="date"><p>March 2, 2011</p></div>
+        <div class="article"><p>As I’m very interested in human-computer interaction, programming languages and the act of looking at things from a wider perspective, I decided to design a programming language. First, I scribbled down some key points:</p>
+
+<ul>
+  <li>
+    <p>This language should be suitable as a “first programming language” for people not previously familiar with programming computers.</p>
+  </li>
+  <li>
+    <p>As low barrier as possible for running it — i.e. it should run on as many platforms as possible needing as few additional tools as possible.</p>
+  </li>
+  <li>
+    <p>Have a simple and limited set of “words” (language constructs), hopefully aiding the processes of learning how to write programs.</p>
+  </li>
+</ul>
+
+<p>So I spent a full Sunday two weeks ago punching out a prototype implementation which I was so happy with that I’ve decided to continue working with this idea and today I finally wrapped everything together with documentation, a guide and throughly tested code.</p>
+
+<p>I call it <a href="https://github.com/rsms/move">Move</a>. Here is a simple program which print “Hello John” three times:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>hello = ^(name){ "Hello "+name }
+repeat {times: 3} ^{
+  print hello {name: "John"}
+}
+</code></pre>
+</div>
+
+<p>The language is now stable and will probably not change (except for bugs and runtime library expansion) in the near future. JavaScript is normally my “universal”, “go-to” language for everything from crunching log files and doing simple math to writing small networked programs and web sites. However, during these two weeks I’ve used Move instead and it just feels right: I get done quicker, less boiler plate code, easier to read, etc.</p>
+
+<p><a href="http://farm6.static.flickr.com/5214/5492500401_54b711ac5e_o.png">movelangdotorg</a></p>
+
+<p>Move <em>compiles down to optimized JavaScript</em> and can run on any ES3 or higher speced JS platform (like a web browser or Node.js). Move also contains a runtime library which not only provides a few carefully crafted functions but also <em>normalizes the JS environment to the ES5 standard</em>, relieving you from feature-testing for “Object.create” or doing work-arounds for things like “Array.isArray”. Move is open source under a permissive MIT license and available at <a href="https://github.com/rsms/move">https://github.com/rsms/move</a>.</p>
+
+<h2 id="differences-to-javascript">Differences to JavaScript</h2>
+
+<p>As mentioned, Move compiles to JavaScript and runs in any ES3 or more modern JavaScript runtime, so comparing Move to JavaScript comes naturally. The first version of Move was actually a superset of JavaScript, allowing pristine JavaScript inside Move. As the language evolved and was simplified, some changes where made (for instance: “^” always meaning “function” and never meaning “xor”, introducing the “xor” operator).</p>
+
+<p>Here’s a summary of the differences between Move and JavaScript:</p>
+
+<ul>
+  <li>
+    <p><strong>Functions</strong> are declared using one single expression: <code class="highlighter-rouge">^(arg1){...}</code> and can be called using either <strong>keyword arguments</strong> or positional arguments. Functions without arguments can be written as <code class="highlighter-rouge">^{...</code> or <code class="highlighter-rouge">^(){...</code> (parenthesis are optional).</p>
+
+    <ul>
+      <li>
+        <p>In JavaScript, there are two different ways to define a function: using the function expression and the function declaration statement, the latter having subtle restrictions. Move only has function expressions and all but strictly anonymous functions are named, providing a richer stack trace when debugging.</p>
+      </li>
+      <li>
+        <p>As functions, or lambdas, are the key awesomeness of JavaScript and is a very light-weight thing, the “function” keyword and boilerplate argument parens just need to be easier to write. Move uses the “^” keyword and does not enforce <code class="highlighter-rouge">()</code> for argument-less functions.</p>
+      </li>
+      <li>
+        <p>The last statement in a function is automatically returned (the “product” of calling a function).</p>
+      </li>
+      <li>
+        <p>Functions can be called using the <code class="highlighter-rouge">foo {key: value}</code> syntax, passing arguments by name. This greatly increases code readability and eliminates the tedious <code class="highlighter-rouge">foo(null, null, null, null, true)</code> style when only one of many arguments are relevant.</p>
+      </li>
+      <li>
+        <p>Functions can be called using the <code class="highlighter-rouge">foo value, ...</code> syntax, passing arguments in a simple succession. This feature allows Move to have a very limited set of language keywords and instead implement things like print, repeat, create, etc as regular functions. For instance, this allows for creating DSL-like extensions to the language.</p>
+      </li>
+      <li>
+        <p>When defining functions, any argument can be given a default value using either <code class="highlighter-rouge">:</code> or <code class="highlighter-rouge">=</code>. E.g. <code class="highlighter-rouge">foo = ^(bar, baz: 4, names=[], age) {...</code>.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Variables</strong> are implicitly declared – Move will automatically declare (i.e. “create and attach”) a newfound variable in the scope which it first was used. The use of “var” produces a syntax error. A variable will only be declared if there’s no variable with the same name which is reachable from the current scope (this is possible since the Move compiler is AST-aware).</p>
+  </li>
+  <li>
+    <p><strong>No commas</strong> required to terminate expressions. Move will determine when a comma is needed so you don’t have to (and the code gets more readable).</p>
+  </li>
+  <li>
+    <p>No type-coercing <strong>equality operators</strong> – in Move, <code class="highlighter-rouge">==</code> does not perform type coercion and behaves just like <code class="highlighter-rouge">===</code> in JavaScript. Same goes for <code class="highlighter-rouge">!=</code>.</p>
+  </li>
+  <li>
+    <p><strong>@-shorthand</strong> for accessing properties of the <code class="highlighter-rouge">this</code> object. E.g. <code class="highlighter-rouge">this.foo = 5</code> can be written as <code class="highlighter-rouge">@foo = 5</code>.</p>
+  </li>
+  <li>
+    <p><strong>Importing</strong> CommonJS modules can be done using the <code class="highlighter-rouge">import</code> statement. E.g. rather than the tedious <code class="highlighter-rouge">var module1 = require("module1")</code> boilerplate, you can write <code class="highlighter-rouge">import module1</code></p>
+  </li>
+  <li>
+    <p><strong>Exporting</strong> CommonJS modules is aided by the <code class="highlighter-rouge">export</code> statement. E.g. instead of writing <code class="highlighter-rouge">var foo = exports.foo = function () {...</code> you can write <code class="highlighter-rouge">export foo = ^{...</code> (or even <code class="highlighter-rouge">export foo</code> if <code class="highlighter-rouge">foo</code> is defined elsewhere).</p>
+  </li>
+  <li>
+    <p>A small runtime library makes Move <strong>ES5 normalized</strong> even in non-ES5 environments. This means less feature probing and less boiler-plate code. Things like <code class="highlighter-rouge">Array.isArray</code>, <code class="highlighter-rouge">Object.create</code> and <code class="highlighter-rouge">String.prototype.trim</code> are all guaranteed to be available and function according to the ES5 standard.</p>
+  </li>
+</ul>
+
+<p>Move is <strong>designed for humans</strong> which is the reason for why things like variable declarations and statement terminators has been removed – they are simply not part of the essentials or essence of what a programmer should be thinking about. The computer is, or at least should be, better at deciding those things.</p>
+
+<h2 id="function-the-ultimate">Function the ultimate</h2>
+
+<p>The biggest difference to most other programming languages is how functions are created, handled and invoked. In Move (and JavaScript) functions are light-weight, first class objects which <em>should be used</em>. Writing <code class="highlighter-rouge">name = function name(x, y, z) {...</code> quickly becomes a tedious task when whipping up code, so Move simplifies the function expression syntax to <code class="highlighter-rouge">name = ^(x, y, z) {...</code>.</p>
+
+<p>An example:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>delayed_print = ^(message, delay=1000) {
+  after {delay: delay} ^{ print message }
+}
+delayed_print "Hello"                // "Hello" appears 1 second later
+</code></pre>
+</div>
+
+<p>Calling functions with keyword arguments (or “named” arguments if you will) greatly increases readability and thus maintainability of code.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>delayed_print { message: "Hello", delay: 5000 }
+// "Hello" appears 5 seconds later
+</code></pre>
+</div>
+
+<p>Move allows calling function without neither parenthesis nor curly brackets, enabling the use of regular functions to build DSL-like mini-languages. For instance, this program defines a “repeat” function which is then called to invoke an anonymous function three times, producing three “Hello”:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>repeat = ^(times){ ^(block){
+  if (times != undefined)
+    for (i=0; i&lt;times; ++i) if (block(i) == true) break
+  else
+    while (true) if (!block()) break
+}}
+
+repeat {times: 3} ^{
+  print "Hello"
+}
+</code></pre>
+</div>
+
+<p>This works since the “repeat” function produces an anonymous function (which when called invokes another function <em>times</em> number of times) which will be called due the short-hand call style in Move. The invocation above roughly compiles down to the following JavaScript:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>repeat({times: 3})(function () {
+  print("Hello");
+});
+</code></pre>
+</div>
+
+<p>There are other neat effects of the short-hand call style. For instance, consider the following Move code:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>print(JSON.stringify("1,2,3,4,5,1,4".split(",")))
+</code></pre>
+</div>
+
+<p>Which can also be written like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>print JSON "1,2,3,4,5,1,4".split ","
+</code></pre>
+</div>
+
+<p>Move comes with a few but carefully crafted built-in functions (which in true Move style can be manipulated or replaced at will):</p>
+
+<ul>
+  <li><code class="highlighter-rouge">create</code> — create new objects based on other objects (object-oriented programming using differential inheritance).</li>
+  <li><code class="highlighter-rouge">extend</code> — extend an existing object by shallow-copying properties from another object.</li>
+  <li><code class="highlighter-rouge">print</code> — visualize any value.</li>
+  <li><code class="highlighter-rouge">repeat</code> — repeat something (a friendlier approach to “for (i = 0; i &lt; …” and “while (…”.</li>
+  <li><code class="highlighter-rouge">after</code> — perform something after a certain point in time.</li>
+</ul>
+
+<p>The “create” function is used to create new objects semantically based on other objects, achieving a very straight-forward approach to object-oriented programming:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>animal = { type: "an animal",
+           toString: ^{ "I'm " + @type } }
+cat = create animal, { type: "furry" }
+print "Cat: " + cat  // --&gt; "Cat: I'm furry"
+</code></pre>
+</div>
+
+<p>In the above example, “cat” inherits from “animal” — adding, changing or removing properties on “animal” has an effect on what happens when accessing properties of the “cat” object.</p>
+
+<p>Read more about <a href="http://en.wikipedia.org/wiki/Prototype-based_programming">Prototype-based programming</a> and  <a href="http://en.wikipedia.org/wiki/Differential_inheritance">Differential inheritance on Wikipedia…</a></p>
+
+<h2 id="try-to-move">Try to Move</h2>
+
+<p>I recommend checking out the website at movelang.org (<em>website no longer exists</em>) (albeit being a work in progress) as well as the interactive console, perfect for playing around with Move, at movelang.org/try.</p>
+
+<p>For TextMate junkies, there’s also a Move bundle with syntax highlighting, commands for running programs, displaying compiled JavaScript code, AST viewer, etc. <a href="https://github.com/rsms/move/zipball/master">Grab a snapshot of @master</a> and find Move.tmbundle in the “extras” directory.</p>
+
+<h3 id="installing-move-for-nodejs-using-npm">Installing Move for Node.js using NPM</h3>
+
+<p>First, you need to have <a href="http://nodejs.org/">Node.js</a> and <a href="http://npmjs.org/">NPM</a> installed, then in a terminal:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ npm install move
+</code></pre>
+</div>
+
+<p>You should now have both the Move library (compiler and runtime) installed as well as a “move” program which can execute Move scripts.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ move my-move-program.mv
+</code></pre>
+</div>
+
+<p>Or in a Node.js JavaScript file by at one point in time requiring the “move” module (which will enable loading of Move code in Node.js):</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>require('move');
+require('./my-move-program');
+</code></pre>
+</div>
+
+<p>Note that you can not embed Move into JavaScript but must separate the code into .mv files.</p>
+
+        	<p class="backToTop"><a href="#top" class="top">Back to Top</a></p>
+		</div>
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'nishnha'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+    </div>
+</div>
+
+	<div id="footer">
+    <a href="http://twitter.com/nishnha" target="_blank" title="Follow me on Twitter"><i class="fa fa-twitter fa-2x"></i></a>
+</div>
+
+
+</body>
+
+</html>
