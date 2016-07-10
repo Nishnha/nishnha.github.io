@@ -227,30 +227,30 @@ return R(0)
 
 <p>Running a program now that includes a DING operation will cause an error in the VM: “unexpected operation”. We haven’t implemented the DING behavior yet! Operations are (at the time of writing this) implemented in <code>sched_exec.h</code> which is the core of the virtual machine as this is what reads and performs the instructions of a Sol program. It can be summed up like this:</p>
 
-<p>```c
-void Execute(Instr* instructions) {
+<pre><code class="language-c">void Execute(Instr* instructions) {
   Instr* pc = instructions;
   while (1) {
     switch (*++pc) {
     case S_OP_LOADK:
       // Read operands A and B from instruction *pc.
       // Put constant at B into register A.
-      break;</p>
+      break;
 
-<pre><code>case S_OP_MOVE:
-  // Read operands A and B from instruction *pc.
-  // Put value of register B in register A.
-  break;
+    case S_OP_MOVE:
+      // Read operands A and B from instruction *pc.
+      // Put value of register B in register A.
+      break;
 
-...
+    ...
 
-} // switch   } // while } ```
+    } // switch
+  } // while
+}
 </code></pre>
 
 <p>Pretty much a good old switch loop. When this C code is compiled with a modern compiler like Clang or GCC, it will be rather efficient as each of our virtual operations effectively corresponds to only a few machine instructions. This is where we need to add DING.</p>
 
-<p><code>c
-    ...
+<pre><code class="language-c">    ...
     case S_OP_DING:
       // Read operand Buu from instruction *pc.
       uint32_t sound_index = SInstrGetBuu(*pc);
@@ -259,12 +259,11 @@ void Execute(Instr* instructions) {
       SoundPlay(note);
       break;
     ...
-</code></p>
+</code></pre>
 
 <p>Here the type <code>Sound</code> as well as <code>SoundGet</code> and <code>SoundPlay</code> represents some kind of sound playing function that you provide. Now we can write Sol programs that play music:</p>
 
-<p><code>asm
-define melody 0
+<pre><code class="language-asm">define melody 0
   entry:
   DING   0      # play note 0
   DING   1      # play note 1
@@ -272,7 +271,7 @@ define melody 0
   DING   2      # play note 2
   DING   0      # play note 0
   RETURN 0  0   # return
-</code></p>
+</code></pre>
 
 <p>Pling, plong, plong, ding, pling!</p>
 
@@ -375,22 +374,20 @@ define melody 0
 
 <h3 id="example-1-while-x--0-yield-">Example 1: while x &gt; 0 yield …</h3>
 
-<p>While the variable x is greater than zero, decrement <code>x</code> by one and yield to the
+<p>While the variable x is greater than zero, decrement <code>x</code> by one and yield to the<br />
 scheduler, letting other tasks run. Eventually return.</p>
 
-<p><code>py
-def main():
+<pre><code class="language-py">def main():
   x = 5
   while (x &gt; 0):
     x = x - 1
     yield
   return
-</code></p>
+</code></pre>
 
 <p>Assembly:</p>
 
-<p><code>asm
-define main 0
+<pre><code class="language-asm">define main 0
   CONST 5           # K(0) = 5
   CONST 0           # K(1) = 0
   CONST 1           # K(2) = 1
@@ -402,12 +399,11 @@ define main 0
   YIELD  0  0  0    # yield A=type=sched
   JUMP   -5         # PC -= 5 to LE
   RETURN 0  0       # return
-</code></p>
+</code></pre>
 
 <p>Output when running in debug mode:</p>
 
-<p><code>
-$ build/debug/bin/sol
+<pre><code>$ build/debug/bin/sol
 Sol 0.1.0 x64
 [vm] ______________ ______________ __________ _______ ____ ______________
 [vm] Task           Function       PC         Op      Values
@@ -430,28 +426,27 @@ Sol 0.1.0 x64
 [vm] 0x7fdf28c03c00 0x7fdf28c000e0 2          JUMP    Bss:        3
 [vm] 0x7fdf28c03c00 0x7fdf28c000e0 6          RETURN  AB:    0,   0
 Scheduler runloop exited.
-</code></p>
+</code></pre>
 
 <h3 id="example-2-function-calls-and-timers">Example 2: Function calls and timers</h3>
 
-<p>This program uses two functions. The entry point is the <code>main</code> function which simply
-calls the <code>kitten</code> function with one argument ‘500’. The <code>kitten</code> function “sleeps” for
-the number of milliseconds passed to it (as the first argument.) The <code>kitten</code> function
-then returns the number “123” to the caller—the <code>main</code> function—which dumps register values and
+<p>This program uses two functions. The entry point is the <code>main</code> function which simply<br />
+calls the <code>kitten</code> function with one argument ‘500’. The <code>kitten</code> function “sleeps” for<br />
+the number of milliseconds passed to it (as the first argument.) The <code>kitten</code> function<br />
+then returns the number “123” to the caller—the <code>main</code> function—which dumps register values and<br />
 finally returns, causing the task to exit and subsequently the scheduler and the VM too to exit.</p>
 
 <p>Assembly:</p>
 
-<p>```asm
-define kitten 1     # Arguments: (R(0)=sleep_ms)
+<pre><code class="language-asm">define kitten 1     # Arguments: (R(0)=sleep_ms)
   CONST  123        # K(0) = 123
   entry:
   YIELD  1  0  0    # yield A=type=timer, RK(B)=R(0)=arg0
   LOADK  0  0       # R(0) = K(0) = 123
-  RETURN 0  1       # return R(0)..R(0) = R(0) = 123</p>
+  RETURN 0  1       # return R(0)..R(0) = R(0) = 123
 
-<p>define main 0       # Arguments: ()
-  CONST  @kitten    # K(0) = <func kitten="">
+define main 0       # Arguments: ()
+  CONST  @kitten    # K(0) = &lt;func kitten&gt;
   CONST  500        # K(1) = 500
   entry:
   LOADK  0  0       # R(0) = K(0) = the kitten function
@@ -459,23 +454,22 @@ define kitten 1     # Arguments: (R(0)=sleep_ms)
   CALL   0  1  1    # R(0)..R(0) = R(0)(R(1)..R(1)) = a(R(1))
   DBGREG 0  1  0    # VM debug function that dumps register values
   RETURN 0  0       # return
-```</func></p>
+</code></pre>
 
 <p>Output when running in debug mode:</p>
 
-<p>```
-$ time build/debug/bin/sol
+<pre><code>$ time build/debug/bin/sol
 Sol 0.1.0 x64
-[vm] <strong>__</strong><strong>__</strong>__ <strong>__</strong><strong>__</strong>__ <strong>__</strong><strong>__ __</strong><strong>_ __</strong> <strong>__</strong><strong>__</strong>__
+[vm] ______________ ______________ __________ _______ ____ ______________
 [vm] Task           Function       PC         Op      Values
 [vm] 0x7f8c9bc03bf0 0x7f8c9bc03910 0          LOADK   AB:    0,   0
 [vm] 0x7f8c9bc03bf0 0x7f8c9bc03910 1          LOADK   AB:    1,   1
 [vm] 0x7f8c9bc03bf0 0x7f8c9bc03910 2          CALL    ABC:   0,   1,   1
 [vm] 0x7f8c9bc03bf0 0x7f8c9bc000e0 1          YIELD   ABC:   1,   0,   0
 D Timer scheduled to trigger after 500.000000 ms (sched.c:81)
-# …time passes and in this case the scheduler is idling…
-D Timer triggered – scheduling task (sched.c:57)
-[vm] <strong>__</strong><strong>__</strong>__ <strong>__</strong><strong>__</strong>__ <strong>__</strong><strong>__ __</strong><strong>_ __</strong> <strong>__</strong><strong>__</strong>__
+# ...time passes and in this case the scheduler is idling...
+D Timer triggered -- scheduling task (sched.c:57)
+[vm] ______________ ______________ __________ _______ ____ ______________
 [vm] Task           Function       PC         Op      Values
 [vm] 0x7f8c9bc03bf0 0x7f8c9bc000e0 2          LOADK   AB:    0,   0
 [vm] 0x7f8c9bc03bf0 0x7f8c9bc000e0 3          RETURN  AB:    0,   1
@@ -484,19 +478,18 @@ D [vm] R(0) = 123.000000 (sched_exec.h:214)
 D [vm] R(1) = 500.000000 (sched_exec.h:215)
 D [vm] R(0) = 123.000000 (sched_exec.h:216)
 [vm] 0x7f8c9bc03bf0 0x7f8c9bc03910 4          RETURN  AB:    0,   0
-Scheduler runloop exited.</p>
+Scheduler runloop exited.
 
-<p>real  0m0.504s
+real  0m0.504s
 user  0m0.001s
 sys   0m0.001s
-```</p>
+</code></pre>
 
 <h3 id="example-3-multitasking">Example 3: Multitasking</h3>
 
 <p>Here we run three tasks, each running the program in <em>Example 1</em>:</p>
 
-<p><code>
-$ build/debug/bin/sol
+<pre><code>$ build/debug/bin/sol
 Sol 0.1.0 x64
 [sched 0x7fc219403930] run queue:
   [task 0x7fc219403c00] -&gt; [task 0x7fc219403cd0] -&gt; [task 0x7fc219403da0]
@@ -546,7 +539,7 @@ Sol 0.1.0 x64
 [vm] 0x7fc219403da0 0x7fc2194000e0 2          JUMP    Bss:        3
 [vm] 0x7fc219403da0 0x7fc2194000e0 6          RETURN  AB:    0,   0
 Scheduler runloop exited.
-</code></p>
+</code></pre>
 
 <h2 id="source-code">Source code</h2>
 

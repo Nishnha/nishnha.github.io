@@ -80,21 +80,19 @@
 
 <p>Gotalk has a simple and opinionated API with very few components. You expose an operation via “handle” and send requests via “request”.</p>
 
-<p><code>go
-Handle("greet", func(params In) (Out, error) { ... })
+<pre><code class="language-go">Handle("greet", func(params In) (Out, error) { ... })
 // ...
 Request("greet", params, &amp;result)
-</code></p>
+</code></pre>
 
 <h4 id="practical">Practical</h4>
 
 <p>Gotalk includes a <a href="https://github.com/rsms/gotalk/tree/master/js">JavaScript implementation</a> for Web Sockets alongside the full-featured Go implementation, making it easy to build modern web applications. The Gotalk source code also includes <a href="https://github.com/rsms/gotalk/tree/master/examples">a number of easily-readable examples</a>.</p>
 
-<p><code>js
-handle("greet", function (params, result) { ... });
+<pre><code class="language-js">handle("greet", function (params, result) { ... });
 // ...
 request("greet", params, function (err, result) { ... });
-</code></p>
+</code></pre>
 
 <h4 id="debuggable">Debuggable</h4>
 
@@ -107,106 +105,97 @@ request("greet", params, function (err, result) { ... });
 
 <p>As just mentioned earlier, there are a few examples in the <code>examples</code> directory demonstrating how you can use Gotalk. But let’s explore a simple program right here — a little something written in <a href="http://golang.org/">Go</a> which demonstrates the use of an operation named “greet”:</p>
 
-<p>```go
-func server() {
-  gotalk.Handle(“greet”, func(in GreetIn) (GreetOut, error) {
-    return GreetOut{“Hello “ + in.Name}, nil
-  })
-  if err := gotalk.Serve(“tcp”, “localhost:1234”); err != nil {
-    log.Fatalln(err)
-  }
-}</p>
-
-<p>func client() {
-  s, err := gotalk.Connect(“tcp”, “localhost:1234”)
-  if err != nil {
-    log.Fatalln(err)
-  }
-  greeting := &amp;GreetOut{}
-  if err := s.Request(“greet”, GreetIn{“Rasmus”}, greeting); err != nil {
-    log.Fatalln(err)
-  }
-  log.Printf(“greeting: %+v\n”, greeting)
-  s.Close()
-}
-```</p>
-
-<p>Let’s look at the above example in more detail, broken apart to see what’s going on.</p>
-
-<p>We begin by importing the gotalk library together with <code>log</code> which we use for printing to the console:</p>
-
-<p><code>go
-package main
-import (
-  "log"
-  "github.com/rsms/gotalk"
-)
-</code></p>
-
-<p>We define two types: Expected input (request parameters) and output (result) for our “greet” operation:</p>
-
-<p><code>go
-type GreetIn struct {
-  Name string `json:"name"`
-}
-type GreetOut struct {
-  Greeting string `json:"greeting"`
-}
-</code></p>
-
-<p>Registers a process-global request handler for an operation called “greet” accepting parameters of type <code>GreetIn</code>, returning results of type <code>GreetOut</code>:</p>
-
-<p><code>go
-func server() {
+<pre><code class="language-go">func server() {
   gotalk.Handle("greet", func(in GreetIn) (GreetOut, error) {
     return GreetOut{"Hello " + in.Name}, nil
   })
-</code></p>
-
-<p>Finally at the bottom of our <code>server</code> function we call <code>gotalk.Serve</code>, which starts a local TCP server on port 1234:</p>
-
-<p><code>go
   if err := gotalk.Serve("tcp", "localhost:1234"); err != nil {
     log.Fatalln(err)
   }
 }
-</code></p>
 
-<p>In out <code>client</code> function we start by connecting to the server:</p>
-
-<p><code>go
 func client() {
   s, err := gotalk.Connect("tcp", "localhost:1234")
   if err != nil {
     log.Fatalln(err)
   }
-</code></p>
+  greeting := &amp;GreetOut{}
+  if err := s.Request("greet", GreetIn{"Rasmus"}, greeting); err != nil {
+    log.Fatalln(err)
+  }
+  log.Printf("greeting: %+v\n", greeting)
+  s.Close()
+}
+</code></pre>
+
+<p>Let’s look at the above example in more detail, broken apart to see what’s going on.</p>
+
+<p>We begin by importing the gotalk library together with <code>log</code> which we use for printing to the console:</p>
+
+<pre><code class="language-go">package main
+import (
+  "log"
+  "github.com/rsms/gotalk"
+)
+</code></pre>
+
+<p>We define two types: Expected input (request parameters) and output (result) for our “greet” operation:</p>
+
+<pre><code class="language-go">type GreetIn struct {
+  Name string `json:"name"`
+}
+type GreetOut struct {
+  Greeting string `json:"greeting"`
+}
+</code></pre>
+
+<p>Registers a process-global request handler for an operation called “greet” accepting parameters of type <code>GreetIn</code>, returning results of type <code>GreetOut</code>:</p>
+
+<pre><code class="language-go">func server() {
+  gotalk.Handle("greet", func(in GreetIn) (GreetOut, error) {
+    return GreetOut{"Hello " + in.Name}, nil
+  })
+</code></pre>
+
+<p>Finally at the bottom of our <code>server</code> function we call <code>gotalk.Serve</code>, which starts a local TCP server on port 1234:</p>
+
+<pre><code class="language-go">  if err := gotalk.Serve("tcp", "localhost:1234"); err != nil {
+    log.Fatalln(err)
+  }
+}
+</code></pre>
+
+<p>In out <code>client</code> function we start by connecting to the server:</p>
+
+<pre><code class="language-go">func client() {
+  s, err := gotalk.Connect("tcp", "localhost:1234")
+  if err != nil {
+    log.Fatalln(err)
+  }
+</code></pre>
 
 <p>Finally we send a request for “greet” and print the result:</p>
 
-<p>```go
-  greeting := GreetOut{}
-  if err := s.Request(“greet”, GreetIn{“Rasmus”}, &amp;greeting); err != nil {
+<pre><code class="language-go">  greeting := GreetOut{}
+  if err := s.Request("greet", GreetIn{"Rasmus"}, &amp;greeting); err != nil {
     log.Fatalln(err)
   }
-  log.Printf(“greeting: %+v\n”, greeting)</p>
+  log.Printf("greeting: %+v\n", greeting)
 
-<p>s.Close()
+  s.Close()
 }
-```</p>
+</code></pre>
 
 <p>Output:</p>
 
-<p><code>go
-greeting: {Greeting:Hello Rasmus}
-</code></p>
+<pre><code class="language-go">greeting: {Greeting:Hello Rasmus}
+</code></pre>
 
 <h2 id="gotalk-in-the-web-browser">Gotalk in the web browser</h2>
 
 <p>Gotalk is implemented not only in the full-fledged Go package, but also in a <a href="https://github.com/rsms/gotalk/tree/master/js">JavaScript library</a>. This allows writing web apps talking Gotalk via Web Sockets possible.</p>
 
-<p><code>go
-// server.go:
+<pre><code class="language-go">// server.go:
 package main
 import (
   "net/http"
@@ -223,7 +212,7 @@ func main() {
     panic("ListenAndServe: " + err.Error())
   }
 }
-</code></p>
+</code></pre>
 
 <p>In our html document, we begin by registering any operations we can handle:</p>
 
@@ -258,30 +247,28 @@ gotalk.connect('ws://'+document.location.host+'/gotalk', function (err, s) {
 
 <p>But you probably want to have the <em>browser</em> send requests to the <em>server</em>, so let’s send a “echo” request just as our connection opens:</p>
 
-<p><code>js
-gotalk.connect('ws://'+document.location.host+'/gotalk', function (err, s) {
+<pre><code class="language-js">gotalk.connect('ws://'+document.location.host+'/gotalk', function (err, s) {
   if (err) return console.error(err);
   s.request("echo", "Hello world", function (err, result) {
     if (err) return console.error('echo failed:', err);
     console.log('echo result:', result);
   });
 });
-</code></p>
+</code></pre>
 
 <p>We could rewrite our code like this to allow some UI component to send a request:</p>
 
-<p>```js
-var s = gotalk.connect(‘ws://’+document.location.host+’/gotalk’, function (err, s) {
+<pre><code class="language-js">var s = gotalk.connect('ws://'+document.location.host+'/gotalk', function (err, s) {
   if (err) return console.error(err);
-});</p>
+});
 
-<p>button.addEventListener(‘click’, function () {
-  s.request(“echo”, “Hello world”, function (err, result) {
-    if (err) return console.error(‘echo failed:’, err);
-    console.log(‘echo result:’, result);
+button.addEventListener('click', function () {
+  s.request("echo", "Hello world", function (err, result) {
+    if (err) return console.error('echo failed:', err);
+    console.log('echo result:', result);
   });
 });
-```</p>
+</code></pre>
 
 <p>The request will fail with an error “socket is closed” if the user clicks our button while the connection isn’t open.</p>
 
@@ -293,69 +280,65 @@ var s = gotalk.connect(‘ws://’+document.location.host+’/gotalk’, functio
 
 <p>Here’s a complete description of the protocol:</p>
 
-<p>```rb
-conversation    = ProtocolVersion Message*
+<pre><code class="language-rb">conversation    = ProtocolVersion Message*
 message         = SingleRequest | StreamRequest
                 | SingleResult | StreamResult
-                | ErrorResult</p>
+                | ErrorResult
 
-<p>ProtocolVersion = <hexdigit> <hexdigit></hexdigit></hexdigit></p>
+ProtocolVersion = &lt;hexdigit&gt; &lt;hexdigit&gt;
 
-<p>SingleRequest   = “r” requestID operation payload
-StreamRequest   = “s” requestID operation payload StreamReqPart+
-StreamReqPart   = “p” requestID payload
-SingleResult    = “R” requestID payload
-StreamResult    = “S” requestID payload StreamResult*
-ErrorResult     = “E” requestID payload
-Notification    = “n” type payload</p>
+SingleRequest   = "r" requestID operation payload
+StreamRequest   = "s" requestID operation payload StreamReqPart+
+StreamReqPart   = "p" requestID payload
+SingleResult    = "R" requestID payload
+StreamResult    = "S" requestID payload StreamResult*
+ErrorResult     = "E" requestID payload
+Notification    = "n" type payload
 
-<p>requestID       = <byte> <byte> <byte></byte></byte></byte></p>
+requestID       = &lt;byte&gt; &lt;byte&gt; &lt;byte&gt;
 
-<p>operation       = text3
-type            = text3</p>
+operation       = text3
+type            = text3
 
-<p>text3           = text3Size text3Value
+text3           = text3Size text3Value
 text3Size       = hexUInt3
-text3Value      = «byte&gt;{text3Size} as utf8 text&gt;</p>
+text3Value      = &lt;&lt;byte&gt;{text3Size} as utf8 text&gt;
 
-<p>payload         = payloadSize payloadData?
+payload         = payloadSize payloadData?
 payloadSize     = hexUInt8
-payloadData     = <byte>{payloadSize}</byte></p>
+payloadData     = &lt;byte&gt;{payloadSize}
 
-<p>hexUInt3        = <hexdigit> <hexdigit> <hexdigit>
-hexUInt8        = <hexdigit> <hexdigit> <hexdigit> <hexdigit>
-                  <hexdigit> <hexdigit> <hexdigit> <hexdigit>
-```</hexdigit></hexdigit></hexdigit></hexdigit></hexdigit></hexdigit></hexdigit></hexdigit></hexdigit></hexdigit></hexdigit></p>
+hexUInt3        = &lt;hexdigit&gt; &lt;hexdigit&gt; &lt;hexdigit&gt;
+hexUInt8        = &lt;hexdigit&gt; &lt;hexdigit&gt; &lt;hexdigit&gt; &lt;hexdigit&gt;
+                  &lt;hexdigit&gt; &lt;hexdigit&gt; &lt;hexdigit&gt; &lt;hexdigit&gt;
+</code></pre>
 
 <p>A conversation begins with the protocol version:</p>
 
-<p><code>lua
-00  -- ProtocolVersion 0
-</code></p>
+<pre><code class="language-lua">00  -- ProtocolVersion 0
+</code></pre>
 
 <p>If the version of the protocol spoken by the other end is not supported by the reader, the connection is terminated and the conversation never starts. Otherwise, any messages are read and/or written.</p>
 
 <p>This is a “single-payload” request …</p>
 
-<p><code>py
-+----------------- SingleRequest
+<pre><code class="language-py">+----------------- SingleRequest
 |  +---------------- requestID   "001"
 |  |  +------------- text3Size   4
 |  |  |   +--------- operation   "echo"
 |  |  |   |       +- payloadSize 25
 |  |  |   |       |
 r001004echo00000019{"message":"Hello World"}
-</code></p>
+</code></pre>
 
 <p>… and a corresponding “single-payload” result:</p>
 
-<p><code>py
-+----------------- SingleResult
+<pre><code class="language-py">+----------------- SingleResult
 |  +---------------- requestID   "001"
 |  |       +-------- payloadSize 25
 |  |       |
 R00100000019{"message":"Hello World"}
-</code></p>
+</code></pre>
 
 <p>Each request is identified by exactly three bytes—the <code>requestID</code>—which is requestor-specific and has no purpose beyond identity, meaning the value is never interpreted.</p>
 
@@ -363,25 +346,23 @@ R00100000019{"message":"Hello World"}
 
 <p>If an error occurs while handing a request, an “error” is send as the reply instead of a regular result:</p>
 
-<p><code>py
-+----------------- ErrorResult
+<pre><code class="language-py">+----------------- ErrorResult
 |  +---------------- requestID   "001"
 |  |       +-------- payloadSize 38
 |  |       |
 E00100000026{"error":"Unknown operation \"echo\""}
-</code></p>
+</code></pre>
 
 <p>As with all messages, what the payload data represents is up to each application and not part of the Gotalk protocol although we use JSON in our examples here.</p>
 
 <p>When there’s no expectation on a response, Gotalk provides a “notification” message type:</p>
 
-<p><code>py
-+---------------------- Notification
+<pre><code class="language-py">+---------------------- Notification
 |              +--------- type        "chat message"
 |              |       +- payloadSize 50
 |              |       |
 n00cchat message00000032{"message":"Hi","from":"nthn","chat_room":"gonuts"}
-</code></p>
+</code></pre>
 
 <p>Notifications are never replied to nor can they cause “error” results.</p>
 
@@ -391,48 +372,46 @@ n00cchat message00000032{"message":"Hi","from":"nthn","chat_room":"gonuts"}
 
 <p>Here’s an example of a “streaming-payload” request …</p>
 
-<p>```py
-+—————– StreamRequest
-|  +—————- requestID   “001”
-|  |      +——— operation   “echo”
+<pre><code class="language-py">+----------------- StreamRequest
+|  +---------------- requestID   "001"
+|  |      +--------- operation   "echo"
 |  |      |       +- payloadSize 25
 |  |      |       |
-s001004echo0000000b{“message”:</p>
+s001004echo0000000b{"message":
 
-<p>+—————– streamReqPart
-|  +—————- requestID   “001”
-|  |       +——– payloadSize 25
++----------------- streamReqPart
+|  +---------------- requestID   "001"
+|  |       +-------- payloadSize 25
 |  |       |
-p0010000000e”Hello World”}</p>
+p0010000000e"Hello World"}
 
-<p>+—————– streamReqPart
-|  +—————- requestID   “001”
-|  |       +——– payloadSize 0 (end of stream)
++----------------- streamReqPart
+|  +---------------- requestID   "001"
+|  |       +-------- payloadSize 0 (end of stream)
 |  |       |
 p00100000000
-```</p>
+</code></pre>
 
 <p>… followed by a “streaming-payload” result:</p>
 
-<p>```py
-+—————– StreamResult (1st part)
-|  +—————- requestID   “001”
-|  |       +——– payloadSize 25
+<pre><code class="language-py">+----------------- StreamResult (1st part)
+|  +---------------- requestID   "001"
+|  |       +-------- payloadSize 25
 |  |       |
-S0010000000b{“message”:</p>
+S0010000000b{"message":
 
-<p>+—————– StreamResult (2nd part)
-|  +—————- requestID   “001”
-|  |       +——– payloadSize 25
++----------------- StreamResult (2nd part)
+|  +---------------- requestID   "001"
+|  |       +-------- payloadSize 25
 |  |       |
-S0010000000e”Hello World”}</p>
+S0010000000e"Hello World"}
 
-<p>+—————– StreamResult
-|  +—————- requestID   “001”
-|  |       +——– payloadSize 0 (end of stream)
++----------------- StreamResult
+|  +---------------- requestID   "001"
+|  |       +-------- payloadSize 0 (end of stream)
 |  |       |
 S00100000000
-```</p>
+</code></pre>
 
 <p>Requests and results does not need to match on the “single” vs “streaming” detail — it’s perfectly fine to send a streaming request and read a single response, or send a single response just to receive a streaming result. <em>The payload type is orthogonal to the message type</em>, with the exception of an error response which is always a “single-payload” message, carrying any information about the error in its payload. Note however that the current version of the Go package does not provide a high-level API for mixed-kind request-response handling.</p>
 

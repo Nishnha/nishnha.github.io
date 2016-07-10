@@ -99,74 +99,45 @@
 
 <p>Here’s a <a href="http://en.wikipedia.org/wiki/Backus%E2%80%93Naur_Form">BNF</a>-style sketch of the language I have in mind for this tutorial. Feel free to make up your own version.</p>
 
-<p>```none
-Expression           = ExpressionGroup | Number | Text | Path | List | Map
-ExpressionGroup      = “(“ Expression* “)”
-Line                 = Linebreak Space*</p>
+<pre><code class="language-none">Expression           = ExpressionGroup | Number | Text | Path | List | Map
+ExpressionGroup      = "(" Expression* ")"
+Line                 = Linebreak Space*
 
-<table>
-  <tbody>
-    <tr>
-      <td>Whitespace           = Linebreak</td>
-      <td>Space</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Linebreak            = U+000A..U+000D</td>
-      <td>U+0085</td>
-      <td>U+2028</td>
-      <td>U+2029</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Space                = U+0009</td>
-      <td>U+0020</td>
-      <td>U+00A0</td>
-      <td>U+180E</td>
-      <td>U+2000..U+200B</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td>U+202F</td>
-      <td>U+205F</td>
-      <td>U+3000</td>
-      <td>U+FEFF</td>
-    </tr>
-  </tbody>
-</table>
+Whitespace           = Linebreak | Space
+Linebreak            = U+000A..U+000D | U+0085 | U+2028 | U+2029
+Space                = U+0009 | U+0020 | U+00A0 | U+180E | U+2000..U+200B
+                     | U+202F | U+205F | U+3000 | U+FEFF
 
-<p>Number               = IntegerNumber | HexIntegerNumber | FractionalNumber
+Number               = IntegerNumber | HexIntegerNumber | FractionalNumber
 IntegerNumber        = DecimalDigit+
 DecimalDigit         = 0..9
-HexIntegerNumber     = “0x” HexDigit+
+HexIntegerNumber     = "0x" HexDigit+
 HexDigit             = 0..9 | A..F | a..f
-FractionalNumber     = DecimalDigit+ “.” DecimalDigit* FractionExponent?
-FractionalExponent   = (“E” | “e”) (“-“ | “+”)? DecimalDigit+</p>
+FractionalNumber     = DecimalDigit+ "." DecimalDigit* FractionExponent?
+FractionalExponent   = ("E" | "e") ("-" | "+")? DecimalDigit+
 
-<p>Text                 = “’” TextCharacter* “’”
+Text                 = "'" TextCharacter* "'"
 TextCharacter        = U+0021..U+0026
                      | U+0028..U+005B
-                     | “" TextEscCharacter
+                     | "\" TextEscCharacter
                      | U+005D..U+FFEE
-TextEscCharacter     = “" | “’” | “t” | “n” | “r” | UnicodeValue
-UnicodeValue         = “u” HexDigit{4} | “U” HexDigit{8}</p>
+TextEscCharacter     = "\" | "'" | "t" | "n" | "r" | UnicodeValue
+UnicodeValue         = "u" HexDigit{4} | "U" HexDigit{8}
 
-<p>Path                 = Symbol (“.” Symbol)*
+Path                 = Symbol ("." Symbol)*
 Symbol               = &lt;SymbolCharacter except 0..9&gt; SymbolCharacter*
-SymbolCharacter      = <visiblecharacter except="" singleterminator="">
+SymbolCharacter      = &lt;VisibleCharacter except SingleTerminator&gt;
 VisibleCharacter     = &lt;UnicodeCharacter except Whitespace | ControlCharacter&gt;
 UnicodeCharacter     = U+0000..U+FFFE
 ControlCharacter     = U+0000..U+0020 | U+007F..00A0 | U+FFEF..U+FFFF
-SingleTerminator     = "(" | ")" | "." | ":" | "[" | "]" | "{" | "}"</visiblecharacter></p>
+SingleTerminator     = "(" | ")" | "." | ":" | "[" | "]" | "{" | "}"
 
-<p>List                 = “[” Expression* “]”</p>
+List                 = "[" Expression* "]"
 
-<p>Map                  = “{“ MapPair* “}”
-MapPair              = MapKey “:” Expression
+Map                  = "{" MapPair* "}"
+MapPair              = MapKey ":" Expression
 MapKey               = Symbol | Text
-```</p>
+</code></pre>
 
 <p>This format, usually referred to as BNF (although not actual strict BNF), is a way of expressing a syntax in terms of simple reductions. A quick guide to general BNF format:</p>
 
@@ -192,27 +163,27 @@ MapKey               = Symbol | Text
 
 <p>The first step to interpreting this code is to perform <em>lexical analysis</em>. As discussed earlier this means that a stream of bytes is the input and a stream of tokens is the result. Given our partial language specification, the above source should produce the following tokens:</p>
 
-<p><code>Symbol("Hello")</code>,
-<code>Symbol("=")</code>,
-<code>LeftParen</code>,
-<code>Symbol("bar")</code>,
-<code>Symbol("baz")</code>,
-<code>RightParen</code>,
-<code>Symbol("-&gt;")</code>,
+<p><code>Symbol("Hello")</code>,<br />
+<code>Symbol("=")</code>,<br />
+<code>LeftParen</code>,<br />
+<code>Symbol("bar")</code>,<br />
+<code>Symbol("baz")</code>,<br />
+<code>RightParen</code>,<br />
+<code>Symbol("-&gt;")</code>,<br />
 <code>Line(with 2 spaces)</code>,</p>
 
-<p><code>Symbol("ה")</code>,
-<code>Symbol("=")</code>,
-<code>Symbol("can-haz")</code>,
-<code>LeftSquareBracket</code>,
-<code>Symbol("bar")</code>,
-<code>Text("bar bara")</code>,
-<code>RightSquareBracket</code>,
+<p><code>Symbol("ה")</code>,<br />
+<code>Symbol("=")</code>,<br />
+<code>Symbol("can-haz")</code>,<br />
+<code>LeftSquareBracket</code>,<br />
+<code>Symbol("bar")</code>,<br />
+<code>Text("bar bara")</code>,<br />
+<code>RightSquareBracket</code>,<br />
 <code>Line(with 2 spaces)</code>,</p>
 
-<p><code>FractionalNumber("54.8")</code>,
-<code>Symbol("*")</code>,
-<code>Symbol("ה")</code>,
+<p><code>FractionalNumber("54.8")</code>,<br />
+<code>Symbol("*")</code>,<br />
+<code>Symbol("ה")</code>,<br />
 <code>Line(with 0 spaces)</code></p>
 
 <p>With our current language lexicon and syntax we are able to formulate more complex structures that the above example, for instance:</p>
@@ -282,7 +253,7 @@ L.SetInput("'Hello world'")
 L.ReadToken()  # -&gt; {type=TEXT, value="Hello world"}
 </code></pre>
 
-<p>This works fine for source input that is provided as one continuous sequence.
+<p>This works fine for source input that is provided as one continuous sequence.<br />
 If we were to pause a batch lexer like this, it would either imply a very complex and probably inefficient code which records and stuffs away the current call stack (essentially co-routines or green threads), or abort and retry from the beginning again later.</p>
 
 <p>Say the source <code>'Hello world'</code> arrives in two chunks and we try to apply the above batch lexer:</p>

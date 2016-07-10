@@ -1,2 +1,5 @@
+gems: [jekyll-paginate]
+kramdown:
+    input: GFM
 permalink: /posts/:title
 paginate: 20
