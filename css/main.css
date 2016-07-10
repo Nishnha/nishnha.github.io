@@ -110,6 +110,11 @@ nav .active {
     color: white;
 }
 
+.paginator-post:first-child {
+	background: #3A3A3A;
+	color: white;
+}
+
 .paginator-image {
     position: relative;
     display: block;

@@ -18,35 +18,23 @@
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Acme' rel='stylesheet' type='text/css'>
 
-
-    <!-- loads mrmrs colors -->
-    <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
-
-    <!-- computer screens -->
+	<!-- sets the css for different viewports -->
     <link href="/css/main.css" rel="stylesheet" media="(min-width: 769px)">
-
-    <!-- small devices -->
     <link href="/css/phone.css" rel="stylesheet" media="(max-width: 768px)">
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico">
 
-    <!-- 301 for /posts/xyz/index.html -->
-    <link rel="canonical" href="{{ page.url }}" />
-
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
 </head>
 
 <body id="top">
-
     {% include navbar.html %}
     {{content}}
 	{% include footer.html %}
-
 </body>
 
 </html>
