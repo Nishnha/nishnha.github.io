@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Gives the page title as {title} (medium dash) Nishnha if title, otherwise as Nishnha -->
+    <title>Moved from Tumblr to Jekyll+GitHub &mdash; Nishnha</title>
+
+    <!-- loads Fontawesome -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Poly:400,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Acme' rel='stylesheet' type='text/css'>
+    
+    <!-- loads mrmrs colors -->
+    <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
+    
+    <!-- computer screens -->
+    <link href="/css/main.css" rel="stylesheet" media="(min-width: 769px)">
+    
+    <!-- small devices -->
+    <link href="/css/phone.css" rel="stylesheet" media="(max-width: 768px)">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+    
+    <!-- 301 for /posts/xyz/index.html -->
+    <link rel="canonical" href="/posts/moved-from-tumblr" />
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+</head>
+
+<body id="top">
+    <nav id="navbar">
+        <input type="checkbox" name="navbar" value="toggle" id="toggle">
+        <label class="toggle" for="toggle"><i class="fa fa-lg fa-bars"></i></label>
+        
+        <a class="logo" href="/">nishnha.me</a>
+        <ul class="nav-links">
+            <li><a href="/archive"  title="A list of all my posts">Archive</a></li>
+            <li><a href="/projects"  title="Some of my current projects">Projects</a></li>
+            <li><a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a></li>  
+            <li><a href="/about"  title="About me">About Me</a></li>
+        </ul>
+    </nav>
+        
+    <div class="page">
+    <div class="content">
+        <div class="title"><h1>Moved from Tumblr to Jekyll+GitHub</h1></div>
+        <div class="date"><p>January 24, 2011</p></div>
+        <div class="article"><p>As many other people running their blogs on <a href="http://www.tumblr.com/">Tumblr</a> I’ve become painfully aware of their failures to provide an acceptable service. Hours and sometimes days of downtime is unacceptable, even for a free service, when one of the most important parts of the service is availability.</p>
+
+<p>So after some <a href="http://search.twitter.com/search?q=to:rsms+since:2011-01-20+until:2011-01-21+github+OR+posterous+OR+squarespace+OR+wordpress+OR+tumblr+OR+soup+OR+jekyll+OR+blogging+OR+blog+OR+gitblog">inquiries through Twitter</a> I finally decided to go for <a href="https://github.com/mojombo/jekyll">Jekyll</a> and <a href="http://pages.github.com/">GitHub Pages</a> (thanks to <a href="https://twitter.com/al3x">@al3x</a>, <a href="https://twitter.com/masolino">@masolino</a> and everyone else who helped with answers in the right direction). As I’m already a paying subscriber to the fantastic GitHub I get the pages feature for free. Another thing I’m concerned with is peering to non-US countries, which is provided by GitHub as they sit on top of the very good Rackspace connections. As a comparison, fetching a simple HTML page from GitHub pages to Stockholm, Sweden takes about 250ms while fetching the same HTML from Tumblr can take up to 4 seconds to arrive.</p>
+
+<p>I order to get all my data over from Tumblr I wrote a small script which queries the Tumblr API and converts them into Jekyll posts. The script is available at <a href="https://github.com/rsms/rsms.github.com/blob/master/_scripts/import-from-tumblr.js">_scripts/import-from-tumblr.js</a> and is accompanied by <a href="https://github.com/rsms/rsms.github.com/blob/master/_scripts/gen-tumblr-url-map.js">a script to generate a URL map</a>, used to provide some sort of old links redirection. I’m using a simple javascript solution found in my <a href="https://github.com/rsms/rsms.github.com/blob/master/404.html">404.html</a> but you might as well do something fancier with the generated url map.</p>
+
+<p>So let’s see how this turns out.</p>
+</div>
+        <p><a href="#top" class="top">Back to Top</a></p>
+        <div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'nishnha'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+    </div>
+</div>
+
+    <div id="footer">
+        <a href="http://twitter.com/nishnha" target="_blank" title="Follow me on Twitter"><i class="fa fa-twitter fa-2x"></i></a>
+    </div>
+</body>
+
+</html>

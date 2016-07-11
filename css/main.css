@@ -1,15 +1,7 @@
 body {
-    background:
-        linear-gradient(
-            to right,
-            rgba(0, 47, 75, 0.35),
-            rgba(220, 66, 37, 0.28)
-        ),  url('/img/skylanterns.png') no-repeat center fixed;
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    font: normal 16px "Poly" georgia serif;
+    background-color: white;
+	font-family: "noto serif";
+    font: normal 16px "Noto Serif" georgia serif;
     line-height:1.6;
     margin: 0 auto;
     padding-top: 4%;
@@ -42,7 +34,7 @@ nav li {
 nav a {
     font:15px 'Helvetica Neue Light';
     font-weight: 300;
-    color: white;
+    color: grey;
     display: inline;
     text-decoration: none;
 }
@@ -66,7 +58,7 @@ nav .active {
     display: none;
 }
 
-/* CSS for all pages */ 
+/* CSS for all pages */
 .page {
     width: 55em;
     background-color: white;
@@ -89,10 +81,11 @@ nav .active {
 
 .paginator-post {
     display: inline-block;
-    color: black;
+    color: #333;
     background: white;
     padding: 70px 60px;
     width: 22em;
+	font-family: "Noto Serif";
 }
 
 .paginator-post .title {
@@ -106,7 +99,7 @@ nav .active {
     display: inline;
     font: 200 17px "Poly"
 }
-    
+
 .paginator-post .description {
     display: inline;
     font: 200 17px "Poly"
@@ -115,6 +108,11 @@ nav .active {
 .paginator-post:hover {
     background: #3A3A3A;
     color: white;
+}
+
+.paginator-post:first-child {
+	background: #3A3A3A;
+	color: white;
 }
 
 .paginator-image {
@@ -209,8 +207,8 @@ img {
     border-bottom: 1px solid #ddd;
     font-size: 14px;
 }
-    
-    
+
+
 /* CSS for archive page */
 .archive {
     padding: 3em 4em;
