@@ -11,49 +11,37 @@
     <title>Move — a programming language &mdash; Nishnha</title>
 
     <!-- loads Fontawesome -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/690e26edf4.js">
 
     <!-- fonts -->
     <link href='http://fonts.googleapis.com/css?family=Poly:400,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Acme' rel='stylesheet' type='text/css'>
-    
-    <!-- loads mrmrs colors -->
-    <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
-    
-    <!-- computer screens -->
+
+	<!-- sets the css for different viewports -->
     <link href="/css/main.css" rel="stylesheet" media="(min-width: 769px)">
-    
-    <!-- small devices -->
     <link href="/css/phone.css" rel="stylesheet" media="(max-width: 768px)">
-    
+
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico">
-    
-    <!-- 301 for /posts/xyz/index.html -->
-    <link rel="canonical" href="/posts/move-programming-language" />
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    
 </head>
 
 <body id="top">
     <nav id="navbar">
-        <input type="checkbox" name="navbar" value="toggle" id="toggle">
-        <label class="toggle" for="toggle"><i class="fa fa-lg fa-bars"></i></label>
-        
-        <a class="logo" href="/">nishnha.me</a>
-        <ul class="nav-links">
-            <li><a href="/archive"  title="A list of all my posts">Archive</a></li>
-            <li><a href="/projects"  title="Some of my current projects">Projects</a></li>
-            <li><a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a></li>  
-            <li><a href="/about"  title="About me">About Me</a></li>
-        </ul>
-    </nav>
-        
+	<input type="checkbox" name="navbar" value="toggle" id="toggle">
+	<label class="toggle" for="toggle">
+		<i class="fa fa-lg fa-bars"></i>
+	</label>
+
+	<a class="logo" href="/">nishnha.me</a>
+	<ul class="nav-links">
+		<li><a href="/archive"  title="A list of all my posts">Archive</a></li>
+		<li><a href="/projects"  title="Some of my current projects">Projects</a></li>
+		<li><a href="https://www.instagram.com/nishnha/" target="_blank" title="Photograpy">Photography</a></li>
+		<li><a href="/about"  title="About me">About Me</a></li>
+	</ul>
+</nav>
+
     <div class="page">
     <div class="content">
         <div class="title"><h1>Move — a programming language</h1></div>
@@ -251,9 +239,10 @@ require('./my-move-program');
 </div>
 
 <p>Note that you can not embed Move into JavaScript but must separate the code into .mv files.</p>
-</div>
-        <p><a href="#top" class="top">Back to Top</a></p>
-        <div id="disqus_thread"></div>
+
+        	<p class="backToTop"><a href="#top" class="top">Back to Top</a></p>
+		</div>
+		<div id="disqus_thread"></div>
 <script type="text/javascript">
 /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 var disqus_shortname = 'nishnha'; // required: replace example with your forum shortname
@@ -268,9 +257,12 @@ dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     </div>
 </div>
 
-    <div id="footer">
-        <a href="http://twitter.com/nishnha" target="_blank" title="Follow me on Twitter"><i class="fa fa-twitter fa-2x"></i></a>
-    </div>
+	<div id="footer">
+    <a href="http://twitter.com/nishnha" target="_blank" title="Follow me on Twitter">
+		<i class="fa fa-twitter fa-2x"></i>
+	</a>
+</div>
+
 </body>
 
 </html>

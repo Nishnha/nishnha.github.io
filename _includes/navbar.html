@@ -1,12 +1,14 @@
 <nav id="navbar">
-    <input type="checkbox" name="navbar" value="toggle" id="toggle">
-    <label class="toggle" for="toggle"><i class="fa fa-lg fa-bars"></i></label>
+	<input type="checkbox" name="navbar" value="toggle" id="toggle">
+	<label class="toggle" for="toggle">
+		<i class="fa fa-lg fa-bars"></i>
+	</label>
 
 	<a class="logo" href="/">nishnha.me</a>
-    <ul class="nav-links">
-        <li><a href="/archive" {% if page.url contains "/archive/" %} class="active" {% endif %} title="A list of all my posts">Archive</a></li>
-        <li><a href="/projects" {% if page.url contains "/projects/" %} class="active" {% endif %} title="Some of my current projects">Projects</a></li>
-        <li><a href="https://www.flickr.com/photos/131853866@N06/" target="_blank" title="My best works">Photography</a></li>
-        <li><a href="/about" {% if page.url contains "/about/" %} class="active" {% endif %} title="About me">About Me</a></li>
-    </ul>
+	<ul class="nav-links">
+		<li><a href="/archive" {% if page.url contains "archive" %} class="active" {% endif %} title="A list of all my posts">Archive</a></li>
+		<li><a href="/projects" {% if page.url contains "projects" %} class="active" {% endif %} title="Some of my current projects">Projects</a></li>
+		<li><a href="https://www.instagram.com/nishnha/" target="_blank" title="Photograpy">Photography</a></li>
+		<li><a href="/about" {% if page.url contains "about" %} class="active" {% endif %} title="About me">About Me</a></li>
+	</ul>
 </nav>
