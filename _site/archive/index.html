@@ -3,46 +3,39 @@
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
     <!-- Gives the page title as {title} (medium dash) Nishnha if title, otherwise as Nishnha -->
     <title>Archive &mdash; Nishnha</title>
-
     <!-- loads Fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/690e26edf4.js">
-
     <!-- fonts -->
     <link href='http://fonts.googleapis.com/css?family=Poly:400,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Acme' rel='stylesheet' type='text/css'>
-
 	<!-- sets the css for different viewports -->
     <link href="/css/main.css" rel="stylesheet" media="(min-width: 769px)">
     <link href="/css/phone.css" rel="stylesheet" media="(max-width: 768px)">
-
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico">
 </head>
 
-<body id="top">
-    <nav id="navbar">
+<body>
+    <div class="wrapper">
+        <nav id="navbar">
 	<input type="checkbox" name="navbar" value="toggle" id="toggle">
 	<label class="toggle" for="toggle">
 		<i class="fa fa-lg fa-bars"></i>
 	</label>
 
-	<a class="logo" href="/">nishnha.me</a>
+	<a class="logo" href="/">nishnha</a>
 	<ul class="nav-links">
 		<li><a href="/archive"  class="active"  title="A list of all my posts">Archive</a></li>
-		<li><a href="/projects"  title="Some of my current projects">Projects</a></li>
+		<li><a href="http://github.com/Nishnha" target="_blank" title="My Github profile">Github</a></li>
 		<li><a href="https://www.instagram.com/nishnha/" target="_blank" title="Photograpy">Photography</a></li>
 		<li><a href="/about"  title="About me">About Me</a></li>
 	</ul>
 </nav>
 
-    <div class="page">
+        <div class="page">
     <div class="archive">
         
         <ul>
@@ -71,12 +64,13 @@
         
     </div>
 </div>
-	<div id="footer">
+        <div id="footer">
     <a href="http://twitter.com/nishnha" target="_blank" title="Follow me on Twitter">
 		<i class="fa fa-twitter fa-2x"></i>
 	</a>
 </div>
 
+    </div>
 </body>
 
 </html>

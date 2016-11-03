@@ -1,244 +1,161 @@
 body {
-    background-color: white;
-	font-family: "noto serif";
-    font: normal 16px "Noto Serif" georgia serif;
-    line-height:1.6;
-    margin: 0 auto;
-    padding-top: 4%;
-    width: 100%;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    -webkit-font-smoothing: subpixel-antialiased;
-}
+  background-color: #dddddd; }
 
-ul {
-    margin: 0;
-    padding: 0;
-}
+.wrapper {
+  width: 55em;
+  margin: 0 auto; }
 
+.page {
+  background-color: white;
+  color: #444444;
+  font: 16px/1.6 "Noto Serif", "Georgia", serif; }
+  .page .more {
+    font-size: 20px;
+    display: block;
+    text-align: center;
+    padding-bottom: 1em;
+    text-decoration: none; }
 
 /* CSS for navbar */
 nav {
-    width: 55em;
-    margin: 0% auto;
-    margin-bottom: 2%;
-    text-align: right;
-}
-
-nav li {
+  margin: 2em auto;
+  text-align: right; }
+  nav li {
     display: inline;
     list-style: none;
-    margin-left: 1%;
-}
-
-nav a {
-    font:15px 'Helvetica Neue Light';
+    margin-left: 10px; }
+  nav a {
+    font: 15px "Helvetica Neue Light";
     font-weight: 300;
     color: grey;
-    display: inline;
-    text-decoration: none;
-}
-
-nav li a:hover {
-    color: #d3d3d3;
-}
-
-nav .active {
-    color: #d3d3d3;
-    font-size: 16px;
-}
-
-.logo {
-    padding: 0;
+    text-decoration: none; }
+    nav a:hover {
+      color: #1a1a1a; }
+  nav .active {
+    color: #1a1a1a;
+    font-size: 16px; }
+  nav .logo {
     font-size: 24px;
-    float: left;
-}
+    float: left; }
 
-#toggle, .fa-bars{
-    display: none;
-}
-
-/* CSS for all pages */
-.page {
-    width: 55em;
-    background-color: white;
-    margin: 0 auto;
-}
+#toggle, .fa-bars {
+  display: none; }
 
 /* CSS for homepage */
 .home-paginate {
-    -webkit-column-count: 2; /* Chrome, Safari, Opera */
-    -moz-column-count: 2; /* Firefox */
-    column-count: 2;
-    -webkit-column-gap: 0; /* Chrome, Safari, Opera */
-    -moz-column-gap: 0; /* Firefox */
-    column-gap: 0;
-}
-
-.home-paginate a {
-    text-decoration: none;
-}
+  column-count: 2;
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-gap: 0;
+  -webkit-column-gap: 0;
+  -moz-column-gap: 0; }
+  .home-paginate a {
+    text-decoration: none; }
 
 .paginator-post {
-    display: inline-block;
-    color: #333;
-    background: white;
-    padding: 70px 60px;
-    width: 22em;
-	font-family: "Noto Serif";
-}
-
-.paginator-post .title {
+  display: inline-block;
+  width: 23.5em;
+  height: auto;
+  padding: 3em 2em;
+  color: #444444; }
+  .paginator-post .title {
     display: block;
-    font: bold 18px "Poly";
-    text-decoration: none;
-}
-
-.paginator-post .date {
+    font-family: "Poly", serif;
+    font-size: 22px;
+    margin-top: 0; }
+  .paginator-post .date {
     color: #8b8b8b;
     display: inline;
-    font: 200 17px "Poly"
-}
-
-.paginator-post .description {
-    display: inline;
-    font: 200 17px "Poly"
-}
-
-.paginator-post:hover {
+    font-size: 20px; }
+  .paginator-post .description {
+    display: inline; }
+  .paginator-post:hover, .paginator-post:first-child {
     background: #3A3A3A;
-    color: white;
-}
-
-.paginator-post:first-child {
-	background: #3A3A3A;
-	color: white;
-}
+    color: white; }
 
 .paginator-image {
-    position: relative;
-    display: block;
-    color: white;
-    background: #3A3A3A;
-}
-
-.paginator-image .image {
-    vertical-align: top;
-}
-
-.paginator-image .title {
+  position: relative;
+  display: block;
+  background: #3A3A3A;
+  color: white; }
+  .paginator-image .image {
+    vertical-align: top; }
+  .paginator-image .title {
     margin: 0;
     position: absolute;
     top: 85%;
     left: 20%;
-    font: bold 32px "Poly";
-}
-
-.paginator-image:hover .image {
-    opacity: .7;
-}
-
-.page .more {
-    font-size: 20px;
-    color: black;
-    display: block;
-    text-align: center;
-    padding-bottom: 1em;
-    text-decoration: none;
-}
-
+    font: bold 32px "Poly", serif; }
+  .paginator-image:hover .image {
+    opacity: 0.7; }
 
 /* CSS for posts */
 .content {
-    background:white;
-    padding: 50px 80px;
-}
-
-.content .title {
+  background: white;
+  padding: 50px 80px; }
+  .content .title {
     font-family: "Poly";
     font-size: 26px;
-    font-weight: normal;
-}
-
-.content .date {
+    font-weight: normal; }
+  .content .date {
     display: inline-block;
     margin-left: -80px;
     padding-left: 80px;
     color: #d3d3d3;
     border-top: 1px solid #e0e0e0;
     border-bottom: 1px solid #e0e0e0;
-    font-size: 18px;
-}
-
-.content .article {
+    font-size: 18px; }
+  .content .article {
     padding-top: 2em;
     padding-bottom: 1em;
     font-size: 18px;
-    color: #2f2f2f;
-}
-
-.content a {
+    color: #2f2f2f; }
+  .content a {
     text-decoration: none;
-    color: #0074D9;
-}
-
-.content .top {
+    color: #0074D9; }
+  .content .top {
     display: block;
     text-align: center;
     font-size: 18px;
-    color: #4e4e4e;
-}
+    color: #4e4e4e; }
 
 img {
-    max-width: 100%;
-}
+  max-width: 100%; }
 
 .content blockquote {
-    padding-left: 2.5em;
-    margin-left: -1em;
-}
-
+  padding-left: 2.5em;
+  margin-left: -1em; }
 .content pre {
-    margin: 0 -1em;
-    padding: 1em;
-    background-color: #eee;
-    border-left: none;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    font-size: 14px;
-}
-
+  margin: 0 -1em;
+  padding: 1em;
+  background-color: #eee;
+  border-left: none;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px; }
 
 /* CSS for archive page */
 .archive {
-    padding: 3em 4em;
-    list-style-position: inside;
-}
-
-.archive li{
+  padding: 3em 4em;
+  list-style-position: inside; }
+  .archive li {
     list-style: none;
-    padding-bottom: 1em;
-}
-
-.archive a {
+    padding-bottom: 1em; }
+  .archive a {
     display: inline;
     font-size: 16px;
     color: #0074D9;
-    text-decoration: none;
-}
-
+    text-decoration: none; }
 
 /* CSS for footer and disqus */
-
 #disqus_thread {
-    padding: 0 90px;
-}
+  padding: 0 90px; }
 
 #footer {
-    width: 40px;
-    margin: 2% auto;
-}
+  width: 40px;
+  margin: 2em auto; }
 
 .fa-twitter {
-    color: grey;
-}
+  color: grey; }
+
+/*# sourceMappingURL=main.css.map */
