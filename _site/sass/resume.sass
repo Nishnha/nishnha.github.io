@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis:200')
+
+#resume
+	margin: 0 auto
+	box-sizing: border-box
+	width: 8.5in
+	height: 11in
+	padding: 30px
+	background-color: black
+	color: white
+
+///////////////////////////////////
+///////////// GENERICS ////////////
+///////////////////////////////////
+
+.common-attributes
+	overflow: auto
+	padding: 0 20px 0 20px
+	margin-bottom: 15px
+	font-size: 12px
+	h3, h4
+		text-align: center
+		width: 100%
+		margin: 0 -20px 0 -20px
+		padding: 10px 20px 10px 20px
+	&:last-of-type
+		margin-bottom: 0
+
+.flex1
+	display: flex
+	flex-direction: column
+.flex2
+	display: flex
+	flex-wrap: wrap
+	justify-content: space-between
+
+.item1
+	width: 100%
+	margin: 0 -20px 0 -20px
+	padding: 10px 20px 10px 20px
+	clear: both
+	p
+		&:nth-child(1)
+			float: left
+			margin-bottom: 5px
+		&:nth-child(2)
+			float: right
+			margin-bottom: 5px
+		&:nth-child(n+3)
+			clear: both
+			margin-top: 0
+		&:last-child
+			margin-bottom: 0
+.item2
+	width: 100%
+	margin: 0 -20px 0 -20px
+	padding: 10px 20px 10px 20px
+	&:first-of-type
+		margin-top: 10px
+	p
+		margin: 0
+		&:nth-child(1)
+			margin-bottom: 5px
+		&:nth-child(2)
+			margin-bottom: 10px
+.item3
+	overflow: auto
+	height: auto
+	padding: 10px 20px 10px 20px
+	ul
+		font-size: 14px
+		margin: 0
+		padding: 0
+		width: 83%
+		float: left
+	li
+		list-style-type: none
+	.arrow
+		float: right
+		width: 30px
+
+///////////////////////////////////
+////////// CONTENT BOXES //////////
+///////////////////////////////////
+
+.header
+	margin-bottom: 20px
+	position: relative
+	.title
+		height: 100px
+		border: 5px solid white
+		font-family: 'Dosis', sans-serif
+		font-weight: 200
+		h1, h2
+			text-align: center
+			width: 75%
+		h1
+			font-size: 40px
+			margin: 0
+			padding-top: 10px
+		h2
+			margin: 0
+			font-size: 20px
+	.photo
+		position: absolute
+		right: 50px
+		top: -8px
+		width: 120px
+		border-radius: 50%
+		border: 8px solid black
+.top-wrapper
+	overflow: auto
+	margin-bottom: 15px
+	.left
+		height: auto
+		width: 68%
+		float: left
+		margin-right: 15px
+	.right
+		height: 100%
+		width: 30%
+		float: right
+.bottom-wrapper
+	overflow: auto
+	h3, h4
+		margin: 0
+		padding: 10px 20px 10px 20px
+
+///////////////////////////////////
+////////// SPECIFIC ITEMS /////////
+///////////////////////////////////
+
+#contact
+	.logo
+		width: 20px
+		float: left
+		padding-right: 9px
+#languages
+	float: left
+	width: 49%
+	li
+		padding-right: 10px
+#technologies
+	float: right
+	width: 49%
+	li
+		padding-right: 15px
+
+///////////////////////////////////
+/////// BACKGROUND COLORS /////////
+///////////////////////////////////
+
+.white-bg
+	$white-bg: white
+	background-color: $white-bg
+	color: green
+	h4
+		color: black
+		text-align: left
+		background-color: rgb(188, 188, 188)
+.purple-bg
+	$purple-bg: rgb(107, 2, 103)
+	$purple-bg-darker: darken($purple-bg, 5%)
+	background-color: $purple-bg
+	h3
+		background-color: $purple-bg-darker
+	.item1:nth-child(2n+1)
+		background-color: $purple-bg-darker
+.red-bg
+	$red-bg: rgb(244, 65, 65)
+	$red-bg-darker: darken($red-bg, 10%)
+	background-color: $red-bg
+	h3
+		background-color: $red-bg-darker
+	.item1:nth-child(2n+1)
+		background-color: $red-bg-darker
+.blue-bg
+	$blue-bg:rgb(66, 134, 244)
+	$blue-bg-darker: darken($blue-bg, 5%)
+	background-color: $blue-bg
+	h3
+		background-color: $blue-bg-darker
+	.item1:nth-child(2n+1)
+		background-color: $blue-bg-darker
+.gold-bg
+	$gold-bg: rgb(232, 185, 16)
+	$gold-bg-darker: darken($gold-bg, 5%)
+	background-color: $gold-bg
+	h3
+		background-color: $gold-bg-darker
+	.item2:nth-child(2n+1)
+		background-color: $gold-bg-darker

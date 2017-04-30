@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- Gives the page title as {title} (medium dash) Nishnha if title, otherwise as Nishnha -->
+    <title>{% if page.title%}{{ page.title }} &mdash; {% endif %}Nishnha</title>
+
+	<link href="/css/main.css" rel="stylesheet"/>
+	<link href="/css/resume.css" rel="stylesheet"/>
+    <link href="/css/resume.css" rel="stylesheet" media="print"/>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        {% include navbar.html %}
+        {{content}}
+    </div>
+</body>
+
+</html>
