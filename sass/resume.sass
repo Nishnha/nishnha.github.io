@@ -1,24 +1,63 @@
-@import url('https://fonts.googleapis.com/css?family=Dosis:200')
+///////////////////////////////////
+///////////// FONTS // ////////////
+///////////////////////////////////
 
-#resume
-	margin: 0 auto
-	box-sizing: border-box
-	width: 8.5in
-	height: 11in
-	padding: 30px
-	background-color: black
-	color: white
+@import url('https://fonts.googleapis.com/css?family=Dosis:200|Muli|Source+Sans+Pro')
+
+strong, b
+	font-weight: bold
+
+///////////////////////////////////
+//////// PRINT QUERIES ////////////
+///////////////////////////////////
+
+@media print
+	@page
+		height: 11in
+		width: 8.5in
+		margin: 0
+		border: 0
+		padding: 0
+	#resume
+		margin: 0 !important
+	body
+		background-color: black
+		margin: 0
+		padding: 0
+	#navbar
+		display: none
+
+///////////////////////////////////
+///////////// DEFAULTS ////////////
+///////////////////////////////////
+
+$outside-padding: 25px
+$white-bg: white
+$gold-bg: rgb(219, 169, 61)
+$red-bg: rgb(204, 56, 30)
+$purple-bg: rgb(143, 84, 188)
+$blue-bg:rgb(108, 142, 226)
 
 ///////////////////////////////////
 ///////////// GENERICS ////////////
 ///////////////////////////////////
 
+#resume
+	margin: 0 auto
+	position: relative
+	box-sizing: border-box
+	width: 8.5in
+	height: 11in
+	padding: 15px 20px
+	background-color: black
+	color: white
+	font-family: "Source Sans Pro"
+	font-size: 13px
+
 .common-attributes
-	overflow: auto
 	padding: 0 20px 0 20px
-	margin-bottom: 15px
-	font-size: 12px
 	h3, h4
+		font-size: 20px
 		text-align: center
 		width: 100%
 		margin: 0 -20px 0 -20px
@@ -29,6 +68,8 @@
 .flex1
 	display: flex
 	flex-direction: column
+	justify-content: space-between
+	align-items: stretch
 .flex2
 	display: flex
 	flex-wrap: wrap
@@ -37,9 +78,11 @@
 .item1
 	width: 100%
 	margin: 0 -20px 0 -20px
-	padding: 10px 20px 10px 20px
+	padding: 0px 20px 10px 20px
 	clear: both
 	p
+		font-family: "Muli"
+		font-size: 13.5px
 		&:nth-child(1)
 			float: left
 			margin-bottom: 5px
@@ -58,6 +101,8 @@
 	&:first-of-type
 		margin-top: 10px
 	p
+		font-family: "Muli"
+		font-size: 13px
 		margin: 0
 		&:nth-child(1)
 			margin-bottom: 5px
@@ -71,7 +116,7 @@
 		font-size: 14px
 		margin: 0
 		padding: 0
-		width: 83%
+		width: 89%
 		float: left
 	li
 		list-style-type: none
@@ -103,24 +148,24 @@
 			font-size: 20px
 	.photo
 		position: absolute
-		right: 50px
+		right: 70px
 		top: -8px
 		width: 120px
 		border-radius: 50%
 		border: 8px solid black
 .top-wrapper
-	overflow: auto
-	margin-bottom: 15px
+	height: 776px
+	margin: 20px 0 20px 0
 	.left
-		height: auto
 		width: 68%
 		float: left
 		margin-right: 15px
 	.right
-		height: 100%
 		width: 30%
 		float: right
 .bottom-wrapper
+	margin-top: 20px
+	width: 100%
 	overflow: auto
 	h3, h4
 		margin: 0
@@ -131,6 +176,7 @@
 ///////////////////////////////////
 
 #contact
+	font-size: 14.6px
 	.logo
 		width: 20px
 		float: left
@@ -139,19 +185,18 @@
 	float: left
 	width: 49%
 	li
-		padding-right: 10px
+		padding-right: calc(100%/12)
 #technologies
 	float: right
 	width: 49%
 	li
-		padding-right: 15px
+		padding-right: 30px
 
 ///////////////////////////////////
 /////// BACKGROUND COLORS /////////
 ///////////////////////////////////
 
 .white-bg
-	$white-bg: white
 	background-color: $white-bg
 	color: green
 	h4
@@ -159,7 +204,6 @@
 		text-align: left
 		background-color: rgb(188, 188, 188)
 .purple-bg
-	$purple-bg: rgb(107, 2, 103)
 	$purple-bg-darker: darken($purple-bg, 5%)
 	background-color: $purple-bg
 	h3
@@ -167,7 +211,6 @@
 	.item1:nth-child(2n+1)
 		background-color: $purple-bg-darker
 .red-bg
-	$red-bg: rgb(244, 65, 65)
 	$red-bg-darker: darken($red-bg, 10%)
 	background-color: $red-bg
 	h3
@@ -175,7 +218,6 @@
 	.item1:nth-child(2n+1)
 		background-color: $red-bg-darker
 .blue-bg
-	$blue-bg:rgb(66, 134, 244)
 	$blue-bg-darker: darken($blue-bg, 5%)
 	background-color: $blue-bg
 	h3
@@ -183,7 +225,6 @@
 	.item1:nth-child(2n+1)
 		background-color: $blue-bg-darker
 .gold-bg
-	$gold-bg: rgb(232, 185, 16)
 	$gold-bg-darker: darken($gold-bg, 5%)
 	background-color: $gold-bg
 	h3
