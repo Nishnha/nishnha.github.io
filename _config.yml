@@ -1,4 +1,4 @@
-gems: [jekyll-paginate]
+plugins: [jekyll-paginate]
 kramdown:
     input: GFM
 permalink: /posts/:title
