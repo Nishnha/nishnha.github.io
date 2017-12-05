@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Move — a programming language"
-disqus_comments: true
+comments: true
+comment_id: 1
 ---
 
 As I'm very interested in human-computer interaction, programming languages and the act of looking at things from a wider perspective, I decided to design a programming language. First, I scribbled down some key points:

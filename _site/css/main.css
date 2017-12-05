@@ -1,5 +1,5 @@
 body {
-  background-color: #dddddd; }
+  background-color: white; }
 
 .wrapper {
   width: 55em;
@@ -8,7 +8,7 @@ body {
 .page {
   background-color: white;
   color: #444444;
-  font: 16px/1.6 "Noto Serif", "Georgia", serif; }
+  font: "Adamina", Georgia, Cambria, "Times New Roman", Times, serif; }
   .page .more {
     font-size: 20px;
     display: block;
@@ -25,7 +25,7 @@ nav {
     list-style: none;
     margin-left: 10px; }
   nav a {
-    font: 15px "Helvetica Neue Light";
+    font: 20px "Helvetica Neue Light";
     font-weight: 300;
     color: grey;
     text-decoration: none; }
@@ -35,7 +35,7 @@ nav {
     color: #1a1a1a;
     font-size: 16px; }
   nav .logo {
-    font-size: 24px;
+    font-size: 30px;
     float: left; }
 
 #toggle, .fa-bars {
@@ -101,15 +101,17 @@ nav {
     display: inline-block;
     margin-left: -80px;
     padding-left: 80px;
-    color: #d3d3d3;
-    border-top: 1px solid #e0e0e0;
-    border-bottom: 1px solid #e0e0e0;
+    color: #8b8b8b;
+    border-top: 1px solid #d3d3d3;
+    border-bottom: 1px solid #d3d3d3;
     font-size: 18px; }
   .content .article {
     padding-top: 2em;
     padding-bottom: 1em;
     font-size: 18px;
-    color: #2f2f2f; }
+    color: #2f2f2f;
+    line-height: 33px;
+    font-family: "Adamina", Georgia, Cambria, "Times New Roman", Times, serif; }
   .content a {
     text-decoration: none;
     color: #0074D9; }
@@ -123,7 +125,6 @@ img {
   max-width: 100%; }
 
 .content blockquote {
-  padding-left: 2.5em;
   margin-left: -1em; }
 .content pre {
   margin: 0 -1em;
@@ -147,15 +148,51 @@ img {
     color: #0074D9;
     text-decoration: none; }
 
-/* CSS for footer and disqus */
-#disqus_thread {
-  padding: 0 90px; }
-
 #footer {
   width: 40px;
   margin: 2em auto; }
 
 .fa-twitter {
   color: grey; }
+
+img {
+  max-width: 100%;
+  margin: 20px 0;
+  position: relative;
+  z-index: 1;
+  top: -1px; }
+
+blockquote {
+  border-left: 2px solid black;
+  margin: 0 0 0 -15px;
+  padding: 0 0 0 20px;
+  font-style: italic; }
+
+.comment {
+  font-size: 22px;
+  line-height: 36px;
+  background-image: url(/img/comment-header.svg);
+  background-repeat: no-repeat;
+  background-position: 60px 10px;
+  margin-bottom: 20px; }
+  .comment .comment-header {
+    color: #999; }
+  .comment .comment-username {
+    font-weight: bold;
+    color: black; }
+  .comment a.comment-date {
+    color: #999; }
+    .comment a.comment-date:hover {
+      color: #444; }
+  .comment .comment-body {
+    padding-left: 90px;
+    padding-top: 10px; }
+  .comment img {
+    border-radius: 3px !important;
+    vertical-align: middle;
+    margin-right: 50px; }
+  .comment p {
+    padding-bottom: 0.75em;
+    margin: 0; }
 
 /*# sourceMappingURL=main.css.map */

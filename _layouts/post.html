@@ -9,5 +9,7 @@ permalink: /articles/:title
     <div class="article">{{ content }}
         <p class="backToTop"><a href="#top" class="top">Back to Top</a></p>
     </div>
-    {% include disqus.html %}
+    {% if page.comment_id %}
+    	{% include gh_comments.html %}
+    {% endif %}
 </div>
