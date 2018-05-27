@@ -1,0 +1,55 @@
+.paginator-post {
+  display: inline-block;
+  color: $text-color;
+  width: $page-width / 2 - 4em;
+  height: auto;
+  padding: 2em 2em;
+
+  .title {
+    display: block;
+    font-family: "Poly", serif;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 0;
+  }
+
+  .date {
+    color: #8b8b8b;
+    display: inline;
+    font-size: 24px;
+  }
+
+  .description {
+    display: inline;
+    font-size: 24px;
+  }
+
+  &:hover, &:first-child {
+    background: $hover-bg;
+    color: white;
+  }
+}
+
+.paginator-image {
+  position: relative;
+  display: block;
+  background: $hover-bg;
+  color: white;
+
+  .image {
+    vertical-align: top;
+  }
+
+  .title {
+    margin: 0;
+    position: absolute;
+    top: 85%;
+    left: 20%;
+    font: bold 32px "Poly", serif;
+    z-index: 100;
+  }
+
+  &:hover .image {
+    opacity: 0.65;
+  }
+}

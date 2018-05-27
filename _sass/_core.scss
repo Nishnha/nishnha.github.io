@@ -1,0 +1,63 @@
+body {
+  background-color: $bg-color;
+}
+
+.wrapper {
+  width: $page-width;
+  margin: 0 auto;
+}
+
+.page {
+  background-color: white;
+  color: $text-color;
+  font: $text-font;
+
+  .more {
+    font-size: 20px;
+    display: block;
+    text-align: center;
+    padding-bottom: 1em;
+    text-decoration: none;
+  }
+}
+
+// For mobile
+#toggle, .fa-bars {
+  display: none;
+}
+
+.home-paginate {
+  column-count: 2;
+  column-gap: 0;
+
+  a {
+    text-decoration: none;
+  }
+
+}
+
+.archive {
+  padding: 3em 4em;
+  list-style-position: inside;
+
+  li {
+    list-style: none;
+    padding-bottom: 1em;
+  }
+
+  a {
+    display: inline;
+    font-size: 16px;
+    color: #0074D9;
+    text-decoration: none;
+  }
+}
+
+#footer {
+  width: 40px;
+  margin: 2em auto;
+}
+
+.fa-twitter {
+  color: grey;
+}
