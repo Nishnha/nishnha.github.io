@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- Gives the page title as {title} (medium dash) Nishnha if title, otherwise as Nishnha -->
+    <title>Spain! (London Week 3) &mdash; Nishnha</title>
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Adamina" rel="stylesheet"> 
+    <link href='//fonts.googleapis.com/css?family=Acme' rel="stylesheet">
+	<!-- sets the css for different viewports -->
+    <link href="/css/main.css" rel="stylesheet" media="(min-width: 769px)">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav id="navbar">
+	<input type="checkbox" name="navbar" value="toggle" id="toggle">
+	<label class="toggle" for="toggle">
+		<i class="fa fa-lg fa-bars"></i>
+	</label>
+
+	<a class="logo" href="/">nishnha</a>
+	<ul class="nav-links">
+		<li><a href="/archive"  title="A list of all my posts">Archive</a></li>
+		<li><a href="http://github.com/Nishnha" target="_blank" title="My Github profile">Github</a></li>
+		<li><a href="https://www.instagram.com/nishnha/" target="_blank" title="Photograpy">Photography</a></li>
+		<li><a href="/about"  title="Resume">About Me</a></li>
+	</ul>
+</nav>
+
+        <div class="content">
+    <div class="title"><h1>Spain! (London Week 3)</h1></div>
+    <div class="date"><p>June 8, 2018</p></div>
+    <div class="article"><p>I’m writing 5 days late, partially inebriated whilst waiting on a flight to Amsterdam; this week has been hectic to say the least. I calculated my average amount of sleep with Ian: in the past week, 3 hours, and in the past 3 days, 2 hours.</p>
+
+<p>Regardless, I feel that following a yacht party with an open bar, 3 post-party beers, at 3:45 AM in the London Lutin airport is a good-as-time-as-any to write a blog post about my third week in London!</p>
+
+<p><strong><em>Note: the above is all I managed to write on that night, but I thought it was funny so I kept it.</em></strong></p>
+
+<hr />
+
+<p><strong><em>work</em></strong></p>
+
+<p>I got to work on some of the more technical ventures of Z/Yen Group. <a href="https://www.metrognomo.com/">Metrognomo</a> is a discrete coordinate representation designed for convenience, and I’ve been working with the development team to see if there are other ways of representing coordinates, such as with sound! We’re trying to design a one-to-one function for translating a string of hex characters into a short musical tone (that also sounds good!). If you know of one, please email me at nish.nha [AT] gmail DOT com.</p>
+
+<p>I was also placed on the PR team for Z/Yen, working alongside the Director of Distributed Futures to promote Long Finance and other Z/Yen Group ventures. The initial meeting gave me insight into how quickly Z/Yen is able to pivot since the form has never dealt with PR prior.</p>
+
+<p>On Wednesday I attended a CSFI round-table discussion at the Baker’s Hall (and missed a cheese festival :o ). And throughout the whole week, I’ve been working on the new Z/Yen website and learning basic economic theory.</p>
+
+<hr />
+<p><strong><em>food</em></strong></p>
+
+<p>I discovered a new South American local chain called Assenheim 56. Not sure what the name means, but their food is damn good!</p>
+
+<p>Turns out, there’s a service in London called <a href="https://www.waso.tokyo/order">Waso sushi</a> which delivers freshly made Japanese bento to your workplace! I have yet to try it, but I’m excited.</p>
+
+<hr />
+
+<p><strong><em>Spain</em></strong></p>
+
+<p>I took off Friday of this week to travel to Spain. Unfortunately, because my flight was literally canceled at the gate (shout out to <a href="https://twitter.com/Nishnha/status/1002886483655712769">Vueling for having a horrible social media team</a>) I missed a full day of travel anyways.</p>
+
+<p>However, on my flight to Spain, I did meet a local who gave amazing restaurant recommendations (thank you, Nicole)! I landed in Spain, dropped my luggage off at my airbnb, and headed out to meet up with some Friends who were also spending the weekend there, Onur and Edward.</p>
+
+<p><img src="https://i.imgur.com/rUUdImR.jpg" alt="From the left: Edward, Onur, and myself" /></p>
+
+<p>I’m a frequent traveller, but I have never had as much fun as I had in Spain. Not only was the weather <em>gorgeous</em>, but the food was delicious, the cervezas was cheap, and the music was overflowing with culture.</p>
+
+<p>I wish I didn’t leave!</p>
+
+<p>See more photos from my trip to Spain (and follow me) on my <a href="https://www.instagram.com/nishnha/">Instagram</a>.</p>
+
+<p>Maybe I’ll write an entire new set of blog posts just for travel?</p>
+
+        <p class="backToTop"><a href="#top" class="top">Back to Top</a></p>
+    </div>
+    
+    	<div id="comments">
+	<script type="text/javascript">
+
+		function timeSince(date) {
+			var seconds = Math.floor((new Date() - date) / 1000)
+			var interval = Math.floor(seconds / 31536000)
+			if (interval > 1) {
+				return interval + " years"
+			}
+			interval = Math.floor(seconds / 2592000)
+			if (interval > 1) {
+				return interval + " months"
+			}
+			interval = Math.floor(seconds / 86400)
+			if (interval > 1) {
+				return interval + " days"
+			}
+			interval = Math.floor(seconds / 3600)
+			if (interval > 1) {
+				return interval + " hours"
+			}
+			interval = Math.floor(seconds / 60)
+			if (interval > 1) {
+				return interval + " minutes"
+			}
+			return Math.floor(seconds) + " seconds"
+		}
+
+		var writeToComment = function(element, html) {
+			var element = document.createElement(element)
+			element.innerHTML = html
+			document.getElementById("comments").appendChild(element)
+		}
+
+		var loadComments = function(data) {
+			writeToComment("h2", "Comments")
+
+			for (var i = 0; i < data.length; i++) {
+				var cuser = data[i].user.login
+				var cuserlink = data[i].user.html_url
+				var clink = data[i].html_url
+				var cbody = data[i].body
+				var cavatarlink = data[i].user.avatar_url
+				var cdate = new Date(data[i].created_at)
+				var commentHTML =
+				"<div class='comment'>" +
+				"<div class='comment-header'>" +
+				"<a class='comment-username' href=\"" + cuserlink + '">' +
+				'<img src="' + cavatarlink + '" alt="" width="40" height="40">' +
+				cuser +
+				"</a>" + " commented " +
+				"<a class='comment-date' href=\"" + clink + '">' +
+				timeSince(cdate) + " ago" +
+				"</a>" +
+				"</div>" +
+				"<div class='comment-body'>" 
+				+ cbody +
+				"</div>"
+				"</div>"
+				writeToComment("div", commentHTML)
+			}
+			var callToAction = 
+			"<hr/>" +
+			"<p>" +
+			"Comments use GitHub Issues on the nishnha.github.io repo. You can post a comment by replying to <a href='https://github.com/nishnha/nishnha.github.io/issues/4'>issue #4</a>." +
+			"</p>"
+			writeToComment("div", callToAction)
+		}
+
+		var writeFirstComment = function() {
+			var callToAction = 
+			"<hr/>" +
+			"<p>" +
+			"This post has no comments yet. You can post a comment by replying to <a href='https://github.com/nishnha/nishnha.github.io/issues/4'>issue #4</a>." +
+			"</p>"
+			writeToComment("div", callToAction)
+		}
+		
+		if (window.fetch) {
+			var url = "https://api.github.com/repos/nishnha/nishnha.github.com/issues/4/comments"
+			window
+			.fetch(url, { Accept: "application/vnd.github.v3.html+json" })
+			.then(function(response) {
+				return response.json()
+			})
+			.then(function(json) {
+				if(json.length) {
+					loadComments(json)
+				} else {
+					writeFirstComment()
+				}
+			})
+		}
+
+	</script>
+</div>
+    
+</div>
+        <!-- <div id="footer">
+    <a href="http://twitter.com/nishnha" target="_blank" title="Follow me on Twitter">
+		<i class="fa fa-twitter fa-2x"></i>
+	</a>
+</div>
+ -->
+    </div>
+</body>
+
+</html>
