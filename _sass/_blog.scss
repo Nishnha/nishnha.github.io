@@ -1,52 +1,31 @@
-.content {
-  padding: 50px 0;
+.title {
+  text-align: center;
+  font-family: "Noto Sans";
+  font-weight: 700;
+  text-transform: uppercase;
+}
 
-  .title {
-    font-family: "Poly";
-    font-size: 26px;
-    font-weight: normal;
-  }
+.date {
+  text-align: center;
+  color: $date-color;
+  font-size: 22px;
+  border-bottom: 1px solid $date-color;
+  margin-bottom: 6em;
+}
 
-  .date {
-    display: inline-block;
-    margin-left: -80px;
-    padding-left: 80px;
-    color: #8b8b8b;
-    border-top: 1px solid #d3d3d3;
-    border-bottom: 1px solid #d3d3d3;
-    font-size: 24px;
-  }
-
-  .article {
-    padding-top: 2em;
-    padding-bottom: 1em;
-    font-size: 24px;
-    color: #2f2f2f;
-    line-height: 33px;
-    font-family: $text-font;
-  }
+.body {
+  margin: 0 auto;
+  padding-bottom: 1em;
+  font-size: 1.25em;
+  color: #2f2f2f;
+  line-height: 1.5em;
+  font-family: $text-font;
 
   a {
     text-decoration: none;
     color: #0074D9;
   }
-
-  .top {
-    display: block;
-    text-align: center;
-    color: #4e4e4e;
-  }
-}
-
-img {
-  max-width: 100%;
-}
-
-.content {
-  blockquote {
-    margin-left: -1em;
-  }
-
+  
   pre {
     margin: 0 -1em;
     padding: 1em;
@@ -56,20 +35,28 @@ img {
     border-bottom: 1px solid #ddd;
     font-size: 14px;
   }
+
+  img {
+    max-width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  blockquote {
+    border-left: 2px solid black;
+    margin: 0 0 0 -15px;
+    margin-left: -1em;
+    padding: 0 0 0 20px;
+    font-style: italic;
+  }
 }
 
-img {
-  max-width: 100%;
-  position: relative;
-  z-index: 1;
+.top {
+  display: block;
+  text-align: center;
+  color: #4e4e4e;
 }
 
-blockquote {
-  border-left: 2px solid black;
-  margin: 0 0 0 -15px;
-  padding: 0 0 0 20px;
-  font-style: italic;
-}
 
 .comment {
   font-size: 22px;

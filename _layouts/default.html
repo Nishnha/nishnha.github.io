@@ -5,21 +5,14 @@
     <meta charset="utf-8">
     <!-- Gives the page title as {title} (medium dash) Nishnha if title, otherwise as Nishnha -->
     <title>{% if page.title%}{{ page.title }} &mdash; {% endif %}Nishnha</title>
-    <!-- fonts -->
-    <link href="//fonts.googleapis.com/css?family=Adamina" rel="stylesheet"> 
-    <link href='//fonts.googleapis.com/css?family=Acme' rel="stylesheet">
-	<!-- sets the css for different viewports -->
     <link href="/css/main.css" rel="stylesheet" media="(min-width: 769px)">
-    <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico">
 </head>
 
 <body>
-    <div class="wrapper">
-        {% include navbar.html %}
-        {{content}}
-        <!-- {% include footer.html %} -->
-    </div>
+    {% include navbar.html %}
+    {{content}}
+    <!-- {% include footer.html %} -->
 </body>
 
 </html>
