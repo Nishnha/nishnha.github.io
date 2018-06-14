@@ -5,14 +5,6 @@ comments: true
 comment_id: 4
 image: /img/barcelona_sunrise.jpg
 ---
-I'm writing 5 days late, partially inebriated whilst waiting on a flight to Amsterdam; this week has been hectic to say the least. I calculated my average amount of sleep with Ian: in the past week, 3 hours, and in the past 3 days, 2 hours. 
-
-Regardless, I feel that following a yacht party with an open bar, 3 post-party beers, at 3:45 AM in the London Lutin airport is a good-as-time-as-any to write a blog post about my third week in London!
-
-***Note: the above is all I managed to write on that night, but I thought it was funny so I kept it.***
-
----
-
 ***work***
 
 I got to work on some of the more technical ventures of Z/Yen Group. [Metrognomo](https://www.metrognomo.com/) is a discrete coordinate representation designed for convenience, and I've been working with the development team to see if there are other ways of representing coordinates, such as with sound! We're trying to design a one-to-one function for translating a string of hex characters into a short musical tone (that also sounds good!). If you know of one, please email me at nish.nha [AT] gmail DOT com.
