@@ -3,7 +3,7 @@ layout: post
 title: "London: Week Two (and Bath)"
 comments: true
 comment_id: 3
-image: /img/bath.jpg
+image: /res/london-week-2/0-bath.jpg
 ---
 
 A lot has happened in the past week: I started new projects at work, tried new foods, and went to Bath for the long weekend (in fact, I'm sitting in a park writing this from there). Unfortuately, I can't talk too much about the new projects at work (I am under NDA, after all). I did get to work on the new report from Z/Yen Group coming out on 6 June about timestamping. I edited the report and continued working on the new website. I'm also helping out with some of the designs for it! 

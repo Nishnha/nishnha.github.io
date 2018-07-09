@@ -4,6 +4,7 @@ permalink: /articles/:title
 ---
 
 <article>
+    <img class="cover" alt="image" src="{{ page.image }}" />
     <div class="title"><h1>{{ page.title }}</h1></div>
     <div class="date"><p>{{ page.date | date: "%B %-d, %Y" }}</p></div>
 	<div class="body">{{ content }}</div>

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Sixth Week in London!
+image: /res/london-week-6/0-family.jpg
 ---
 
 This week was an exciting one! My family came to visit me in London!

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Fifth Week in London
-image: /img/london-week-5/0-field.jpg
+image: /res/london-week-5/0-field.jpg
 ---
 
 I was placed on a new big project this week!

@@ -3,7 +3,7 @@ layout: post
 title: Spain! (London Week 3)
 comments: true
 comment_id: 4
-image: /img/barcelona_sunrise.jpg
+image: /res/london-week-3/0-barcelona-sunrise.jpg
 ---
 ***work***
 

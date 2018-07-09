@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Amsterdam! (London Week 4)
-image: /img/amsterdam.jpg
+image: /res/london-week-4/0-amsterdam.jpg
 ---
 
 This week was a big one for me at work: [Z/Yen released a report on Timestamping](http://www.zyen.com/what-we-do/mutual-distributed-ledgers/65-publications/1776-timestamping-smart-ledgers-comparable-universal-traceable-immune.html)!
