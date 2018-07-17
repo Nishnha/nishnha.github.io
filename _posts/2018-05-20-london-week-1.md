@@ -3,7 +3,8 @@ layout: post
 title: "London: Week One"
 comments: true
 comment_id: 2
-image: /res/london-week-1/0-london-eye.jpg
+image: https://i.imgur.com/jI2WJrQl.jpg
+cover: https://i.imgur.com/j0bJPlV.jpg
 ---
 
 And what a week it was! I landed in Heathrow after only a week after finishing finals: that's a week to move, party, and pack. But somehow, I made it to London!

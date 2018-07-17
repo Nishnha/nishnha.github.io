@@ -1,8 +1,56 @@
+body {
+  margin: 0 auto;
+  padding-bottom: 1em;
+  font-size: 1.25em;
+  color: #2f2f2f;
+  line-height: 1.5em;
+  font-family: $text-font;
+  overflow-x: hidden;
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+pre {
+  margin: 0 -1em;
+  padding: 1em;
+  background-color: #eee;
+  border-left: none;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+}
+
+blockquote {
+  border-left: 2px solid black;
+  margin: 0 0 0 -15px;
+  margin-left: -1em;
+  padding: 0 0 0 20px;
+  font-style: italic;
+}
+
+.cover {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 500px;
+  width: 100%; 
+  padding: 0 50rem; 
+  margin: 50px -50rem;
+}
+
 .title {
   text-align: center;
   font-family: "Noto Sans";
   font-weight: 700;
   text-transform: uppercase;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .date {
@@ -13,50 +61,12 @@
   margin-bottom: 6em;
 }
 
-.body {
-  margin: 0 auto;
-  padding-bottom: 1em;
-  font-size: 1.25em;
-  color: #2f2f2f;
-  line-height: 1.5em;
-  font-family: $text-font;
-
-  a {
-    text-decoration: none;
-    color: #0074D9;
-  }
-  
-  pre {
-    margin: 0 -1em;
-    padding: 1em;
-    background-color: #eee;
-    border-left: none;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    font-size: 14px;
-  }
-
-  img {
-    max-width: 100%;
-    position: relative;
-    z-index: 1;
-  }
-
-  blockquote {
-    border-left: 2px solid black;
-    margin: 0 0 0 -15px;
-    margin-left: -1em;
-    padding: 0 0 0 20px;
-    font-style: italic;
-  }
-}
-
 .top {
   display: block;
   text-align: center;
+  margin: 2em;
   color: #4e4e4e;
 }
-
 
 .comment {
   font-size: 22px;
@@ -97,5 +107,6 @@
   p {
     padding-bottom: 0.75em;
     margin: 0;
+    text-align: justified;
   }
 }

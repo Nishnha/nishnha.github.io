@@ -10,6 +10,13 @@ layout: default
             <img class="image" alt="image" src="{{ post.image }}" title="{{ post.title }}" />
             <p class="title">{{ post.title }}</p>
         </a>
+        {% else if post.video %}
+        <a href="{{ post.url }}" class="paginator-image">
+            <video preload="auto" autoplay="autoplay" loop="loop" style="width: 100%; margin-bottom: -300px; padding-bottom: 150px;">
+                <source src="{{ post.video }}" type="video/mp4">
+            </video>
+            <p class="title">{{ post.title }}</p>
+        </a>
         {% else %}
         <a href="{{ post.url }}" class="paginator-post">
             <p class="title">{{ post.title }}</p>

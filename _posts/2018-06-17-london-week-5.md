@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Fifth Week in London
-image: /res/london-week-5/0-field.jpg
+image: https://i.imgur.com/I63KBI2l.jpg
+cover: https://i.imgur.com/I63KBI2.jpg
 ---
 
 I was placed on a new big project this week!
@@ -17,7 +18,7 @@ On Wednesday I met with James--the director of Distributed Futures--to discuss o
 Wednesday night, the fire alarm went off for my building--at 3 am. I went into work a bit later than usual (I emailed and got an OK). Interestingly enough, it was the anniversary of the Grenfell tower fire. . . .
 A firetruck showed up later for an evacuation and inspection.
 
-![A firetruck that showed up later that night for an evacuation and inspection.](https://i.imgur.com/Lq7lNqH.jpg)
+![A firetruck that showed up later that night for an evacuation and inspection.](https://i.imgur.com/Lq7lNqHh.jpg)
 
 Thursday and the start of the World Cup! We drew lots and placed bets at work and some nearby offices were streaming it on televisions! 
 That day, James put Ian and me on a few new tasks, though including bringing some older Z/Yen records up-to-date and creating new content. I ended up creating a compilation booklet for all of Distributed Future's publications and designed the cover. I created an edit, online, and two print version (A3 and A4) of the booklet. It should be on the website soon so I can share a link! I also made the new use case webpage for ChainZy which is also part of the upcoming Long Finance publication (on cryptocurrency trade simulations).
@@ -28,7 +29,7 @@ On Saturday, Luke invited all the interns over to his place, Buckenham Palace. N
 
 Luke made tacos and it was fantastic! We had music going as well, but later in the day we walked over to the nearby park and fields.
 
-![A field in the nearby park](https://i.imgur.com/oV41JVt.jpg)
+![A field in the nearby park](https://i.imgur.com/oV41JVth.jpg)
 
 the only thing missing was Dalton, but I can't wait to hear about his time in Brussel!
 We ended up leaving pretty late into the night--we spent so much time in the park and fields!
