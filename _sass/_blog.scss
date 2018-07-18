@@ -16,6 +16,11 @@ a {
   text-decoration: none;
 }
 
+p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 pre {
   margin: 0 -1em;
   padding: 1em;
@@ -54,11 +59,15 @@ blockquote {
 }
 
 .date {
-  text-align: center;
   color: $date-color;
   font-size: 22px;
   border-bottom: 1px solid $date-color;
   margin-bottom: 6em;
+
+  P {
+      text-align: center;
+  }
+
 }
 
 .top {
