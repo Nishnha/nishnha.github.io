@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- Gives the page title as {title} (medium dash) Nishnha if title, otherwise as Nishnha -->
+    <title>On the power of HTML and CSS. &mdash; Nishnha</title>
+    <link href="/css/main.css" rel="stylesheet" media="(min-width: 769px)">
+    <link rel="shortcut icon" href="favicon.ico">
+</head>
+
+<body>
+    <nav id="navbar">
+	<input type="checkbox" name="navbar" value="toggle" id="toggle">
+	<label class="toggle" for="toggle">
+		<i class="fa fa-lg fa-bars"></i>
+	</label>
+
+	<a class="logo" href="/">nishnha</a>
+	<ul class="nav-links">
+		<li><a href="/archive"  title="A list of all my posts">Archive</a></li>
+		<li><a href="http://github.com/Nishnha" target="_blank" title="My Github profile">Github</a></li>
+		<li><a href="https://www.instagram.com/nishnha/" target="_blank" title="Photograpy">Photography</a></li>
+		<li><a href="/about"  title="Resume">About Me</a></li>
+	</ul>
+</nav>
+
+    <article>
+    <div class="title"><h1>On the power of HTML and CSS.</h1></div>
+    <div class="date"><p>July 30, 2018</p></div>
+    
+	<div><p>One can use only html and css to make a grid of pictures, where, on hovering over a picture one would be presented with text in its place.
+It can be achieved simply through tables and a few lines of css.</p>
+
+<p>create a table of contents, where rows alternate between pictures and the text content that is to be shown.
+The text can be of any length since the cell can expand to show all of the hidden text.</p>
+
+<p>By, first, targeting the rows with the ::nth-child(n + 2) sudo-element, and using display: none to both hide it and ensure it doesn’t take up space on the canvas.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">.</span><span class="nx">th</span><span class="p">:</span><span class="nx">nth</span><span class="o">-</span><span class="nx">child</span><span class="p">(</span><span class="nx">n</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nl">display</span><span class="p">:</span> <span class="nx">none</span><span class="p">;</span>
+	<span class="nx">z</span><span class="o">-</span><span class="nx">index</span><span class="p">:</span> <span class="mi">10</span><span class="p">;</span>		<span class="cm">/* Any sufficiently high z-index will work here. */</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Second, targeting the other rows, and applying the following CSS:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.th</span><span class="o">&gt;</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">n</span> <span class="o">+</span> <span class="nt">1</span><span class="o">)</span> <span class="p">{</span>
+	<span class="nl">min-height</span><span class="p">:</span> <span class="m">350px</span><span class="p">;</span> 	<span class="c">/* Really, this can be any value, this is the minimum height of your content, wich for me is images. */</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Lastly, by using the :hover sudo-element and targeting neighboring elements with +.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.th</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">n</span> <span class="o">+</span> <span class="nt">1</span><span class="o">)</span><span class="nd">:hover</span> <span class="o">+</span> <span class="nc">.th</span> <span class="p">{</span>
+	<span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+	<span class="nl">margin-top</span><span class="p">:</span> <span class="m">-350px</span><span class="p">;</span> 	<span class="c">/* This is the same values as min-height! */</span>
+	<span class="nl">background</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span>	<span class="c">/* Some backgroud color for your content, to hide the image. */</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This could be further taken to show the new content as an animation, and exercise left to the reader.</p>
+</div>
+	<a href="#top" class="top">Back to Top</a>
+</article>
+
+
+    <!-- <div id="footer">
+    <a href="http://twitter.com/nishnha" target="_blank" title="Follow me on Twitter">
+		<i class="fa fa-twitter fa-2x"></i>
+	</a>
+</div>
+ -->
+</body>
+
+</html>
