@@ -8,8 +8,11 @@ permalink: /articles/:title
     <div class="date"><p>{{ page.date | date: "%B %-d, %Y" }}</p></div>
     {% if page.cover %}
 		<div class="cover" style="background-image: url({{ page.cover }});"></div>
+		{% if page.caption %}
+			<p style="text-align: center; margin-bottom: 60px;"><i>{{ page.caption }}</i></p>
+		{% endif %}
 	{% endif %}
-	<div class="body">{{ content }}</div>
+	<div>{{ content }}</div>
 	<a href="#top" class="top">Back to Top</a>
 </article>
 
