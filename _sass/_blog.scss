@@ -5,7 +5,6 @@ body {
   color: #2f2f2f;
   line-height: 1.5em;
   font-family: $text-font;
-  overflow-x: hidden;
 }
 
 img {
@@ -49,6 +48,17 @@ blockquote {
   margin-left: -1em;
   padding: 0 0 0 20px;
   font-style: italic;
+}
+
+table {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-bottom: 20px;
+  overflow-x: scroll !important;
 }
 
 .cover {
