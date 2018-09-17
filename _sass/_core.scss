@@ -1,6 +1,7 @@
 body {
   background-color: $bg-color;
   width: $page-width;
+  max-width: $max-page-width;
   margin: 0 auto;
 }
 

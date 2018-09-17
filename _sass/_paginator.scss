@@ -9,7 +9,7 @@
 }
 
 .page {
-  width: $page-width;
+  // width: $page-width;
   color: $text-color;
   font: $text-font;
 }
@@ -51,7 +51,7 @@
 
   .image {
     vertical-align: top;
-    width: $page-width / 2;
+    width: 100%;
   }
 
   .title {
