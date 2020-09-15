@@ -1,8 +1,16 @@
 body {
   background-color: $bg-color;
-  width: $page-width;
-  max-width: $max-page-width;
+  max-width: $max-page-width + 134px;
   margin: 0 auto;
+  position: relative;
+  left: -134px;
+  padding-left: 134px;
+}
+
+body {
+  display: grid;
+  grid-template-columns: auto $max-page-width;
+  grid-template-rows: auto auto;
 }
 
 // For mobile

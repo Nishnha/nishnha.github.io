@@ -9,7 +9,7 @@
 }
 
 .page {
-  // width: $page-width;
+  grid-column: 2 / 2;
   color: $text-color;
   font: $text-font;
 }
