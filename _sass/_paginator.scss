@@ -8,6 +8,10 @@
 
 }
 
+h1 {
+  margin-bottom: 0;
+}
+
 .page {
   grid-column: 2 / 2;
   color: $text-color;
@@ -24,11 +28,43 @@
 .category {
   display: flex;
   flex-wrap: wrap;
+}
 
-  section {
-    margin-right: 10px;
+section {
+  margin-right: 10px;
+  max-width: 50%;
+  word-wrap: break-word;
+  
+  h2 {
+    margin-bottom: 0;
+    font-family: "Roboto";
+    font-size: 22px;
+    font-weight: 500;
+    color: $text-color;
   }
 
+  ul {
+    padding-left: 2.5rem;
+    margin-top: .5rem;
+    list-style-type: katakana;
+  }
+
+  li::marker {
+    color: $text-color;
+  }
+
+  a {
+    font-family: "Helvetica Neue Light";
+    font-size: 18px;
+    line-height: 1.5rem;
+    font-weight: 300;
+    color: $link-color;
+    text-decoration: underline;
+
+    &:hover {
+      color: $text-color;
+    }
+  } 
 }
 
 .more {
