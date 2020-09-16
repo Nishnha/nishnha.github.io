@@ -1,0 +1,38 @@
+<div class="category">
+    <h1 class="category-header">Originals</h1>
+    {% for tag in site.tags %}
+    <section>
+        <h2>{{ tag[0] | replace:"-"," " | upcase }}</h2>
+        <ul>
+            {% for post in tag[1] %}
+            <li><a href="{{ post.url }}">{{ post.title }}</a>
+            {% endfor %}
+        </ul>
+    </section>
+    {% endfor %}
+</div>
+
+<div class="home-paginate">
+    {% for post in paginator.posts %}
+        {% if post.image %}
+        <a href="{{ post.url }}" class="paginator-image">
+            <img class="image" alt="image" src="{{ post.image }}" title="{{ post.title }}" />
+            <p class="title">{{ post.title }}</p>
+        </a>
+        {% else if post.video %}
+        <a href="{{ post.url }}" class="paginator-image">
+            <video preload="auto" autoplay="autoplay" loop="loop" style="width: 100%; height: auto;">
+                <source src="{{ post.video }}" type="video/mp4">
+            </video>
+            <p class="title">{{ post.title }}</p>
+        </a>
+        {% else %}
+        <a href="{{ post.url }}" class="paginator-post">
+            <p class="title">{{ post.title }}</p>
+            <p class="date">{{ post.date | date: "%B %Y" }} &minus;</p>
+            <p class="description">{{ post.excerpt | strip_html }}</p>
+        </a>
+        {% endif %}
+    {% endfor %}
+</div>
+<a class="more" href="archive/index.html">More Posts</a>

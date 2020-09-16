@@ -3,6 +3,7 @@ layout: post
 title: London Week 9
 image: https://i.imgur.com/UOzDEHjl.jpg
 cover: https://i.imgur.com/SEFiaI8.jpg
+tags: [london-internship]
 ---
 
 I went to the House of Lords this week!

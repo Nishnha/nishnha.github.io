@@ -4,6 +4,7 @@ title: London in Review
 cover: https://i.imgur.com/1qjEySv.jpg
 caption: The Z/Yen staff and a few Z/Yen friends!
 image: https://i.imgur.com/p1CnsbOl.jpg
+tags: [london-internship]
 ---
 
 In this final reflection on my time in London, I'd like to explain but also show my experience. This blog post is incredibly picture-heavy, but please take the time to read and *see* my experience.

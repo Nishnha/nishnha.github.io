@@ -5,6 +5,7 @@ comments: true
 comment_id: 4
 image: res/london-week-3/0-barcelona-sunrise.jpg
 cover: res/london-week-3/1-barcelona-overlook.jpg
+tags: [london-internship]
 ---
 ***work***
 

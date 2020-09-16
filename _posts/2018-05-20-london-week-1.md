@@ -5,6 +5,7 @@ comments: true
 comment_id: 2
 image: res/london-week-1/0-eye-daytime.jpg
 cover: res/london-week-1/1-london-eye.jpg
+tags: [london-internship]
 ---
 
 And what a week it was! I landed at Heathrow just one week after finishing finals. In that week I moved, partied, and packed, but somehow, I made it to London!

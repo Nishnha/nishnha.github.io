@@ -4,6 +4,7 @@ title: Scotland! (London Week 7)
 cover: https://i.imgur.com/3loz8R2.jpg
 caption: The view from Arthur's Seat, Edinburgh
 image: https://i.imgur.com/IE0t56rl.jpg
+tags: [london-internship]
 ---
 
 I went to Scotland this weekend!

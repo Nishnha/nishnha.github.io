@@ -5,6 +5,7 @@ comments: true
 comment_id: 3
 cover: res/london-week-2/1-bath.jpg
 image: res/london-week-2/0-bronze-minerva.jpg
+tags: [london-internship]
 ---
 
 A lot has happened in this past week: I started new projects at work, tried new foods, and went to Bath for the bank-holiday weekend (in fact, I'm writing this post from a park in Bath!) Unfortuately, I can't talk too much about the new projects at work (I am under NDA, after all), however, I did get to work on the new report from Z/Yen Group coming out on 6 June about timestamping. I edited the report and continued working on the new website. I'm also helping out with some of the designs for it! 
