@@ -1,0 +1,26 @@
+<div class="category">
+    {% assign docs_by_category = site.documents | group_by: "category" %}
+    {% for category in docs_by_category %}
+        {% assign category_name = category.name | remove: '["' | remove: '"]' | split: " " %}
+        <h1 class="category-header" id="{{ category_name }}">{{ category_name }}</h1>
+        
+        {% assign tags_by_category = category.items | group_by: "tags"  %}
+        {% for tag in tags_by_category %}
+            {% assign t = tag | where: "items.category", category_name %}
+            <section>
+                {% assign tag_name = tag.name | remove: '["' | remove: '"]' | split: " " %}
+                <h2>{{ tag_name[0] | replace:"-"," " | capitalize }}</h2>
+                
+                <ul>
+                {% for item in t.items %}
+                    {% if item.collection == "homepage_links" %}
+                        {{ item.content }}
+                    {% else %}
+                        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            </section>
+        {% endfor %}
+    {% endfor %}
+</div>

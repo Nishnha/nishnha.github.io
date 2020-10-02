@@ -7,3 +7,5 @@ paginate_path: "_posts/page:num"
 sass:
     style: compressed
 highlighter: rouge
+collections:
+    - homepage_links
