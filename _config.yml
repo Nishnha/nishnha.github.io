@@ -1,9 +1,6 @@
-plugins: [jekyll-paginate]
 kramdown:
     input: GFM
 permalink: /posts/:title
-paginate: 20
-paginate_path: "_posts/page:num"
 sass:
     style: compressed
 highlighter: rouge
