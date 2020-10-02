@@ -9,11 +9,6 @@ nav {
     list-style: none;
   }
 
-  .nav-links {
-    padding-left: 0;
-    line-height: 1.9em;
-  }
-
   a {
     font: 20px "Helvetica Neue Light";
     font-weight: 300;
@@ -21,12 +16,22 @@ nav {
     text-decoration: none;
 
     &:hover {
-      color: $text-color;
+      color: $link-color-highlight;
+    }
+  }
+
+  .nav-links {
+    padding-left: 0;
+    line-height: 1.9em;
+
+    .secondary-list {
+      font-size: 12px;
+      margin-left: 1rem;
     }
   }
 
   .active {
-    color: $text-color;
+    color: $link-color-highlight;
   }
 
   .logo {

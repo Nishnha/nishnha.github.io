@@ -19,10 +19,15 @@ h1 {
 }
 
 .category-header {
+  text-transform: uppercase;
   display: block;
   border-bottom: 1px dotted black;
   width: 100%;
   text-align: right;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Roboto";
 }
 
 .category {
@@ -31,7 +36,7 @@ h1 {
 }
 
 section {
-  margin-right: 10px;
+  margin-right: 3rem;
   max-width: 50%;
   word-wrap: break-word;
   
@@ -50,19 +55,19 @@ section {
   }
 
   li::marker {
-    color: $text-color;
+    color: $link-color;
   }
 
   a {
     font-family: "Helvetica Neue Light";
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.5rem;
     font-weight: 300;
     color: $link-color;
     text-decoration: underline;
 
     &:hover {
-      color: $text-color;
+      color: $link-color-highlight;
     }
   } 
 }
