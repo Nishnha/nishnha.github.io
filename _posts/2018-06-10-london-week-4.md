@@ -3,6 +3,7 @@ layout: post
 title: Amsterdam! (London Week 4)
 cover: res/london-week-4/1-amsterdam.jpg
 video: res/london-week-4/0-gucci-gang.mp4
+category: [originals]
 tags: [london-internship]
 ---
 I began this week on a Tuesday since I was out on travel on Monday. You can read about it in [the previous blog post](/posts/spain-london-week-3). Tuesday was a rather normal work day--I worked on the new Z/Yen website and put together packets for the World Trader's annual meeting in Dublin.

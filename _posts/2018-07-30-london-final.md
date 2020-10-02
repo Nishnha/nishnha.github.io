@@ -4,6 +4,7 @@ title: London in Review
 cover: https://i.imgur.com/1qjEySv.jpg
 caption: The Z/Yen staff and a few Z/Yen friends!
 image: https://i.imgur.com/p1CnsbOl.jpg
+category: [originals]
 tags: [london-internship]
 ---
 

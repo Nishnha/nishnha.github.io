@@ -3,6 +3,7 @@ layout: post
 title: Fifth Week in London
 image: res/london-week-5/0-field.jpg
 cover: res/london-week-5/1-field-cover.jpg
+category: [originals]
 tags: [london-internship]
 ---
 

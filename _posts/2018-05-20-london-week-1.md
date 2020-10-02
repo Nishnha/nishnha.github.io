@@ -5,6 +5,7 @@ comments: true
 comment_id: 2
 image: res/london-week-1/0-eye-daytime.jpg
 cover: res/london-week-1/1-london-eye.jpg
+category: [originals]
 tags: [london-internship]
 ---
 

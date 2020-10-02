@@ -1,6 +1,8 @@
 ---
 layout: post
 title: On the power of HTML and CSS.
+category: [originals]
+tags: [technology]
 ---
 
 One can use only html and css to make a grid of pictures, where, on hovering over a picture one would be presented with text in its place.

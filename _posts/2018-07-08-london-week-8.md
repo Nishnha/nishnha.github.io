@@ -4,6 +4,7 @@ title: London Week 8
 cover: https://i.imgur.com/EVxmtDv.jpg
 caption: The Dicken's Inn, St. Katherine's Dock.
 video: https://i.imgur.com/rXtcz8N.mp4
+category: [originals]
 tags: [london-internship]
 ---
 

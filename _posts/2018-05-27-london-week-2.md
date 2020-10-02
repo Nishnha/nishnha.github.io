@@ -5,6 +5,7 @@ comments: true
 comment_id: 3
 cover: res/london-week-2/1-bath.jpg
 image: res/london-week-2/0-bronze-minerva.jpg
+category: [originals]
 tags: [london-internship]
 ---
 
