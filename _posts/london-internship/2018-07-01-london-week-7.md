@@ -24,17 +24,17 @@ On Wednesday Z/Yen held a workshop on Smart Cities and we were asked to give our
 
 We also had a fun little treat at the office on Friday since it was so hot--ice cream!
 
----
+<hr>
 
 Scotland was AMAZING.
 
 ![Arthur's seat!](https://i.imgur.com/rYuAAkch.jpg)
-A view from Arthur's seat, the highest point in Edinburgh!
+<p class="caption">A view from Arthur's seat, the highest point in Edinburgh!</p>
 
 Honestly, I've taken too many pictures to include on just one blog post.
 Edinburgh had some really great views, making it an ideal adventure trip. Meanwhile, Glasgow was an active city (especially at night), so it was really great to spend time in both cities.
 
 [![Glasgow Cathedral. . . it was huge!](https://i.imgur.com/Lj84xKPl.jpg)](https://goo.gl/maps/BAEoXA4mg182)
-The Cathedral in Glasgow (and right behind it was a mausoleum).
+<p class="caption">The Cathedral in Glasgow (and right behind it was a mausoleum).</p>
 
 I'm considering going back in a few weeks with the other interns who are planning a trip there!

@@ -8,7 +8,7 @@ cover: res/london-week-3/1-barcelona-overlook.jpg
 category: [originals]
 tags: [london-internship]
 ---
-***work***
+## Work
 
  Troughout the whole week, I've been working on the new Z/Yen website and learning basic economic theory.
 
@@ -18,23 +18,22 @@ I was also placed on the PR team for Z/Yen to work alongside the Director of Dis
 
 On Wednesday I attended a CSFI round-table discussion at the Baker's Hall. There was also a cheese fesival happening nearby!
 
----
-***food***
-
+<hr>
+## Food
 
 * I discovered a new, local South American restaurant called Assenheim 56. Not sure what the name means, but their food is damn good!
 
 * Turns out, there's a service in London called [Waso sushi](https://www.waso.tokyo/order) which delivers freshly made Japanese bento to your workplace! I have yet to try it, but I'm excited.
 
----
-
-***Spain***
+<hr>
+## Spain
 
 I took off Friday of this week to travel to Spain. Unfortunately, because my flight was literally canceled at the gate (shout out to [Vueling for having a horrible social media team](https://twitter.com/Nishnha/status/1002886483655712769)) I missed a full day of travel anyways.
 
 However, on my flight to Spain, I did meet a local who gave amazing restaurant recommendations (thank you, Nicole)! I landed in Spain, dropped my luggage off at my airbnb, and headed out to meet up with some Friends who were also spending the weekend there, Onur and Edward.
 
 ![From the left: Edward, Onur, and myself](../res/london-week-3/2-friends.jpg)
+<p class="caption">From the left: Edward, Onur, and myself</p>
 
 I'm a frequent traveller, but I have never had as much fun as I had in Spain. Not only was the weather *gorgeous*, but the food was delicious, the cervezas was cheap, and the music was overflowing with culture.
 

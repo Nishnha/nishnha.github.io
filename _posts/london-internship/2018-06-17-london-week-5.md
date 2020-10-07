@@ -21,6 +21,7 @@ I'm excited that I'm finally taking on more responsibility within the company. I
 Wednesday night, the fire alarm went off for my building--at 3 am. I went into work a bit later than usual (I emailed and got an OK). Interestingly enough, it was the anniversary of the Grenfell tower fire.... A firetruck showed up later for an evacuation and inspection.
 
 ![A firetruck that showed up later that night for an evacuation and inspection.](../res/london-week-5/2-firetruck.jpg)
+<p class="caption">A firetruck that showed up later that night for an evacuation and inspection</p>
 
 With Thursday came the start of the World Cup! We drew lots and placed bets at work and some nearby offices were streaming it on television! 
 That day, James put Ian and me on a few new tasks, though including bringing some older Z/Yen records up-to-date and creating new content. I ended up creating a compilation booklet for all of Distributed Future's publications and designed the cover. I created an edit, online, and two print version (A3 and A4) of the booklet. I also made the new use-case webpage for ChainZy which is also part of the upcoming Long Finance publication (on cryptocurrency trade simulations).
@@ -30,6 +31,7 @@ On Friday, I met up with some of the other interns at a local pub after work to 
 On Saturday, Luke invited all the interns over to his place, Buckenham Palace. Nearly everyone showed up--it was the first time we've had so many of the interns together in the UK! We ate tacos, had music going, and later in the day we walked over to a nearby park and field.
 
 ![A field in the nearby park](../res/london-week-5/3-wheat.jpg)
+<p class="caption">A field in the nearby park</p>
 
 Unfortuantely, Dalton was missing, but I can't wait to hear about his time in Brussel!
 

@@ -14,6 +14,7 @@ The report launch took place on Wednesday morning and we a had a fantastic turno
 Following the release, Ian and I went to another event in Amorour's Hall. The event was on legislation preparation for Brexit and the venue was gorgeous!
 
 [![Armour's Hall](../res/london-week-4/2-armourers-hall.jpg)](https://goo.gl/Fuwa9x)
+<p class="caption">Armour suits in the Armour's Hall</p>
 
 With the world cup coming up, we also decided to have a Z/Yen office lottery. 
 
@@ -24,10 +25,10 @@ Michael didn't seem particularly interested in attending, and was only present f
 The event definitely pushed me outside of my comfort zone. I was not used to seeing so many business people and I was especially not used to seeing them on a yacht. However, I feel like this event is important for career-building. Hopefully, this won't be the last time I'll be pushed outside of my comfort zone like this and practice makes perfect!
 
 ![M/Y Absolute Pleasure](../res/london-week-4/3-lady-daphney.jpg)
-Above: The Lady Daphney 2.0
+<p class="caption">The Lady Daphney 2.0</p>
 
----
-***Amsterdam***
+<hr>
+## Amsterdam
 
 I wrote a bit about my adventure from the yacht to the airport in [my previous post](/posts/spain-london-week-3), but in recap, I got no sleep from going to work Thursday morning all the way to arriving in Amsterdam.
 
@@ -37,15 +38,13 @@ Upon arrival on Saturday, Ian and I got very lost. We took a train from the airp
 
 While Ian and I had great fun in Amsterdam, we ended up staying outside of the city on a costal town named Wik Aan Zee. The area was apparently a tourist destination for the Dutch, but hey, at least there aren't souvenir shops on ever street corner like Amsterdam!
 
-Below: A market I ran into in the town I was staying in.
-
 ![A market I ran into on the costal town](../res/london-week-4/2-market.jpg)
+<p class="caption">A market I ran into in the town I was staying in.</p>
 
 The town was beautiful and our Airbnb was only a 10 minute walk from the beach. Even cooler, the beach was a historical WWII lookout point and there were even bunkers to explore. From the bunkers we could see out over the town (which is how we spotted the market), look to the beach and ocean, and gaze at an old steel mill out in the distance.
 
 ![the tides receeded revealing a sandbar](../res/london-week-4/4-tides.jpg)
-
-Above: the ocean floor revealed after the tides receeded in costal city near Amsterdam.
+<p class="caption">The ocean floor revealed after the tides receeded in costal city near Amsterdam.</p>
 
 Ian and I were accompanied by Claudia and Trey as we explored the area. On our second day of the trip we all explored Amsterdam and after a long day we got together and made a fancy dinner.
 

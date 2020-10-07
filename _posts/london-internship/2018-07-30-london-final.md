@@ -29,7 +29,7 @@ There is a lot to say about London. I've never been to anywhere like it in the w
 
 While there were many take-aways from this trip, I have to say the cultural diversity and immersion has, even in the three months I was there, significantly shaped some of my world views. 
 
----
+<hr>
 
 Of course, the point of the trip was the _internship_. At Z/Yen I worked on a large variety of projects, including ones involving governments, large organisations, and technology reports. I wrote articles on Medium for the Group, handled client relations, and went all across the City of London -- no two days were ever the same; I loved it. My most proud work, unfortunately, can't be disclosed at this time, but I got to work with Governments to set up a commission and it was so far removed from my comfort zone that the project single-handedly changed my perspective on consulting.
 
