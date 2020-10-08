@@ -1,4 +1,6 @@
 article {
+  font-size: 18px;
+  line-height: 1.65em;
   margin: 0 auto;
   padding-bottom: 1em;
   color: $text-color;
@@ -35,9 +37,6 @@ article {
   p {
     text-align: justify;
     text-justify: inter-word;
-    font-size: 16px;
-    line-height: 1.5rem;
-    color: $text-color;
     &:has(> img) {
       margin: 0 auto;
       font-style: italic;
@@ -80,6 +79,7 @@ article {
     background-size: cover;
     background-position: center center;
     will-change: transform;
+    filter: drop-shadow(0 0 0.1rem black);
   }
 
   h1 {

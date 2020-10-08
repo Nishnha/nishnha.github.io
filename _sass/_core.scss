@@ -1,10 +1,13 @@
 body {
+  font-family: $text-font;
   background-color: $bg-color;
   max-width: $max-page-width + 134px;
   margin: 0 auto;
   position: relative;
   left: -134px;
   padding-left: 134px;
+  font-size: 18px;
+  line-height: 1.6em;
 }
 
 body {
@@ -29,7 +32,8 @@ body {
 
   a {
     display: inline;
-    font-size: 16px;
+    font-size: 18px;
+    line-height: 1.65em;
     color: $link-color;
     text-decoration: none;
   }
