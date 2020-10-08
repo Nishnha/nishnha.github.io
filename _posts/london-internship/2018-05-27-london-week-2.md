@@ -3,8 +3,8 @@ layout: post
 title: "London: Week Two: Bath"
 comments: true
 comment_id: 3
-cover: res/london-week-2/1-bath.jpg
-image: res/london-week-2/0-bronze-minerva.jpg
+cover: res/posts/london-week-2/1-bath.jpg
+image: res/posts/london-week-2/0-bronze-minerva.jpg
 category: [originals]
 tags: [london-internship]
 ---
@@ -19,7 +19,7 @@ Ian and I left for Bath after work on Friday (really, it was after grabbing a co
 
 Bath in itself is fantastic. The food (oh my) has been delicious, and the people very welcoming. We found a hole-in-the-wall brunch place called Wild Cafe and had possibly the best Eggs Benedict I will ever have in my life. Ian got a classic, with smoked salmon while I opted for a butcher's faggot. I may have found my new go-to breakfast recipe! 
 
-![eggs benedict at the Wild Cafe](../res/london-week-2/2-eggs-benedict.jpg) 
+![eggs benedict at the Wild Cafe](../res/posts/london-week-2/2-eggs-benedict.jpg) 
 <p class="caption">Eggs benedict at the Wild Cafe</p>
 
 Afterwards, we walked around Bath, grabbed a pint, and sat down by the river eating fresh strawberries. Fruit in America just can't compare! We also ate fudge at a location recommended by our coworker (thank you Alexandra, it was fantasic!) and from there, we were directed to a pub with an 8.4ABV cider called *The Wobbler*. Let me just leave it at Ian and I _definitely_ wobbled home.
