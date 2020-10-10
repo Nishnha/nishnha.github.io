@@ -4,6 +4,11 @@
 <head>
     <meta charset="utf-8">
     <title>{% if page.title%}{{ page.title }} &mdash; {% endif %}Nishnha</title>
+    <meta property="og:title" content={{ page.title }} />
+    <meta property="og:url" content={{ page.url }} />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Nishnha" />
+    {% if page.cover %} <meta property="og:image" content={{ page.cover }} /> {% endif %}
     <link href="/css/main.css" rel="stylesheet" media="(min-width: 769px)">
     <link rel="shortcut icon" href="favicon.ico">
     <script src="/res/js/popup.js"></script>
