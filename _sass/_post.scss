@@ -1,0 +1,101 @@
+article {
+  line-height: 1.65em;
+  margin: 0 auto;
+  padding-bottom: 1em;
+
+  h1 {
+    font-family: $header-font;
+    margin: 0;
+    font-weight: 400;
+    font-size: 1.4rem;
+  }
+
+  .date {
+    color: $date-color;
+    font-size: 18px;
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .cover {
+    display: block;
+    height: 300px;
+    width: 100%; 
+    background-position: center center;
+    will-change: transform;
+    filter: drop-shadow(0 0 0.1rem black);
+  }
+
+  .caption {
+    text-align: center; 
+    font-style: italic; 
+  }
+
+  h2 {
+    font-family: $header-font;
+    font-weight: 400;
+    font-size: 1.5rem;
+  }
+
+  hr {
+    color: #ddd;
+  }
+
+  a {
+    font-family: $link-font;
+    color: $link-color;
+    text-decoration: underline;
+    &:hover {
+      color: $link-color-highlight;
+    }
+  }
+
+  p {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  p + p {
+    text-indent: 2.5em;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  img {
+    width: auto;
+    margin: 0 auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  pre {
+    margin: 0 -1em;
+    padding: 1em;
+    background-color: #eee;
+    border-left: none;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+  }
+
+  blockquote {
+    border-left: 2px solid black;
+    margin: 0 0 0 -15px;
+    margin-left: -1em;
+    padding: 0 0 0 20px;
+    font-style: italic;
+  }
+
+  table {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-bottom: 20px;
+    overflow-x: scroll;
+  }
+}

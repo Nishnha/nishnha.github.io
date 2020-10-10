@@ -1,0 +1,60 @@
+.homepage-header {
+  grid-column: 2 / 2;
+  grid-row: 1 / 1;
+  text-align: justify;
+  margin-top: 0;
+}
+
+.page {
+  grid-column: 2 / 2;
+}
+
+.category-header {
+  text-transform: uppercase;
+  display: block;
+  border-bottom: 1px dotted black;
+  width: 100%;
+  text-align: right;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Roboto";
+}
+
+.category {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+section {
+  margin-right: 3rem;
+  max-width: 50%;
+  word-wrap: break-word;
+  
+  h2 {
+    margin-bottom: 0;
+    font-family: $header-font;
+    font-size: 22px;
+    font-weight: 500;
+  }
+
+  ul {
+    padding-left: 2.5rem;
+    margin-top: .5rem;
+    list-style-type: katakana;
+  }
+
+  li::marker {
+    color: $link-color;
+  }
+
+  a {
+    font-family: $link-font;
+    font-weight: 300;
+    color: $link-color;
+    text-decoration: underline;
+    &:hover {
+      color: $link-color-highlight;
+    }
+  } 
+}

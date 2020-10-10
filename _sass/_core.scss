@@ -1,40 +1,23 @@
 body {
-  font-family: $text-font;
-  background-color: $bg-color;
-  max-width: $max-page-width + 134px;
-  margin: 0 auto;
-  position: relative;
-  left: -134px;
-  padding-left: 134px;
-  font-size: 18px;
-  line-height: 1.6em;
-}
-
-body {
   display: grid;
   grid-template-columns: auto $max-page-width;
   grid-template-rows: auto auto;
+  top: 1rem;
+}
+
+body {
+  font-family: $text-font;
+  max-width: $max-page-width + $navbar-width;
+  margin: 0 auto;
+  position: relative;
+  left: -$navbar-width;
+  padding-left: $navbar-width;
+  font-size: 18px;
+  line-height: 1.6em;
+  color: $text-color;
 }
 
 // For mobile
 #toggle, .fa-bars {
   display: none;
-}
-
-.archive {
-  padding: 3em 4em;
-  list-style-position: inside;
-
-  li {
-    list-style: none;
-    padding-bottom: 1em;
-  }
-
-  a {
-    display: inline;
-    font-size: 18px;
-    line-height: 1.65em;
-    color: $link-color;
-    text-decoration: none;
-  }
 }
