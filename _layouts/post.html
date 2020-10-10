@@ -4,18 +4,21 @@ permalink: /articles/:title
 ---
 
 <article>
-    <div class="title"><h1>{{ page.title }}</h1></div>
-    <div class="date"><p>{{ page.date | date: "%B %-d, %Y" }}</p></div>
-    {% if page.cover %}
-		<div class="cover" style="background-image: url('../{{ page.cover }}');"></div>
+	<header>
+    	<h1 class="title">{{ page.title }}</h1>
+    	<p class="date">{{ page.date | date: "%B %-d, %Y" }}</p>
+    	{% if page.cover %}
+		<figure>
+			<img class="cover" src="../{{ page.cover }}" />
 		{% if page.caption %}
-			<p style="text-align: center; margin-bottom: 60px;"><i>{{ page.caption }}</i></p>
+			<figcaption class="caption">{{ page.caption }}</figcaption>
 		{% endif %}
-	{% endif %}
-	<div>{{ content }}</div>
-	<a href="#top" class="top">Back to Top</a>
+		</figure>
+		{% endif %}
+	</header>
+	{{ content }}
 </article>
 
-{% if page.comment_id %}
-	{% include gh_comments.html %}
-{% endif %}
+<div class="comments">
+{% include comments.html %}
+</div>
