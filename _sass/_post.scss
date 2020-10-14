@@ -56,7 +56,7 @@ article {
   }
 
   p + p {
-    text-indent: 2.5em;
+    text-indent: 2em;
   }
 
   figure {
@@ -78,6 +78,7 @@ article {
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
     font-size: 14px;
+    overflow-x: scroll;
   }
 
   blockquote {

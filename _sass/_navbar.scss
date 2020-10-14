@@ -1,8 +1,9 @@
 nav {
+  display: flex;
+  flex-direction: column;
   margin-left: 1em;
   margin-right: 3em;
   grid-column: 1 / 1;
-  grid-row: 1 / span 2;
 
   li {
     display: block;
@@ -37,5 +38,33 @@ nav {
     font-size: 30px;
     display: inline-block;
     color: $text-color;
+  }
+}
+
+@media only screen and (max-width: $max-page-width + $navbar-width) {
+  nav {
+    flex-direction: row;
+    justify-content: center;
+    margin-left: 0;
+    margin-right: 0;
+    .logo {
+      align-self: center;
+      margin-right: 1em;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    li {
+      padding-left: 0.5em;
+      padding-right: 0.5em;
+      display: block;
+      text-align: center;
+      border: 1px dotted $link-color;
+      flex: 1 1 25%;
+      margin: 1px;
+    }
   }
 }
