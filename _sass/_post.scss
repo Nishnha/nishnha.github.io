@@ -1,8 +1,4 @@
 article {
-  line-height: 1.65em;
-  margin: 0 auto;
-  padding-bottom: 1em;
-
   h1 {
     font-family: $header-font;
     margin: 0;
@@ -64,7 +60,7 @@ article {
   }
 
   img {
-    width: auto;
+    width: 100%;
     margin: 0 auto;
     display: block;
     object-fit: cover;
@@ -90,13 +86,17 @@ article {
   }
 
   table {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    margin-bottom: 20px;
-    overflow-x: scroll;
+    margin: 0 auto;
+    tr {
+      display: flex;
+      overflow-x: auto;
+      td {
+        flex-shrink: 0;
+      }
+      img {
+        height: 15em;
+        width: 100%;
+      }
+    }
   }
 }
