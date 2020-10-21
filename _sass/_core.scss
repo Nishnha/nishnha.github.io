@@ -1,3 +1,7 @@
+html {
+  width: 100vw;
+}
+
 body {
   display: grid;
   grid-template-columns: 1fr 8fr;
@@ -31,6 +35,10 @@ main {
 }
 
 @media only screen and (max-width: $max-page-width + $navbar-width) {
+  html {
+    width: auto;
+  }
+
   body {
     display: block;
     top: 0;
