@@ -7,6 +7,7 @@
   text-transform: uppercase;
   display: block;
   border-bottom: 1px dotted black;
+  color: $category-color;
   width: 100%;
   text-align: right;
   margin-bottom: 20px;
@@ -28,6 +29,7 @@ section {
   h2 {
     margin-bottom: 0;
     font-family: $header-font;
+    color: $header-color;
     font-size: 22px;
     font-weight: 500;
   }
