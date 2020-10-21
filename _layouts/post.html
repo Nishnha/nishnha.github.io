@@ -6,7 +6,7 @@ permalink: /articles/:title
 <article>
 	<header>
     	<h1 class="title">{{ page.title }}</h1>
-    	<p class="date">{{ page.date | date: "%B %-d, %Y" }}</p>
+    	{% if page.date %} <p class="date">{{ page.date | date: "%B %-d, %Y" }}</p> {% endif %}
     	{% if page.cover %}
 		<figure>
 			<img class="cover" src="../{{ page.cover }}" />
