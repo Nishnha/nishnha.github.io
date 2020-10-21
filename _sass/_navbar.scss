@@ -6,12 +6,10 @@ nav {
   grid-column: 1 / 1;
 
   li {
-    display: block;
     list-style: none;
   }
 
   a {
-    font-size: 20px;
     font-family: $link-font;
     color: $link-color;
     text-decoration: none;
@@ -23,10 +21,26 @@ nav {
   .nav-links {
     padding-left: 0;
     line-height: 1.9em;
+    a {
+      font-size: 20px;
+    }
+  }
 
-    .secondary-list {
-      font-size: 12px;
-      margin-left: 1rem;
+  .external-links-header {
+    margin: 0;
+  }
+
+  .external-links {
+    margin-left: 0;
+    padding-left: 2em;
+    li {
+      list-style-type: hiragana;
+      &::marker {
+        font-size: 14px;
+      }
+    }
+    a {
+      font-size: 16px;
     }
   }
 
@@ -43,20 +57,44 @@ nav {
 
 @media only screen and (max-width: $max-page-width + $navbar-width) {
   nav {
+    display: flex;
     flex-direction: row;
     justify-content: center;
     margin-left: 0;
     margin-right: 0;
+    
     .logo {
       align-self: center;
       margin-right: 1em;
       font-size: 24px;
       font-weight: bold;
     }
+    
     .nav-links {
       display: flex;
       flex-wrap: wrap;
+      &>li:last-child {
+        display: contents;
+      }
+      &:after {
+        content: ""
+      }
     }
+
+    .external-links-header {
+      display: none;
+    }
+
+    .external-links {
+      padding: 0;
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+      justify-content: center;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    
     li {
       padding-left: 0.5em;
       padding-right: 0.5em;
