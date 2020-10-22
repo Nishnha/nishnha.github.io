@@ -1,5 +1,5 @@
 html {
-  width: 100vw;
+  overflow-y: scroll;
 }
 
 body {
@@ -36,7 +36,7 @@ main {
 
 @media only screen and (max-width: $max-page-width + $navbar-width) {
   html {
-    width: auto;
+    overflow-y: auto;
   }
 
   body {
