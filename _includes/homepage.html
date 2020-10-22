@@ -9,8 +9,12 @@
         {% for tag in tags_by_category %}
             <section>
                 {% assign tag_name = tag.name | remove: '["' | remove: '"]' | split: " " %}
-                <h2>{{ tag_name[0] | replace:"-"," " | capitalize_all }}</h2>
-                    
+                <a href="#{{ tag_name }}">
+                    <h2 id="{{ tag_name }}">
+                        <object type="image/svg+xml" data="/res/link.svg" class="link"></object>
+                        {{ tag_name[0] | replace:"-"," " | capitalize_all }}
+                    </h2>
+                </a> 
                 <ul>
                 {% for item in tag.items %}
                     {% if item.collection == "homepage_links" %}

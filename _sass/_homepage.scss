@@ -25,19 +25,34 @@
 section {
   margin-right: 3rem;
   word-wrap: break-word;
+
+  .link {
+    margin-left: -16px;
+    visibility: hidden;
+  }
   
   h2 {
     margin-bottom: 0;
+    margin-top: 0;
     font-family: $header-font;
     color: $header-color;
     font-size: 22px;
     font-weight: 500;
+    &:hover {
+      .link {
+        visibility: visible;
+      }
+    }
   }
 
   ul {
     padding-left: 2.5rem;
     margin-top: .5rem;
     list-style-type: katakana;
+
+    li {
+      text-decoration: underline;
+    }
   }
 
   li::marker {
@@ -48,7 +63,7 @@ section {
     font-family: $link-font;
     font-weight: 300;
     color: $link-color;
-    text-decoration: underline;
+    text-decoration: none;
     &:hover {
       color: $link-color-highlight;
     }
