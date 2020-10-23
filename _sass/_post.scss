@@ -86,13 +86,12 @@ main {
 
   blockquote {
     border-left: 2px solid black;
-    margin: 0 0 0 -15px;
     margin-left: -1em;
     padding: 0 0 0 20px;
     font-style: italic;
   }
 
-  table {
+  .carousel {
     margin: 0 auto;
     tr {
       display: flex;
@@ -106,4 +105,11 @@ main {
       }
     }
   }
+
+  @media only screen and (max-width: $max-page-width + $navbar-width) {
+    blockquote {
+      margin-left: 0;
+    }
+  }
+
 }

@@ -20,6 +20,7 @@ Newington Green is an interesting area to live. The street is predominantly Turk
 
 This is what made Europe different. I came to London to see how society differs from that of the US. Even though there are many similarities (food, language, social interactions), England has left somewhat of an Uncanny Valley feel. But, during the internship I also travelled across Europe to try and gain as much global cultural experience as possible!
 
+{:.carousel}
 | ![A Welsh road](https://i.imgur.com/HkPVaQ3l.jpg) | ![A Scottish road](https://i.imgur.com/j5nqz7Wl.jpg) | ![A road in Madrid, Spain](https://i.imgur.com/irsiQCql.jpg) | ![A road in Barcelona, Spain](https://i.imgur.com/I1OuYYrl.jpg) | ![A road in Bath, England](https://i.imgur.com/JBMljnul.jpg) |
 
 <p class="caption">From left to right: Wales, Scotland, Madrid, Barcelona, Bath.</p>
@@ -35,6 +36,7 @@ Of course, the point of the trip was the _internship_. At Z/Yen I worked on a la
 
 The most surprising thing about the internship, however, is the people I met.
 
+{:.carousel}
 | ![The Z/Yen staff on my last day!](https://i.imgur.com/VzB9CzUl.jpg) | ![Yazan](https://i.imgur.com/SR1c12ul.jpg) | ![Dan](https://i.imgur.com/6Nsa1Ybl.jpg) |
 
 <p class="caption">From left to right: The Z/Yen team, Yazan, Dan</p>
