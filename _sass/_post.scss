@@ -90,12 +90,14 @@ main {
   .carousel {
     margin: 0 auto;
     tr {
+      scroll-snap-type: x mandatory;
       display: flex;
       overflow-x: auto;
       td {
         flex-shrink: 0;
       }
       img {
+        scroll-snap-align: center;
         height: 15em;
         width: 100%;
       }
