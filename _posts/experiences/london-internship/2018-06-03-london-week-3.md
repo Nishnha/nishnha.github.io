@@ -3,8 +3,8 @@ layout: post
 title: Spain! (London Week 3)
 comments: true
 comment_id: 4
-image: res/posts/london-week-3/0-barcelona-sunrise.jpg
-cover: res/posts/london-week-3/1-barcelona-overlook.jpg
+image: /images/london-week-3/0-barcelona-sunrise.jpg
+cover: /images/london-week-3/1-barcelona-overlook.jpg
 category: [originals]
 tags: [london-internship]
 ---
@@ -32,7 +32,7 @@ I took off Friday of this week to travel to Spain. Unfortunately, because my fli
 
 However, on my flight to Spain, I did meet a local who gave amazing restaurant recommendations (thank you, Nicole)! I landed in Spain, dropped my luggage off at my airbnb, and headed out to meet up with some Friends who were also spending the weekend there, Onur and Edward.
 
-![From the left: Edward, Onur, and myself](../res/posts/london-week-3/2-friends.jpg)
+![From the left: Edward, Onur, and myself](/images/london-week-3/2-friends.jpg)
 <p class="caption">From the left: Edward, Onur, and myself</p>
 
 I'm a frequent traveller, but I have never had as much fun as I had in Spain. Not only was the weather *gorgeous*, but the food was delicious, the cervezas was cheap, and the music was overflowing with culture.

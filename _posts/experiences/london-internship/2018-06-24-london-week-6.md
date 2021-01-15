@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Sixth Week in London!
-cover: https://i.imgur.com/1sK7dnY.jpg
-video: https://i.imgur.com/ZnIVuuE.mp4
+cover: /images/london-week-6/1-intern-family.jpg
+video: /images/london-week-6/0-alderman-court.mp4
 category: [originals]
 tags: [london-internship]
 ---

@@ -3,8 +3,8 @@ layout: post
 title: "London: Week One"
 comments: true
 comment_id: 2
-image: res/posts/london-week-1/0-eye-daytime.jpg
-cover: res/posts/london-week-1/1-london-eye.jpg
+image: /images/london-week-1/0-eye-daytime.jpg
+cover: /images/london-week-1/1-london-eye.jpg
 category: [originals]
 tags: [london-internship]
 ---
@@ -12,7 +12,7 @@ tags: [london-internship]
 And what a week it was! I landed at Heathrow just one week after finishing finals. In that week I moved, partied, and packed, but somehow, I made it to London!
 The flight was just over 8 hours. Luckily, I flew in Delta One, so I arrived well rested. 
 
-![first class ticket!](../res/posts/london-week-1/2-ticket.jpg)
+![first class ticket!](/images/london-week-1/2-ticket.jpg)
 <p class="caption">A first class ticket to London!</p>
 
 My flight was overnight, so I left on Thursday, May 10, and landed on Friday, May 11. I navigated my way to the underground (albeit, I got lost for 30 minute and the train was also late by 30 minutes) and made my way to a station close enough to my residence that an Uber wouldn't cost me an arm and a leg.

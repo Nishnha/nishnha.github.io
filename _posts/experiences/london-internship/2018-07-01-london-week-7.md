@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Scotland! (London Week 7)
-cover: https://i.imgur.com/3loz8R2.jpg
+cover: /images/london-week-7/1-arthurs-seat-sunset.jpg
 caption: The view from Arthur's Seat, Edinburgh
-image: https://i.imgur.com/IE0t56rl.jpg
+image: /images/london-week-7/0-me-and-neha.jpg
 category: [originals]
 tags: [london-internship]
 ---
