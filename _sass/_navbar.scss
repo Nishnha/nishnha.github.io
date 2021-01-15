@@ -9,6 +9,15 @@ nav {
     list-style: none;
   }
 
+  .full-img {
+      width: 4em;
+      height: auto;
+      display: block;
+  }
+  .mobile-img {
+      display: none;
+  }
+
   a {
     font-family: $link-font;
     color: $link-color;
@@ -66,9 +75,20 @@ nav {
     
     .logo {
       align-self: center;
-      margin-right: 1em;
       font-size: 24px;
       font-weight: bold;
+    }
+
+    .full-img {
+      display: none;
+    }
+    .mobile-img {
+      align-self: center;
+      margin-left: 1em;
+      margin-right: 1em;
+      width: 4em;
+      height: auto;
+      display: block;
     }
     
     .nav-links {
