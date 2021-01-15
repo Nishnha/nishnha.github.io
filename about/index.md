@@ -6,7 +6,7 @@ Hi, my name is Nish and I am a software engineer and autodidact. I've been lucky
 
 Previously, I co-founded a startup and worked as the lead software engineer. I have also held software engineering internships at The Home Depot (OrangeWorks), GE Digital, GE Power, and NCR. I also did a gig as a fintech consultant at a company based in London. If you'd like to know more about my past work experience you can download my [resume]("/res/Nishant Sinha Resume.pdf") or my [CV]("/res/Nishant Sinha CV.pdf").
 
-While I enjoy software engineering, I have strong interests in chemistry and physics. I was once a chemistry teacher assistant and twice a computer science teacher assistant. Interestingly enough, I have a slight dislike towards biology.
+While I enjoy software engineering, I have strong interests in chemistry and physics. I was once a chemistry teacher assistant and twice a computer science teacher assistant. Interestingly enough, I have a slight dislike towards biology. I graduated cum laude from Georgia State University with a bachelors in Computer Science.
 
 ## Core Values
 > Good planning without good working is nothing. - Dwight D. Eisenhower
